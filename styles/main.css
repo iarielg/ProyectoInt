@@ -9,6 +9,10 @@ body {
   /* background: linear-gradient(to right, #24243e, #302b63, #0f0c29); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /* Opciones de otros background: */
+  
+  /*OPCIÓN AZUL*/
+  /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);  */
+  
   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
   /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); / */
   /* background: radial-gradient(circle 1000px, #222, black 40%); / */
@@ -75,4 +79,15 @@ li {
 
 .text-muted {
   font-weight: 600;
+}
+
+.card{/*Background Cards*/
+  color: #ffffff; /*COLOR DE LA LETRA*/
+
+  /*Background Card*/
+  background: #24C6DC;
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);
+  background: linear-gradient(to right, #514A9D, #24C6DC);
+
+  border-radius: 30px; /*Bordes esquinas CARD*/
 }
