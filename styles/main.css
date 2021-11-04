@@ -13,8 +13,11 @@ body {
   /*OPCIÓN AZUL*/
   /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);  */
   
-  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-  /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); / */
+  /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); */
+  
+  /* ESTA ES LA AZUL */
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); /
+  
   /* background: radial-gradient(circle 1000px, #222, black 40%); / */
   /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); / */
   /* background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%); / */
@@ -24,24 +27,26 @@ body {
 }
 ul {
   list-style-type: none; /*Quita la viñeta de la lista*/
-  margin: 0; /*Margen de la imagen con el cuadro contenedor*/
+  margin: 00; /*Margen de la imagen con el cuadro contenedor*/
   padding-left: 0; /*Espacio entre imagen e iconos*/
 }
 li {
   display: inline; /*Lista horizontal de los iconos*/
-  padding-right: 1%; /*Espacio entre iconos*/
+  padding-right: 2%; /*Espacio entre iconos*/
 }
+
+/* -----------------CIRCLE------------------------- */
 #containerLogo {
-  /* border: 3px solid rgb(43, 255, 71); */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%; /*Tamaño proporcional de la imagen LOGO (ancho)*/
   height: 30vh;
+
 }
 #containerOurTeam {
   width: 50%; /*Tamaño proporcional de la imagen LOGO (ancho)*/
-  /* border: 3px solid rgb(43, 255, 71); */
+  /* border: 3px solid rgb(43, 255, 71); */ /*PINTA UN BORDE VERDE BRILLANTE*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,16 +62,17 @@ li {
 } /* Contenedor para 2 cards, centrado y con padding mayor en los laterales */
 
 .imgStyle {
-  width: 45%;
-  height: 45%;
+  width: 50%;
+  /* height: 80%; */
   /* border-radius: 50%; */
 }
 
 .img-fluid {
-  width: 65%;
-  height: 65%;
-  border-radius: 50%;
-} /* Imagen reducida en un 65% y con borde redondo */
+  /* width: 65%; */
+  /* height: 65%; */
+  /* border-radius: 0%; */
+  border-radius :30px 0px 0px 30px
+} /*Imagen reducida en un 65% y con borde redondo */
 
 .card-title {
   font-weight: 700;
@@ -80,14 +86,19 @@ li {
 .text-muted {
   font-weight: 600;
 }
+/* -----------------CIRCLE------------------------- */
+
 
 .card{/*Background Cards*/
   color: #ffffff; /*COLOR DE LA LETRA*/
-
+  border: 2px solid rgb(255, 255, 255);
   /*Background Card*/
   background: #24C6DC;
   background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);
   background: linear-gradient(to right, #514A9D, #24C6DC);
-
+  align-self: center;
   border-radius: 30px; /*Bordes esquinas CARD*/
 }
+
+
+/* padding-inline-end: 50px; */
