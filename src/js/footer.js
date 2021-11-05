@@ -15,7 +15,7 @@ class theFooter extends HTMLElement {
                             <ul class="">
                                 <li class="list-unstyled p-2">
                                     <span class="rounded footer-icons">
-                                        <i class="bi bi-instagram p-2 bg-white"></i>
+                                        <i class="bi bi-instagram p-2"></i>
                                     </span>
                                     <a href="">/neverdiesco</a>
                                 </li>
