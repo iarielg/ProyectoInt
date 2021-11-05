@@ -6,12 +6,12 @@ class theFooter extends HTMLElement {
                     <div class="row">
                         <div class="col d-flex">
                             <div class="footer-left">
-                                <a class="navbar-right"><img src="../src/img/logonev.png" alt="Never Dies Logo" class="" width="120" height="120"></a>
+                                <a class=""><img src="../src/img/logonev.png" alt="Never Dies Logo" class="" width="120" height="120"></a>
                             </div>
                             <div class="col d-flex">
                                 <ul class="">
                                     <div>
-                                        <li class="">
+                                        <li class="list-unstyled ">
                                             <span class="rounded footer-icons">
                                                 <i class="bi bi-instagram"></i>
                                             </span>
@@ -19,7 +19,7 @@ class theFooter extends HTMLElement {
                                         </li>
                                     </div>
                                     <div>
-                                        <li>
+                                        <li class="list-unstyled">
                                             <span>
                                                 <i class="bi bi-facebook"></i>
                                             </span>
@@ -27,7 +27,7 @@ class theFooter extends HTMLElement {
                                         </li>
                                     </div>
                                     <div>
-                                        <li>
+                                        <li class="list-unstyled">
                                             <span>
                                                 <i class="bi bi-whatsapp"></i>
                                             </span>
@@ -35,7 +35,7 @@ class theFooter extends HTMLElement {
                                         </li>
                                     </div>
                                     <div>
-                                        <li>
+                                        <li class="list-unstyled">
                                             <span>
                                                 <i class="bi bi-envelope"></i>
                                             </span>
@@ -44,8 +44,8 @@ class theFooter extends HTMLElement {
                                     </div>
                                 </ul>
                             </div>
-                            <div class="col d-flex justify-content-left">
-                                <img class="justify-content-left" src="../src/img/logoInCodeWeb.png" alt="In Code logo" width="180" height="80">
+                            <div class="col d-flex float-left container-fluid">
+                                <a href="./../pages/nosotros.html"><img class="d-inline-block align-text-right" src="../src/img/logoInCodeWeb.png" alt="In Code logo" width="180" height="80"></a>
                             </div>
                         </div>
                     </div>
