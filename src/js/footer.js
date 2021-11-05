@@ -6,12 +6,12 @@ class theFooter extends HTMLElement {
                     <div class="row">
 
                         <!--Never Dies logo-->
-                        <div class="col-1">
+                        <div class="col-1 align-self-center">
                             <a class=""><img src="../src/img/logonev.png" alt="Never Dies Logo" class="" width="120" height="120"></a>
                         </div>
                             
                         <!--contacts-->
-                        <div class="col-8">
+                        <div class="col-8" align-self-center>
                             <ul class="">
                                 <li class="list-unstyled p-2">
                                     <span class="rounded footer-icons">
@@ -41,7 +41,7 @@ class theFooter extends HTMLElement {
                         </div>
 
                         <!--In Code logo-->
-                        <div class="col-3">
+                        <div class="col-3 align-self-end">
                             <p class"">Sitio creado por:</p>
                             <a href="./../pages/nosotros.html"><img class="d-inline-block align-text-right" src="../src/img/logoInCodeWeb.png" alt="In Code logo" width="180" height="80"></a>
                         </div>
