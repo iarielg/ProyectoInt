@@ -26,18 +26,89 @@
 </head>
 
 <body>
-    <!-- iframe Importa la barra de navegacion-->
-    <iframe style="border-style: none; padding: 0px; height: 100%;" class="container-fluid" src="./../templates/navbar.html"></iframe>
+    <div class="nav_root" id="navbar_root">
+        <!-- Menú de navegación -->
+    </div>
+    <div class="container">
+        <h1 class="offset-4">Contáctanos</h1>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-sm-8 offset-sm-2">
+                <div class="shadow-lg p-5 mb-5 mt-4 bg-body rounded">
+                    <form class="row g-3 needs-validation" id="formulario" novalidate enctype="text/plain" action="mailto:Osnayadeluciorafael@gmail.com" method="post">
+                        <div class="col-lg-12 col-sm-12" id="nombre">
+                            <!-- <label for="validationCustom01" class="form-label">First name</label> -->
+                            <input type="text" class="form-control" id="validationCustom01" name="nombre" placeholder="NOMBRE"
+                                required>
+                            <div class="valid-feedback" id="validation">
+                                OK!
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+                            <input type="email" class="form-control correo" id="validationCustom02"
+                                placeholder="CORREO ELECTRONICO" name="correo" required>
+                            <div class="valid-feedback">
+                                OK!
+                            </div>
+                            <!-- <div class="invalid-feedback">
+                                El telefono solo debe contener números.
+                             </div> -->
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <!-- <label for="validationCustom03" class="form-label">City</label> -->
+                            <input type="text" class="form-control telefono" name="telefono" id="validationCustom03" placeholder="TELEFONO"
+                                required>
+                            <div class="invalid-feedback">
+                               El telefono solo debe contener números.
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <!-- <label for="validationCustom05" class="form-label">Zip</label> -->
+                            <input type="text" class="form-control motivo" id="validationCustom05" name="motivo" placeholder="MOTIVO"
+                                required>
+                            <div class="invalid-feedback">
+                                Debes llenar este campo.
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <!-- <label for="validationCustom05" class="form-label">Zip</label> -->
+                            <input type="text" class="form-control republica" id="validationCustom05"
+                                placeholder="ESTADO DE LA REPUBLICA" name="republica" required>
+                            <div class="invalid-feedback">
+                                Debes llenar este campo.
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <label for="validationTextarea" class="form-label offset-lg-4 offset-sm-2">ESCRIBE TU
+                                MENSAJE</label>
+                            <textarea class="form-control is-invalid mensaje" id="validationTextarea" name="mensaje"
+                                placeholder="MENSAJE" required></textarea>
+                            <div class="invalid-feedback">
+                                Debes llenar este campo.
+                            </div>
+                            <div class="valid-feedback">
+                               OK!
+                            </div>
+                        </div>
 
-
-
-
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
     <!-- footer custom element -->
     <my-footer></my-footer>
+    <script src="../src/js/navbar.js" type="module"></script>
+    <script src="../src/js/contacto.js" type="module"></script>
+
 </body>
 
 </html>
