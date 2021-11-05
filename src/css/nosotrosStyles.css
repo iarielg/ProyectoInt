@@ -1,0 +1,71 @@
+.background {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(4, 2, 28, 0.9990195907464549) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(1, 1, 15, 1) 100%
+  );
+  margin: 30px;
+  
+}
+
+/* Para redondear la imagen */
+.circular--portrait {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+/* Para aplicar a la imagen */
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+/* Se aplica desde el container (Separación de la imagen con el borde superior)*/
+.principal {
+  margin-top: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Propiedades para el logo InCode */
+.logoInCode {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 80%;
+}
+
+/* Propiedades para los iconos */
+.iconos {
+  width: 100px !important;
+  height: 100px !important;
+  padding: 17px;
+  color: whitesmoke !important;
+  font-size: 35px !important;  
+  border-radius: 100px;
+}
+
+/*Propiedades de las tarjetas(1)*/
+.card-header-first {
+  margin-top: -40px;
+  height: 10px;
+  text-decoration: dotted;
+  font-weight: bold;
+  background: #2c2a2a;
+  box-shadow: 1px 5px 15px #242222;
+  box-shadow: 1px 1px 20px #2b2828;
+}
+
+/*efecto shadows para todas las tarjetas*/
+.card-section {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/*Para el efecto sombra al pasar por encima el mouse*/
+.card-section:hover {
+  box-shadow: 1px 1px 20px #2c2a2a;
+}
