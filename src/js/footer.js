@@ -2,7 +2,7 @@ class theFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = 
             `<footer id="footer" class="bg-dark text-white">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
 
                         <!--Never Dies logo-->
@@ -13,27 +13,27 @@ class theFooter extends HTMLElement {
                         <!--contacts-->
                         <div class="col-8">
                             <ul class="">
-                                <li class="list-unstyled">
+                                <li class="list-unstyled p-2">
                                     <span class="rounded footer-icons">
-                                        <i class="bi bi-instagram"></i>
+                                        <i class="bi bi-instagram p-2 bg-white"></i>
                                     </span>
                                     <a href="">/neverdiesco</a>
                                 </li>
-                                <li class="list-unstyled">
+                                <li class="list-unstyled p-2">
                                     <span>
-                                        <i class="bi bi-facebook"></i>
+                                        <i class="bi bi-facebook p-2"></i>
                                     </span>
                                     <a href="">/NeverDiesCo</a>
                                 </li>
-                                <li class="list-unstyled">
+                                <li class="list-unstyled p-2">
                                     <span>
-                                        <i class="bi bi-whatsapp"></i>
+                                        <i class="bi bi-whatsapp p-2"></i>
                                     </span>
                                     +52 1 56 1264 9334
                                 </li>
-                                <li class="list-unstyled">
+                                <li class="list-unstyled p-2">
                                     <span>
-                                        <i class="bi bi-envelope"></i>
+                                        <i class="bi bi-envelope p-2"></i>
                                     </span>
                                     <a href="mailto:contacto@neverdiesco.com">contacto@neverdiesco.com</a>
                                 </li>
