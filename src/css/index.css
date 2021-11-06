@@ -1,0 +1,17 @@
+#card1{
+    padding-left: 200px;
+    padding-right: 100px;
+    border: none;
+}
+#card2{
+    padding-left: 200px;
+    border: none;
+}
+#cards>a{
+   /* display: inline;
+    margin: 24px;
+    border: none;*/
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+}
