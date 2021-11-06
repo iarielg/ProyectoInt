@@ -3,7 +3,7 @@ class theFooter extends HTMLElement {
         this.innerHTML = 
             `<footer id="footer" class="bg-dark text-white">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row bg-dark text-white">
 
                         <!--Never Dies logo-->
                         <div class="col-1 align-self-center">
@@ -50,7 +50,7 @@ class theFooter extends HTMLElement {
                 </div>
 
                     <!--copyright-->
-                    <div class="row">
+                    <div class="row bg-dark text-white">
                         <p class="d-flex justify-content-center">Copyright &copy; NeverDiesCo. 2021</p>
                     </div>
                 </div>
