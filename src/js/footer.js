@@ -43,7 +43,7 @@ class theFooter extends HTMLElement {
                         <!--In Code logo-->
                         <div class="col-3 align-self-center text-center">
                             <p class"text-center">Sitio creado por:</p>
-                            <a href="./../pages/nosotros.html"><img class="" src="../src/img/logoInCodeWeb.png" alt="In Code logo" width="180" height="80"></a>
+                            <a href="./../pages/nosotros.html"><img class="" src="../src/img/logoInCodeWeb.png" alt="In Code logo" width="60%"></a>
                         </div>
 
                     </div>
