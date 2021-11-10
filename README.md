@@ -1,8 +1,8 @@
 
-# Proyecto Integrador
+# Integration Project
 ### Never Dies Co.
 
-E-Commerce de playeras creado por el equipo #5 en GenerationMX.
+E-Commerce of t-shirts created by team #5 at GenerationMX.
 
 ![Logo](https://i.postimg.cc/t4YPXgKn/Captura-de-pantalla-126.png)
 ## Authors
