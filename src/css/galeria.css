@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  padding: 50px;
+  text-align: center;
+}
+
+.gallery img {
+  padding: 20px;
+}
+
+.item {
+  transition: 0.5s ease-in-out;
+}
+.item:hover {
+  filter: brightness(50%);
+  transform: scale(1.1);
+}

@@ -10,22 +10,22 @@ class theFooter extends HTMLElement {
                         </div>
 
                         <!--contacts-->
-                        <div class="col-md-8 align-items-center text-center">
+                        <div class="col-md-8 align-items-left">
                             <ul class="list-unstyled p-10">
                                 <li class="">
-                                    <i class="bi bi-instagram text-white"></i>
+                                    <i class="bi bi-instagram text-white icon-size"></i>
                                     <a href="https://www.instagram.com/neverdiesoficial">/neverdiesco</a>
                                 </li>
                                 <li class="">
-                                    <i class="bi bi-facebook text-white"></i>
+                                    <i class="bi bi-facebook text-white icon-size"></i>
                                     <a href="https://www.facebook.com/NeverDiesCo/">NeverDiesCo</a>
                                 </li>
                                 <li class="">
-                                    <i class="bi bi-whatsapp text-white"></i>
+                                    <i class="bi bi-whatsapp text-white icon-size"></i>
                                     <a href="https://wa.me/+5215612649334">+52 1 56 1264 9334</a>
                                 </li>
                                 <li class="">
-                                    <i class="bi bi-envelope text-white"></i>
+                                    <i class="bi bi-envelope text-white icon-size"></i>
                                     <a href="mailto:contacto@neverdiesco.com">contacto@neverdiesco.com</a>
                                 </li>
                             </ul>
