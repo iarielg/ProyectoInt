@@ -47,7 +47,7 @@ div.innerHTML = `
             </li>
             </ul>
             <form class="d-flex">
-            <a class="nav-link" href="./../pages/login.html">LOGIN</a>
+            <a class="nav-link" href="./../pages/login.html";">INICIAR SESIÓN</a>
             </form>
         </div>
     </div>
