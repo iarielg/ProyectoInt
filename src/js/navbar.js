@@ -11,7 +11,7 @@ export function nav(div) {
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,7 +55,7 @@ export function nav(div) {
             
             </ul>
             <form class="d-flex">
-            <a class="nav-link" href="./../pages/login.html";">INICIAR SESIÓN</a>
+            <a class="nav-link" href="./../pages/login.html">INICIAR SESIÓN</a>
             </form>
         </div>
     </div>
