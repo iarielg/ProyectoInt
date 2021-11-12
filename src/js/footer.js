@@ -34,10 +34,10 @@ class theFooter extends HTMLElement {
                         <div class="col-md-4 col-xl-3 col-lg-4 col-md-6 text-center align-items-center my-auto">
                             <ul class="list-unstyled p-10">
                                 <li class="">
-                                    <a href="">¿QUIEN SOMOS?</a>
+                                    <a href="./../pages/quienesSomos.html">¿QUIEN SOMOS?</a>
                                 </li>
                                 <li class="">
-                                    <a href="">DESCARGAR CATÁLOGO</a>
+                                    <a href="#">DESCARGAR CATÁLOGO</a>
                                 </li>
                             </ul>
                         </div>
