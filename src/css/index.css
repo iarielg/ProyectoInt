@@ -7,3 +7,15 @@
     padding-left: 200px;
     border: none;
 }
+.cnos{
+    padding-bottom: 3em;
+  }
+
+ @media (min-width: 1000px) {
+    .cons {
+    align: 20px;
+    }
+    div {
+    text-align: center;
+    }
+    }
