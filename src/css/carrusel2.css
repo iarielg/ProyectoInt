@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+
+@media screen and(min-width:780px) and (max-width:1024px) {
+   /*  .slide{
+        margin-top: 10px;
+    }
+    .slide img{
+        height: 120vh;
+        width: auto;
+    } */
+    body{
+        background-color: yellow;
+    }
+}
+
+ @media screen and(min-width:480px) and (max-width:780px) {
+     /*    .slide img{
+            height: 10px;
+            width: auto;
+        }
+        */ body{
+            background-color: red;
+        }
+}
+
+@media screen and (max-width:480px){
+    /* .slide img{
+        height: 50vh;
+        width: auto;
+    } */
+    body{
+        background-color: pink;
+    }
+} 
+
+
+
