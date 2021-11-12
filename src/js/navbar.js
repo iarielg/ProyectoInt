@@ -62,4 +62,3 @@ export function nav(div) {
 </nav>`
 }
 nav(navbar_root)
-
