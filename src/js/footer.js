@@ -39,11 +39,7 @@ class theFooter extends HTMLElement {
                                     <a href="./../pages/quienesSomos.html">¿QUIEN SOMOS?</a>
                                 </li>
                                 <li class="">
-<<<<<<< HEAD
                                     <a href="../src/catálogo_never_dies_co.pdf" download>DESCARGAR CATÁLOGO</a>
-=======
-                                    <a href="#">DESCARGAR CATÁLOGO</a>
->>>>>>> 53914f231e4117485934fae93186d8d41c70dab3
                                 </li>
                             </ul>
                         </div>
