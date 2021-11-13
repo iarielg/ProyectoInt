@@ -18,11 +18,11 @@ export function nav(div) {
                         TIENDA
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item text-black" href="#">HOMBRE</a></li>
+                        <li><a class="dropdown-item text-black" href="./../pages/hombres.html">HOMBRE</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-black" href="./../pages/mujeres.html">MUJER</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-black" href="#">ACCESORIOS</a></li>
+                        <li><a class="dropdown-item text-black" href="./../pages/accesorios.html">ACCESORIOS</a></li>
                     </ul>
                 </li>
                 
@@ -32,7 +32,7 @@ export function nav(div) {
                     <a class="nav-link" aria-current="page" href="./../pages/galeria.html">GALERÍA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">COMUNIDAD</a>
+                    <a class="nav-link" aria-current="page" href="./../pages/comunidad.html">COMUNIDAD</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./../pages/servicios.html">SERVICIOS</a>
@@ -62,4 +62,3 @@ export function nav(div) {
 </nav>`
 }
 nav(navbar_root)
-
