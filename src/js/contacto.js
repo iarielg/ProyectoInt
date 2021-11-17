@@ -2,6 +2,7 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 
+
 const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,36}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,30}$/, // Letras y espacios, pueden llevar acentos.
@@ -33,13 +34,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.nombre').classList.add('is-valid');
                 document.querySelector('.nombre').classList.remove('is-invalid');
                 campos.nombre = true;
-                console.log('ok')
             } else {
 
                 document.querySelector('.nombre').classList.add('is-invalid');
                 document.querySelector('.nombre').classList.remove('is-valid');
                 campos.nombre = false;
-                console.log('el nombre no es valido')
             }
             break;
         case "correo":
@@ -48,13 +47,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.correo').classList.add('is-valid');
                 document.querySelector('.correo').classList.remove('is-invalid');
                 campos.correo = true;
-                console.log('ok')
             } else {
 
                 document.querySelector('.correo').classList.add('is-invalid');
                 document.querySelector('.correo').classList.remove('is-valid');
                 campos.correo = false;
-                console.log('el nombre no es valido')
             }
             break;
         case "telefono":
@@ -63,13 +60,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.telefono').classList.add('is-valid');
                 document.querySelector('.telefono').classList.remove('is-invalid');
                 campos.telefono = true;
-                console.log('ok')
-            } else {
+            }else {
 
                 document.querySelector('.telefono').classList.add('is-invalid');
                 document.querySelector('.telefono').classList.remove('is-valid');
                 campos.telefono = false;
-                console.log('el nombre no es valido')
             }
             break;
         case "motivo":
@@ -78,13 +73,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.motivo').classList.add('is-valid');
                 document.querySelector('.motivo').classList.remove('is-invalid');
                 campos.motivo = true;
-                console.log('ok')
             } else {
 
                 document.querySelector('.motivo').classList.add('is-invalid');
                 document.querySelector('.motivo').classList.remove('is-valid');
                 campos.motivo = false;
-                console.log('el nombre no es valido')
             }
             break;
         case "republica":
@@ -93,13 +86,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.motivo').classList.add('is-valid');
                 document.querySelector('.motivo').classList.remove('is-invalid');
                 campos.republica = true;
-                console.log('ok')
             } else {
 
                 document.querySelector('.motivo').classList.add('is-invalid');
                 document.querySelector('.motivo').classList.remove('is-valid');
                 campos.republica = false;
-                console.log('el nombre no es valido')
             }
             break;
         case "mensaje":
@@ -108,13 +99,11 @@ const validarFormulario = function (e) {
                 document.querySelector('.mensaje').classList.add('is-valid');
                 document.querySelector('.mensaje').classList.remove('is-invalid');
                 campos.mensaje = true;
-                console.log('ok')
             } else {
 
                 document.querySelector('.mensaje').classList.add('is-invalid');
                 document.querySelector('.mensaje').classList.remove('is-valid');
                 campos.mensaje = false;
-                console.log('el nombre no es valido')
             }
             break;
     }

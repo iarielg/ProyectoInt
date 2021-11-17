@@ -1,0 +1,26 @@
+/* @media screen and (min-width: 780px) and (max-width: 1400px) {
+    body{
+        background-color: yellow;
+    }
+    } */
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    padding-top: 25px;
+}
+
+
+.img img{
+    width: 120px;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+}
+
+.descripcion{
+    height: 90px;
+}
+
