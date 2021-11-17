@@ -20,7 +20,11 @@ h1{
 
 }
 
+.form-select{
+    margin-top: 31px;
+}
+
 .descripcion{
-    height: 90px;
+    height: 80px;
 }
 
