@@ -16,10 +16,10 @@ function addItem(item) {
 } // Objeto para Item
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 1',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 1',
     //'description': 'Anfg',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -27,10 +27,10 @@ addItem({
 }); // item #1
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 2',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 2',
     //'description': 'Animación 2',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -38,10 +38,10 @@ addItem({
 }); // item #2
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 3',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 3',
     //'description': 'Animación 3',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -49,10 +49,10 @@ addItem({
 }); // item #3
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 4',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 4',
     //'description': 'Animación 4',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -60,10 +60,10 @@ addItem({
 }); // item #4
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 5',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 5',
     //'description': 'Animación 5',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -71,10 +71,10 @@ addItem({
 }); // item #5
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 6',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 6',
     //'description': 'Animación 6',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -82,10 +82,10 @@ addItem({
 }); // item #6
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 7',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 7',
     //'description': 'Animación 7',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -93,10 +93,10 @@ addItem({
 }); // item #7
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 8',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 8',
     //'description': 'Animación 8',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -104,10 +104,10 @@ addItem({
 }); // item #8
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 9',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 9',
     //'description': 'Animación 9',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -115,10 +115,10 @@ addItem({
 }); // item #9
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 10',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 10',
     //'description': 'Animación 10',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -126,10 +126,10 @@ addItem({
 }); // item #10
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 11',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 11',
     //'description': 'Animación 11',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -137,10 +137,10 @@ addItem({
 }); // item #11
 
 addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 12',
+    'tipo': 'accesorio',
+    'name': 'ACCESORIO 12',
     //'description': 'Animación 12',
-    'img': './../src/img/mujer.jpg',
+    'img': './../src/img/accesorio.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',

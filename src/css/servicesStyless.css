@@ -1,0 +1,31 @@
+img{
+    margin-top: 5vh; /*posición (espacio) imagen arriba*/
+    margin-bottom: 5vh; /*posición (espacio) imagen abajo*/
+    margin-left: 3vw; /*posición (espacio) imagen izquierda*/
+    margin-right: 3vw; /*posición (espacio) imagen derecha*/
+    max-height: 40vh; /* 10vh menos que el definido por columna para la imagen*/
+    max-width: 100vw; /* DE ESTE NO ESTOY SEGURO*/
+
+    width: 80%; /*Tamaño de imagen responsive*/
+}
+
+.img2{
+    margin-top: 5vh; /*posición (espacio) imagen arriba*/
+    margin-bottom: 5vh; /*posición (espacio) imagen abajo*/
+    margin-left: 5vw; /*posición (espacio) imagen izquierda*/
+    margin-right: 3vw; /*posición (espacio) imagen derecha*/
+    max-height: 40vh; /* 10vh menos que el definido por columna para la imagen*/
+    max-width: 100vw; /* DE ESTE NO ESTOY SEGURO*/
+}
+
+h5{
+    font-size:x-large;
+    color:crimson;
+}
+p{
+    /* font-size:larger; */
+    font-size:large;
+    margin-left: 3vw; /*posición (espacio) imagen izquierda*/
+    margin-right: 3vw; /*posición (espacio) imagen derecha*/
+}
+
