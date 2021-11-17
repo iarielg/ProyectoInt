@@ -164,7 +164,6 @@ select.forEach(function(input){
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
-
     if (campos.id && campos.tipo && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
         formulario.reset();
         document.querySelector('.color').classList.remove('is-valid');
@@ -227,5 +226,47 @@ formulario.addEventListener('submit', function (e) {
             Debes llenar todos los campos.
         </div>
       </div>`
+
+      let id = document.getElementById('validationCustom01').value;
+    console.log(id);
+    let tipo = document.getElementById('validationCustom02').value;
+    console.log(tipo);
+    let talla = document.getElementById('validationCustom03').value;
+    console.log(talla);
+    let genero = document.getElementById('validationCustom04').value;
+    console.log(genero);
+    let nombre = document.getElementById('validationCustom05').value;
+    console.log(nombre);
+    let color = document.getElementById('validationCustom06').value;
+    console.log(color);
+    let precio = document.getElementById('validationCustom07').value;
+    console.log(precio);
+    let categoria = document.getElementById('validationCustom08').value;
+    console.log(categoria);
+    let imagen = document.getElementById('validationCustom09').value;
+    console.log(imagen);
+    // let descripcion = document.querySelector('.descripcion').value;
+    // console.log(descripcion);
+
+    let newProducto = {
+            id: `${id}`,
+            tipo: `${tipo}`,
+            talla: `${talla}`,
+            genero: `${genero}`,
+            nombre:`${nombre}`,
+            color: `${color}`,
+            precio: `${precio}`,
+            categoria: `${categoria}`,
+            imagen: `${imagen}`
+        }; // item #1
+
+        const productoJSON = JSON.stringify(newProducto)
+        document.querySelector('.alert').innerHTML = productoJSON.tipo
+
     }
+
+    
 })//listennerFormulario
+
+
+
