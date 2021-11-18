@@ -15,11 +15,17 @@ function addItem(item) {
     itemsContainer.innerHTML += itemHTML;
 } // Objeto para Item
 
+let productoJSON= localStorage.getItem('prodduct');
+const myJSON= JSON.parse(productoJSON);
+
+let myJSONString=JSON.stringify(productoJSON);
+addItem(myJSONString);
+
 addItem({
     'tipo': 'playera',
     'name': 'MODELO 1',
     //'description': 'Anfg',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera1.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -30,7 +36,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 2',
     //'description': 'Animación 2',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera2.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -41,7 +47,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 3',
     //'description': 'Animación 3',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera3.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -52,7 +58,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 4',
     //'description': 'Animación 4',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera4.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -63,7 +69,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 5',
     //'description': 'Animación 5',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera5.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -74,7 +80,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 6',
     //'description': 'Animación 6',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera6.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -85,7 +91,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 7',
     //'description': 'Animación 7',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera7.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -96,7 +102,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 8',
     //'description': 'Animación 8',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera8.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -107,7 +113,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 9',
     //'description': 'Animación 9',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera9.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -118,7 +124,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 10',
     //'description': 'Animación 10',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera10.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -129,7 +135,7 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 11',
     //'description': 'Animación 11',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera11.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
@@ -140,7 +146,40 @@ addItem({
     'tipo': 'playera',
     'name': 'MODELO 12',
     //'description': 'Animación 12',
-    'img': './../src/img/hombres.jpg',
+    'img': './../src/img/Hombres/Playera12.jpg',
+    //'color': 'Negro',
+    'talla': 'M',
+    'precio': '5',
+    'genero': 'M'
+}); // item #12
+
+addItem({
+    'tipo': 'playera',
+    'name': 'MODELO 12',
+    //'description': 'Animación 12',
+    'img': './../src/img/Hombres/Playera13.jpg',
+    //'color': 'Negro',
+    'talla': 'M',
+    'precio': '5',
+    'genero': 'M'
+}); // item #12
+
+addItem({
+    'tipo': 'playera',
+    'name': 'MODELO 12',
+    //'description': 'Animación 12',
+    'img': './../src/img/Hombres/Playera14.jpg',
+    //'color': 'Negro',
+    'talla': 'M',
+    'precio': '5',
+    'genero': 'M'
+}); // item #12
+
+addItem({
+    'tipo': 'playera',
+    'name': 'MODELO 12',
+    //'description': 'Animación 12',
+    'img': './../src/img/Hombres/Playera15.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '5',
