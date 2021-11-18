@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;    
+}
+.container{
+    margin: 10px 10px 100px;
+    padding: 10px 7px 15px;
+    border: 1px solid rgb(121, 119, 119);
+}
+
+.card-producto{
+    border: 1px solid rgb(121, 119, 119);
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 7px;
+}
+
+.image img{
+    width: 100px;
+}
+
+.contenido{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    align-items: center;
+}
+
+.card-title{
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.card-text{
+    padding-right: 10px;
+
+}
+.cantidad-producto{
+   display: flex;
+   justify-content: stretch;
+    margin-right: 15px;
+}
+
+.cantidad{
+    border: 1.4px solid rgb(121, 119, 119);
+    padding: 0 10px 0 30px;
+}
+
+.incremento{
+    padding-left: 10px;
+    border: 1.4px solid rgb(121, 119, 119);
+    padding: 0 10px 0 10px;
+}
+
+.icon{
+    padding-right:10px;
+    padding-left: 7px;
+    padding-bottom: 17px;
+}
+
+ .pago{
+     padding-left: 80%;
+     padding-top: 20px;
+     padding-bottom: auto;
+ }
+
+ .total{
+     margin-bottom: 5px;
+     font-weight: 600;
+ }
+/* 
+ @media screen and (min-width: 580px) and (max-width: 780px){
+    .container{
+        width: 700px;
+        justify-content: center;
+    }
+  }  */
+
+@media screen and (min-width: 780px) and (max-width: 1400px) {
+    .container{
+        width: 800px;
+        margin-left: 20%;
+        padding: 20px 30px 15px;
+    }
+
+    .pago{
+        padding-left: 88%;
+        padding-top: 20px;
+        padding-bottom: auto;
+    }
+    
+    .card-text{
+        padding-right: 10px;
+    
+    }
+    .cantidad-producto{
+        margin-right: 30px;
+    }
+    
+    .cantidad{
+        padding: 0 10px 0 35px;
+    }
+    
+    .incremento{
+        padding: 0 10px 0 10px;
+        font-weight: 800;
+    }
+    
+    .icon{
+        padding-left: 15px;
+    }
+    .card-title{
+        font-size: 20px;
+        padding-right:40px;
+        padding-left: 0px;
+    }
+    img{
+        margin:0;
+    }
+}

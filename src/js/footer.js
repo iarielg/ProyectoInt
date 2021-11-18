@@ -6,7 +6,9 @@ class theFooter extends HTMLElement {
                     <div class="row">
                         <!--Never Dies logo-->
                         <div class="col-md-4 col-xl-3 col-lg-4 col-md-6 text-center align-items-center my-auto">
-                            <img src="../src/img/logonev.png" alt="Never Dies logo" width="120" height="120">
+                            <a href="../index.html">
+                                <img src="../src/img/logonev.png" alt="Never Dies logo" width="120" height="120">
+                            </a>
                         </div>
 
                         <!--contacts-->
@@ -34,10 +36,10 @@ class theFooter extends HTMLElement {
                         <div class="col-md-4 col-xl-3 col-lg-4 col-md-6 text-center align-items-center my-auto">
                             <ul class="list-unstyled p-10">
                                 <li class="">
-                                    <a href="">¿QUIEN SOMOS?</a>
+                                    <a href="./../pages/quienesSomos.html">¿QUIEN SOMOS?</a>
                                 </li>
                                 <li class="">
-                                    <a href="">DESCARGAR CATÁLOGO</a>
+                                    <a href="../src/catálogo_never_dies_co.pdf" download>DESCARGAR CATÁLOGO</a>
                                 </li>
                             </ul>
                         </div>
@@ -48,7 +50,9 @@ class theFooter extends HTMLElement {
                                 <p class="align-items-center">Sitio creado por:</p>
                             </div>
                             <div class="text-center align-items-center">
-                                <a href=".././pages/nosotros.html" class=""><img src="../src/img/logoInCodeWeb.png" class="" alt="In Code logo" width="180" height="70"></a>
+                                <a href=".././pages/nosotros.html" class="">
+                                    <img src="../src/img/logoInCodeWeb.png" class="" alt="In Code logo" width="180" height="70">
+                                </a>
                             </div>
                         </div>
                     </div>
