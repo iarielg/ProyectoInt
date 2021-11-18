@@ -63,16 +63,16 @@ class servicesInvert{
 //Hacemos referencia al la clase
 let services01 = document.getElementById("container-01");
 //Se crea el objeto
-let mayoreo = new services("./../src/img/servicios/2.jpg","MAYOREO", "Descuentos por la compra por cantidades mayoristas además de ventajas como págo a crédito a los clientes, agrupación y normalización de los productos, almacenaje y conservación con altos estándares, transporte así como asesoramiento directo al detallista dentro de los puntos de venta.");
+let mayoreo = new services("./../src/img/servicios/Mayoreo1.jpg","MAYOREO", "Descuentos por la compra por cantidades mayoristas además de ventajas como págo a crédito a los clientes, agrupación y normalización de los productos, almacenaje y conservación con altos estándares, transporte así como asesoramiento directo al detallista dentro de los puntos de venta.");
 //Llamamos el objeto y aplicamos su función printInfo con la info recivida del Index por Id
 mayoreo.printInfo(services01);
 
 let services02 = document.getElementById("container-02");
-let maquiladora = new servicesInvert("./../src/img/servicios/Maq.jpg","MAQUILADORA","Nuestras maquiladoras importan libre de impuestos materiales, equipos de producción y componentes de ensamblaje. Contamos con grandes puntos de producción.");
+let maquiladora = new servicesInvert("./../src/img/servicios/Maquiladora10.jpg","MAQUILADORA","Nuestras maquiladoras importan libre de impuestos materiales, equipos de producción y componentes de ensamblaje. Contamos con grandes puntos de producción.");
 maquiladora.printInfo(services02);
 
 let services03 = document.getElementById("container-03");
-let disenografico = new services("./../src/img/servicios/dis3.jpg","DISEÑO GRÁFICO","Consulta con nuestros especialistas los últimos detalles de tus ideas para transmitir mejor tu propuesta de valor. Nosotros te ayudamos a retocar los detalles de tu diseño asociando valores o emociones tu marca destacar por ser única y atractiva.");
+let disenografico = new services("./../src/img/servicios/Diseno1.png","DISEÑO GRÁFICO","Consulta con nuestros especialistas los últimos detalles de tus ideas para transmitir mejor tu propuesta de valor. Nosotros te ayudamos a retocar los detalles de tu diseño asociando valores o emociones tu marca destacar por ser única y atractiva.");
 disenografico.printInfo(services03);
 
 // Eliminar fondo beish
