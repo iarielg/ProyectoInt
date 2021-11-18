@@ -16,7 +16,10 @@ let nameCont = 0;
 
 form1.addEventListener('submit', function(e){
     e.preventDefault();
+    console.log(e.target.value);
+   //window.location.href="./../pages/login.html"
     //hay que prevenir el evento por default 
+    if(e.target.name=='nuevac'){
     let fieldName = document.getElementById("name").value;
     let fieldEmail = document.getElementById("email").value;
     let fieldPhone = document.getElementById("phone").value;
@@ -95,7 +98,19 @@ form1.addEventListener('submit', function(e){
         console.log(`Contraseña invalida: ${fieldPass1}`);
 
     } // ====================== validación contraseña
-
+if (fieldPass1.length >= 10 
+    && fieldPass0.length >= 10 
+    &&fieldPhone.length == 10
+    && onlyN == true
+    &&fieldEmail.length > 8
+    && fieldEmail.indexOf('@') >= 0
+    && ((fieldEmail.indexOf(".com") >= 0) || (fieldEmail.indexOf(".edu") >= 0))
+    &&(fieldName.length >= 10) 
+    && (onlyLetters == true)
+    &&fieldName.length === nameCont)
+{
+    window.location.href="./../pages/login.html"
+}
     // console.log(fieldName);
     // console.log(fieldEmail);
     // console.log(fieldEmail.indexOf('@'));
@@ -109,6 +124,9 @@ form1.addEventListener('submit', function(e){
     console.log(onlyLetters);
 
 
-    console.log('\n');
+    console.log('\n');}
+    else if(e.target.name=='login'){
+        window.location.href="./../pages/login.html"
+    }
 
 });
