@@ -66,7 +66,7 @@ formulario.addEventListener('click', function (e) {
 
   if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
     
-    formulario.reset(); window.location.href="./../pages/mujeres.html"
+    formulario.reset(); window.location.href="./../index.html"
       alert.innerHTML =""
 
 } else if(e.target.name=='boton_entrar'){
@@ -93,7 +93,7 @@ formulario.addEventListener('click', function (e) {
 }
 
 else if(e.target.name=='boton_nuevo'){
-  window.location.href="./../pages/mujeres.html"
+  window.location.href="./../pages/crearCuenta.html"
 }
 else {
   switch(e.target.name){

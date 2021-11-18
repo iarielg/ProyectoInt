@@ -16,7 +16,10 @@ let addUserCont = 0;
 
 form1.addEventListener('submit', function(e){
     e.preventDefault();
+    console.log(e.target.value);
+   //window.location.href="./../pages/login.html"
     //hay que prevenir el evento por default 
+    if(e.target.name=='nuevac'){
     let fieldName = document.getElementById("name").value;
     let fieldEmail = document.getElementById("email").value;
     let fieldPhone = document.getElementById("phone").value;
