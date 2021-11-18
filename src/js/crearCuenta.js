@@ -39,7 +39,7 @@ form1.addEventListener('submit', function(e){
     } // ===================== esto solo acepta números
 
     for (let i = 0; i <= fieldName.length; i++){
-        if (((fieldName.charAt(i) >= 'A') && (fieldName.charAt(i) <= 'z')) || ((fieldName.charAt(i) >= 'a') && (fieldName.charAt(i) <= 'z')) || (fieldName.charAt(i) === ' ')){
+        if (((fieldName.charAt(i) >= 'A') && (fieldName.charAt(i) <= 'Z')) || ((fieldName.charAt(i) >= 'a') && (fieldName.charAt(i) <= 'z')) || (fieldName.charAt(i) === ' ')){
                 nameCont += 1;                            
         }
     }
@@ -68,16 +68,16 @@ form1.addEventListener('submit', function(e){
     if((fieldPhone.length == 10) && (onlyN == true)){
         console.log(`Teléfono válido: ${fieldPhone}`);
     //    //agrega la clase invalida
-    //     alert("Error, introduce tu número a 10 dígitos"); 
+        //alert("Error, introduce tu número a 10 dígitos"); 
     //     //agrega la clase invalida
     //     fieldPhone.classList.add("is-invalid");
 
     } else{
         console.log(`Teléfono invalido: ${fieldPhone}`);
     //  //remover la clase
-    // fieldPhone.classList.remove("is-invalid");
+    fieldPhone.classList.add("is-invalid");
     //  //agregar la clase is-valid
-    // fieldPhone.classList.add("is-valid");
+    fieldPhone.classList.remove("is-valid");
     } // ====================== validación teéfono
 
     if(fieldPass0.length >= 10){
