@@ -1,4 +1,4 @@
-#card1{
+/* #card1{
     padding-left: 200px;
     padding-right: 100px;
     border: none;
@@ -9,13 +9,21 @@
 }
 .cnos{
     padding-bottom: 3em;
-  }
+  } */
 
- @media (min-width: 1000px) {
+ /* @media (min-width: 1000px) {
     .cons {
     align: 20px;
     }
     div {
     text-align: center;
     }
-    }
+} */
+#down{
+    position: relative;
+    top: -90px;
+    right: -48%;
+    border-radius: 50%;
+    border: solid #fff 3px;
+    color: #000;
+}
