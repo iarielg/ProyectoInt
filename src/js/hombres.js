@@ -15,6 +15,12 @@ function addItem(item) {
     itemsContainer.innerHTML += itemHTML;
 } // Objeto para Item
 
+let productoJSON= localStorage.getItem('prodduct');
+const myJSON= JSON.parse(productoJSON);
+
+let myJSONString=JSON.stringify(productoJSON);
+addItem(myJSONString);
+
 addItem({
     'tipo': 'playera',
     'name': 'MODELO 1',
