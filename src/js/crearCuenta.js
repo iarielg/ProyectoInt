@@ -16,10 +16,10 @@ let addUserCont = 0;
 
 form1.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
    //window.location.href="./../pages/login.html"
     //hay que prevenir el evento por default 
-    if(e.target.name=='nuevac'){
+    //if(e.target.name=='nuevac'){
     let fieldName = document.getElementById("name").value;
     let fieldEmail = document.getElementById("email").value;
     let fieldPhone = document.getElementById("phone").value;
@@ -48,33 +48,33 @@ form1.addEventListener('submit', function(e){
 
     if((fieldName.length >= 10) && (fieldName.length === nameCont)){
         addUserCont += 1;
-        console.log(`Nombre válido: ${fieldName}`);
+        //console.log(`Nombre válido: ${fieldName}`);
         document.querySelector('.name').classList.remove('is-invalid');
         document.querySelector('.name').classList.add('is-valid');
     } else{
-        console.log(`Nombre invalido: ${fieldName}`);
+        //console.log(`Nombre invalido: ${fieldName}`);
         document.querySelector('.name').classList.remove('is-valid');
         document.querySelector('.name').classList.add('is-invalid');
     } // ====================== validación nombre
 
     if((fieldEmail.length > 8) && (fieldEmail.indexOf('@') >= 0) && ((fieldEmail.indexOf(".com") >= 0) || (fieldEmail.indexOf(".edu") >= 0))){
         addUserCont += 1;
-        console.log(`Correo válido: ${fieldEmail}`);
+        //console.log(`Correo válido: ${fieldEmail}`);
         document.querySelector('.email').classList.remove('is-invalid');
         document.querySelector('.email').classList.add('is-valid');
     } else{
-        console.log(`Correo invalido: ${fieldEmail}`); 
+        //console.log(`Correo invalido: ${fieldEmail}`); 
         document.querySelector('.email').classList.remove('is-valid');
         document.querySelector('.email').classList.add('is-invalid');
     } // ====================== validación email
 
     if((fieldPhone.length == 10) && (fieldPhone.length === phoneCont)){
         addUserCont += 1;
-        console.log(`Teléfono válido: ${fieldPhone}`);
+        //console.log(`Teléfono válido: ${fieldPhone}`);
         document.querySelector('.phone').classList.remove('is-invalid');
         document.querySelector('.phone').classList.add('is-valid');
     } else{
-        console.log(`Teléfono invalido: ${fieldPhone}`);
+        //console.log(`Teléfono invalido: ${fieldPhone}`);
         document.querySelector('.phone').classList.remove('is-valid');
         document.querySelector('.phone').classList.add('is-invalid');
     
@@ -82,28 +82,27 @@ form1.addEventListener('submit', function(e){
 
     if((fieldPass0.length >= 10) && (fieldPass0.length === passCont)){
         addUserCont += 1;
-        console.log(`Contraseña válida: ${fieldPass0}`);
+        //console.log(`Contraseña válida: ${fieldPass0}`);
         document.querySelector('.pass0').classList.remove('is-invalid');
         document.querySelector('.pass0').classList.add('is-valid');
     } else{
-        console.log(`Contraseña invalida: ${fieldPass0}`);
+        //console.log(`Contraseña invalida: ${fieldPass0}`);
         document.querySelector('.pass0').classList.remove('is-valid');
         document.querySelector('.pass0').classList.add('is-invalid');
     } // ====================== validación contraseña
 
     if(fieldPass0 === fieldPass1){
         addUserCont += 1;
-        console.log(`Contraseña válida: ${fieldPass1}`);
+        //console.log(`Contraseña válida: ${fieldPass1}`);
         document.querySelector('.pass1').classList.remove('is-invalid');
         document.querySelector('.pass1').classList.add('is-valid');
     } else{
-        console.log(`Contraseña invalida: ${fieldPass1}`);
+        //console.log(`Contraseña invalida: ${fieldPass1}`);
         document.querySelector('.pass1').classList.remove('is-valid');
         document.querySelector('.pass1').classList.add('is-invalid');
     } // ====================== validación contraseña
 
     if (addUserCont == 5){
-        window.location.href="./../pages/login.html"
 
         let newUser = {
             name: `${fieldName}`,
@@ -113,13 +112,14 @@ form1.addEventListener('submit', function(e){
         }
         const user0_JSON = JSON.stringify(newUser)
         localStorage.setItem('user0',user0_JSON);
-        localStorage.setItem('user0',user0_JSON);
-    
+        window.location.href="./../pages/login.html"
+        //localStorage.setItem('user0',user0_JSON);
+    /*
         let example_JSON = localStorage.getItem('user0');
         example_JSON = JSON.parse(example_JSON);
+        */
         
-        addUserCont == 0;
-    } // ============================================
+    } //}// ============================================
 
     // console.log(fieldName.length);
     // console.log(fieldName.charAt(6));
