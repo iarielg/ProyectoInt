@@ -19,17 +19,21 @@
     text-align: center;
     }
 } */
-/*
+
 #down {
   position: relative;
   top: -90px;
-  right: -48%;
+  right: -50%;
   border-radius: 50%;
   border: solid #fff 3px;
   color: #000;
-}*/
+}
 
 /* CAROUSEL STYLES START HERE */
+.home {
+  margin-bottom: 30px;
+}
+
 .home .carousel-item {
   min-height: 100vh;
   background-position: center;
@@ -165,4 +169,4 @@
     font-size: 22px;
   }
 }
-/* CAROUSEL STYLES START HERE */
+/* CAROUSEL STYLES END HERE */
