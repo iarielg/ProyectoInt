@@ -19,7 +19,7 @@ class services {
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="card-body">
-                <h5 class="card-title p-4" align='center'>${this.title}</h5>
+                <h5 class="card-title p-3" align='center'>${this.title}</h5>
                 <p class="card-text" align='center'>${this.content}</p>
               </div>
             </div>
@@ -47,7 +47,7 @@ class servicesInvert{
         <div class="row g-0">
           <div class="col-md-6 col-sm-12">
             <div class="card-body">
-              <h5 class="card-title p-4" align='center'>${this.title}</h5>
+              <h5 class="card-title p-3" align='center'>${this.title}</h5>
               <p class="card-text" align='center'>${this.content}</p>
             </div>
           </div>
