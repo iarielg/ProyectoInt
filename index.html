@@ -20,6 +20,9 @@
     <!-- Bootstrap ICONS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="./src/css/bootstrap.min.css">
+    <script src="./src/js/bootstrap.bundle.min.js" defer></script>
+
     <title>Never Dies Co | Inicio</title>
 </head>
 
@@ -28,7 +31,46 @@
         <!-- Menú de navegación -->
     </div>
     
-        <!--Carrusel-->
+            <section class="home">
+                <div id="carousel" class="carousel slide col-12" data-ride="carousel">
+                <div class="carousel-controls">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active" style="background-image:url('./src/img/carrusel/carrusel1.jpeg')"></li>
+                    <li data-target="#carousel" data-slide-to="1" style="background-image:url('./src/img/carrusel/carrusel2.jpeg')"></li>
+                    <li data-target="#carousel" data-slide-to="2" style="background-image:url('./src/img/carrusel/carrusel3.jpeg')"></li>
+                    
+                  </ol>
+                  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                   <img src="./src/img/carrusel/left-arrow.svg" alt="Prev"> 
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                  <img src="./src/img/carrusel/right-arrow.svg" alt="Next">
+                </a>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" style="background-image:url('./src/img/carrusel/carrusel1.jpeg')">
+                    <div class="container">
+                       <h2>LOS MEJORES REGALOS ESTÁN EN EL BUEN FIN</h2>
+                       <p></p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" style="background-image:url('./src/img/carrusel/carrusel2.jpeg')">
+                    <div class="container">
+                       <h2></h2>
+                       <p></p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" style="background-image:url('./src/img/carrusel/carrusel3.jpeg')">
+                    <div class="container">
+                       <h2>ACCESORIOS HASTA 30% DE DESCUENTO</h2>
+                       <p></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               </section>
+            
+        <!--Carrusel
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -79,7 +121,7 @@
                         <img src="./src/img/carrusel/arrow-down.svg" alt="">
                     </a></button>
                 </div>
-        <!-- carrusel -->
+        <!-- carrusel -->-->
         <!--CARDS HOMBRE-MUJER-ACCESORIOS-->
         <div class="container">
         <div class="row justify-content-center" id="cards-down">
