@@ -30,6 +30,19 @@ const validarFormulario = function (e) {
     const noms = 'input';
     localStorage.setItem('nombresusuas',noms);
     switch (e.target.name) {
+        case "nombre":
+            if (expresiones.nombre.test(e.target.value)) {
+
+                document.querySelector('.nombre').classList.add('is-valid');
+                document.querySelector('.nombre').classList.remove('is-invalid');
+                campos.nombre = true;
+            } else {
+
+                document.querySelector('.id').classList.add('is-invalid');
+                document.querySelector('.id').classList.remove('is-valid');
+                campos.id = false;
+            }
+            break;
         case "id":
             if (expresiones.id.test(e.target.value)) {
 
@@ -182,40 +195,34 @@ formulario.addEventListener('submit', function (e) {
 
     //const noms = 'listener';
     //localStorage.setItem('nombresusuas',noms);
-    if (campos.id && campos.tipo && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
+    if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
+        let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
-        console.log(id);
         let tipo = document.getElementById('validationCustom02').value;
-        console.log(tipo);
-        let talla = document.getElementById('validationCustom03').value;
-        console.log(talla);
-        let genero = document.getElementById('validationCustom04').value;
-        console.log(genero);
-        let nombre = document.getElementById('validationCustom05').value;
-        console.log(nombre);
-        let color = document.getElementById('validationCustom06').value;
-        console.log(color);
+        let talla = document.getElementById('validationCustom03');
+        let talla1 = talla.options[talla.selectedIndex].text;
+        let genero = document.getElementById('validationCustom04');
+        let genero1 = genero.options[genero.selectedIndex].text;
+        let color = document.getElementById('validationCustom06');
+        let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
-        console.log(precio);
-        let categoria = document.getElementById('validationCustom08').value;
-        console.log(categoria);
-        //let imagen = document.getElementById('validationCustom09').value;
-        //onsole.log(imagen);
-        // let descripcion = document.querySelector('.descripcion').value;
-        // console.log(descripcion);
-    
+        let categoria = document.getElementById('validationCustom05');
+        let categoria1 = categoria.options[categoria.selectedIndex].text;
+        let imagen = document.getElementById('validationCustom08').value;
+        let descripcion = document.querySelector('.descripcion').value;
+
         let newProducto = {
+                nombre:`${nombre}`,
                 id: `${id}`,
                 tipo: `${tipo}`,
-                talla: `${talla}`,
-                genero: `${genero}`,
-                nombre:`${nombre}`,
-                color: `${color}`,
+                talla: `${talla1}`,
+                genero: `${genero1}`,
+                color: `${color1}`,
                 precio: `${precio}`,
-                categoria: `${categoria}`,
+                categoria: `${categoria1}`,
                 
-                //descripcion:`${descripcion}`
-                //imagen: `${imagen}`,
+                descripcion:`${descripcion}`,
+                imagen: `${imagen}`
                 //categ:document.getElementById('validationCustom08')
             }; // item #1
     
