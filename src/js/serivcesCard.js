@@ -63,7 +63,7 @@ class servicesInvert{
 //Hacemos referencia al la clase
 let services01 = document.getElementById("container-01");
 //Se crea el objeto
-let mayoreo = new services("./../src/img/servicios/Mayoreo1.jpg","MAYOREO", "Descuentos por la compra por cantidades mayoristas además de ventajas como pago a crédito a los clientes, agrupación y normalización de los productos, almacenaje y conservación con altos estándares, transporte y asesoramiento directo al detallista dentro de los puntos de venta.");
+let mayoreo = new services("./../src/img/servicios/Mayoreo1.jpg","MAYOREO", "Descuentos por la compra en cantidades mayoristas además, disfruta de ventajas como pago a crédito, agrupación y normalización de los productos, almacenaje y conservación con altos estándares, transporte y asesoramiento directo al detallista dentro de los puntos de venta.");
 //Llamamos el objeto y aplicamos su función printInfo con la info recivida del Index por Id
 mayoreo.printInfo(services01);
 

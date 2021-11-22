@@ -39,7 +39,7 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Gorra Azul Dies',
+    'name': 'Gorra Azul NDS',
     //'description': 'Animación 3',
     'img': './../src/img/Accesorios/Accesorios3.jpg',
     //'color': 'Negro',
