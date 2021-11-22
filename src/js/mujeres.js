@@ -17,132 +17,132 @@ function addItem(item) {
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 1',
+    'name': 'Gran Navidad',
     //'description': 'Anfg',
     'img': './../src/img/Mujeres/MPlayera100.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '360',
     'genero': 'M'
 }); // item #1
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 2',
+    'name': 'Estilo Never',
     //'description': 'Animación 2',
     'img': './../src/img/Mujeres/MPlayera109.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '340',
     'genero': 'M'
 }); // item #2
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 3',
+    'name': 'Lobo',
     //'description': 'Animación 3',
     'img': './../src/img/Mujeres/MPlayera102.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '320',
     'genero': 'M'
 }); // item #3
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 4',
+    'name': 'Lobo Anillado',
     //'description': 'Animación 4',
     'img': './../src/img/Mujeres/MPlayera103.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '320',
     'genero': 'M'
 }); // item #4
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 5',
+    'name': 'Mishi Negro',
     //'description': 'Animación 5',
     'img': './../src/img/Mujeres/MPlayera104.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '420',
     'genero': 'M'
 }); // item #5
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 6',
+    'name': 'Cráneos Blancos',
     //'description': 'Animación 6',
     'img': './../src/img/Mujeres/MPlayera105.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '290',
     'genero': 'M'
 }); // item #6
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 7',
+    'name': 'Vestido Inverso',
     //'description': 'Animación 7',
     'img': './../src/img/Mujeres/MPlayera106.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '480',
     'genero': 'M'
 }); // item #7
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 8',
+    'name': 'Bastardo Rosa',
     //'description': 'Animación 8',
     'img': './../src/img/Mujeres/MPlayera107.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '360',
     'genero': 'M'
 }); // item #8
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 9',
+    'name': 'Defensor',
     //'description': 'Animación 9',
     'img': './../src/img/Mujeres/MPlayera108.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '370',
     'genero': 'M'
 }); // item #9
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 10',
+    'name': 'Navidad Roja',
     //'description': 'Animación 10',
     'img': './../src/img/Mujeres/MPlayera112.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '360',
     'genero': 'M'
 }); // item #10
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 11',
+    'name': 'Bosque negro',
     //'description': 'Animación 11',
     'img': './../src/img/Mujeres/MPlayera110.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '320',
     'genero': 'M'
 }); // item #11
 
 addItem({
     'tipo': 'playera',
-    'name': 'MODELO 12',
+    'name': 'Bastardo Rosa/Manga corta',
     //'description': 'Animación 12',
     'img': './../src/img/Mujeres/MPlayera111.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '5',
+    'precio': '360',
     'genero': 'M'
 }); // item #12
