@@ -163,11 +163,9 @@ agregar_carrito.addEventListener('click', function(e){
     let select = document.getElementById('select')
     let selected = select.options[select.selectedIndex].text;
     console.log(selected);
-<<<<<<< HEAD
-    // document.querySelector('.alert').remove('.alert');
-=======
+
     document.querySelector('.alert').remove('.alert');
->>>>>>> branchYaki
+
 
     let tallaCh = document.getElementById('inlineRadio1');
     let tallaM = document.getElementById('inlineRadio2');
