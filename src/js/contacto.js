@@ -143,8 +143,14 @@ formulario.addEventListener('submit', function (e) {
           Tu mensaje ha sido enviado.
         </div>
       </div>`
+      document.querySelector('.alert').remove('.alert')
 
-        console.log('tu formulario ha sido enviado');
+      document.querySelector('.nombre').classList.remove('is-valid');
+      document.querySelector('.correo').classList.remove('is-valid');
+      document.querySelector('.telefono').classList.remove('is-valid');
+      document.querySelector('.motivo').classList.remove('is-valid');
+      document.querySelector('.mensaje').classList.remove('is-valid');
+
     } else {
         correct.innerHTML = ""
         alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
