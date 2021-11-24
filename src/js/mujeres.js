@@ -2,17 +2,19 @@ function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
         '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.name + '</h5>\n' +
+        '<h5 class="card-title" id="title-card">' + item.name + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
         '<p>' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
+        '<button type="button" class="content-fluid btn btn-dark" id="add_carrito" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
         '</div>\n' +
         '<br/>';
 
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
+    
+
 } // Objeto para Item
 
 addItem({
@@ -146,3 +148,49 @@ addItem({
     'precio': '360',
     'genero': 'M'
 }); // item #12
+
+
+
+let agregar_carrito = document.getElementById('agregar-carrito');
+
+agregar_carrito.addEventListener('click', function(e){
+    e.preventDefault();
+
+
+    if( select.options[select.selectedIndex].text == 'Selecciona el color'){
+        document.querySelector('.alert').textContent = 'Ingrese el color deseado'
+    }else{
+    let select = document.getElementById('select')
+    let selected = select.options[select.selectedIndex].text;
+    console.log(selected);
+    // document.querySelector('.alert').remove('.alert');
+
+    let tallaCh = document.getElementById('inlineRadio1');
+    let tallaM = document.getElementById('inlineRadio2');
+    let tallaGd = document.getElementById('inlineRadio3');
+    let tallaEg = document.getElementById('inlineRadio4');
+
+    let talla = '';
+    if(tallaCh.checked){
+        console.log(talla = tallaCh.value);
+    }else if(tallaM.checked){
+        console.log(talla = tallaM.value);
+
+    }else if(tallaGd.checked){
+        console.log(talla = tallaGd.value);
+
+    }else{
+        console.log(talla = tallaEg.value);
+    }}
+
+   console.log(itemHTML.name)   
+    // addCarrito(e);
+});
+
+// function addCarrito(e){
+//     let button = e.target
+//     const item = button.closest('.card')
+//     console.log(item);
+// }
+
+
