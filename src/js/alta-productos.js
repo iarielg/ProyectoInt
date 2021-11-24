@@ -236,9 +236,9 @@ formulario.addEventListener('submit', function (e) {
            //console.log("product");
            function addItem(product) {
             const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-                '<h5 class="card-title">' + product.color + '</h5>\n' +
+                '<h5 class="card-title">' + product.append(color) + '</h5>\n' +
                 //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-                '<p>' + 'Precio: $' + product.precio + '</p>' +
+                '<p>' + 'Precio: $' + product.append(precio) + '</p>' +
                 //'<p>' + 'Color: ' + item.color + '</p>' +
                 //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
                 '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
