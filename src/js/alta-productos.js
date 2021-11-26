@@ -1,3 +1,4 @@
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
@@ -196,6 +197,8 @@ formulario.addEventListener('submit', function (e) {
     //const noms = 'listener';
     //localStorage.setItem('nombresusuas',noms);
     if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
+        
+    
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
         let tipo = document.getElementById('validationCustom02').value;
@@ -225,10 +228,27 @@ formulario.addEventListener('submit', function (e) {
                 imagen: `${imagen}`
                 //categ:document.getElementById('validationCustom08')
             }; // item #1
-    
-            const productoJSON = JSON.stringify(newProducto)
-           // const myJSON= JSON.parse(productoJSON)
+        //let productoJSON;
+        //let arregloProductos=[{}];
+        if (!(localStorage.getItem('product'))){
+            let primerArreglo=[newProducto];
+            let productoJSON = JSON.stringify(primerArreglo)// const myJSON= JSON.parse(productoJSON)
             localStorage.setItem('product',productoJSON);
+        }
+        else{
+            let arregloProductos= JSON.parse(localStorage.getItem('product'));
+
+            arregloProductos.push(newProducto)
+    
+        // convierte arreglousuario  a string
+            localStorage.setItem('product', JSON.stringify(arregloProductos))
+    
+
+        }
+            
+           
+           
+            
            // document.querySelector('.alert').innerHTML = productoJSON.tipo
             
            let product = localStorage.getItem('product');
