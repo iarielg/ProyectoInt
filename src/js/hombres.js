@@ -1,8 +1,8 @@
 function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        //'<img src="' + item.categoria + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.nombre + '</h5>\n' +
+        '<h5 class="card-title">' + item.name + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
         '<p>' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
@@ -14,7 +14,7 @@ function addItem(item) {
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
 } // Objeto para Item
-
+/*
 let productoJSON= localStorage.getItem('product');
 //let myJSON= [{}];
 let myJSON= JSON.parse(productoJSON);
@@ -25,7 +25,7 @@ for(i=0;i<myJSON.length;i++){
 }
 //let myJSONString=JSON.stringify(productoJSON);
 
-/*
+*/
 
 addItem({
     'tipo': 'playera',
@@ -158,7 +158,7 @@ addItem({
     'precio': '380',
     'genero': 'M'
 }); // item #12
-
+/*
 addItem({
     'tipo': 'playera',
     'name': 'MODELO 12',
@@ -169,7 +169,7 @@ addItem({
     'precio': '350',
     'genero': 'M'
 }); // item #12
-
+*/
 addItem({
     'tipo': 'playera',
     'name': 'Inspiración',

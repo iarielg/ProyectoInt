@@ -148,7 +148,7 @@ addItem({
     'precio': '360',
     'genero': 'M'
 }); // item #12
-
+/*
 const clickButton = document.querySelectorAll('#clickButon');
 let tbody = document.querySelector('.carrito');
 
@@ -272,3 +272,4 @@ function renderCarrito() {
 // }
 
 
+*/
