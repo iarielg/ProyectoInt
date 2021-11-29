@@ -83,6 +83,19 @@ const validarFormulario = function (e) {
                 campos.talla = false;
             }
             break;
+        case "cantidad":
+            if (expresiones.nombre.test(e.target.value)) {
+    
+                document.querySelector('.cantidad').classList.add('is-valid');
+                document.querySelector('.cantidad').classList.remove('is-invalid');
+                campos.nombre = true;
+            } else {
+    
+                document.querySelector('.cantidad').classList.add('is-invalid');
+                document.querySelector('.cantidad').classList.remove('is-valid');
+                campos.id = false;
+            }
+            break;
         case "genero":
             if ((e.target.value != 0)) {
 

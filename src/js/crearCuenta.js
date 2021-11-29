@@ -164,6 +164,6 @@ console.log(newArreglo)
 };
     const form1 = document.getElementById('form_nc');
     form1.addEventListener('submit', validacionDeFormulario);
-
-
+  console.log(usuarios); 
+  console.log(storeList);
 
