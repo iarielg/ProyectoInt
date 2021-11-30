@@ -16,10 +16,16 @@ function addItem(item) {
 } // Objeto para Item
 /*
 let productoJSON= localStorage.getItem('product');
-const myJSON= JSON.parse(productoJSON);
-
+//let myJSON= [{}];
+let myJSON= JSON.parse(productoJSON);
+console.log(myJSON)
+for(i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    addItem(myJSON[i]);
+}
 //let myJSONString=JSON.stringify(productoJSON);
-addItem(myJSON);*/
+
+*/
 
 addItem({
     'tipo': 'playera',
@@ -152,7 +158,7 @@ addItem({
     'precio': '380',
     'genero': 'M'
 }); // item #12
-
+/*
 addItem({
     'tipo': 'playera',
     'name': 'MODELO 12',
@@ -163,7 +169,7 @@ addItem({
     'precio': '350',
     'genero': 'M'
 }); // item #12
-
+*/
 addItem({
     'tipo': 'playera',
     'name': 'Inspiración',
@@ -184,4 +190,4 @@ addItem({
     'talla': 'M',
     'precio': '320',
     'genero': 'M'
-}); // item #12
+}); // item #12*/
