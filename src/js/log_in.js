@@ -8,7 +8,7 @@ let nuevos = document.getElementById('nuevos');
 
 
 const expresiones = {
-    contraseña: /^[a-zA-Z0-9]{9}$/,
+    contraseña: /^[a-zA-Z0-9]{10}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     
 }
@@ -65,11 +65,51 @@ formulario.addEventListener('click', function (e) {
   console.log(e.target.type);
 
   if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
-    
-    formulario.reset(); window.location.href="./../index.html"
-      alert.innerHTML =""
 
-} else if(e.target.name=='boton_entrar'){
+    ///traerse los usuarios
+
+  let usuarios = window.localStorage.getItem('usuarios');
+  // if (storeList == null) {
+  let storeList;
+  //si usuarios esta vacío crear el objeto del administrador
+  if (!usuarios) {
+    storeList = alert('creau una cuenta');
+    //transformar a string el objeto del admin
+    localStorage.setItem('usuarios', JSON.stringify(storeList))
+  } else {
+    //si existen objetos usuario convertirlos a JSON
+    storeList = JSON.parse(usuarios);
+    console.log(storeList);
+    
+  }
+
+///traerse los usuarios
+
+    let correo = document.getElementById('email').value;
+    let contraseña = document.getElementById('validation02').value;
+
+
+    let newUser = {
+      correo:`${correo}`,
+      password: `${contraseña}`
+      
+  };
+
+  if (!(localStorage.getItem('user'))){
+    let primerArreglo=[newUser];
+    let productoJSON = JSON.stringify(primerArreglo)// const myJSON= JSON.parse(productoJSON)
+    localStorage.setItem('user',productoJSON);
+  }
+  else{
+    let arregloUsers= JSON.parse(localStorage.getItem('user'));
+    arregloUsers.push(newUser)
+    // convierte arreglousuario  a string
+    localStorage.setItem('user', JSON.stringify(arregloUsers))
+    formulario.reset(); window.location.href="./../index.html"
+    alert.innerHTML =""
+  }
+  } 
+  else if(e.target.name=='boton_entrar'){
   correct.innerHTML =""
    
     alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
