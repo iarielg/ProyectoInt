@@ -148,7 +148,7 @@ console.log(newArreglo)
 
         // convierte arreglousuario  a string
         localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-        window.location.href="./../pages/login.html"
+        window.location.href="./../pages/login.html" //Me reedirecciona a HOME
     }else{
         // alert('El usuario ya existe')
         Swal.fire({
