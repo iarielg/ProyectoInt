@@ -31,6 +31,7 @@ const validarFormulario = function (e) {
               document.querySelector('.correo').classList.remove('is-valid');
               campos.correo = false;
               console.log('el correo no es valido')
+              
           }
           break;
       case "contraseña":
@@ -60,20 +61,34 @@ const validarFormulario = function (e) {
      })
  //si nuevo arreglo es diferente agregar el objUsuario
      if(!usuarioEncontrado ){
-        
-      console.log("invalido")
+        console.log("invalido")
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Datos incorrectos!',
+        confirmButtonColor: "black",
+        width: '40%',
+        Height: '40%'
+      })
         
     
      }else if(objUsuario.pass0==usuarioEncontrado.pass0)
      {
-      console.log("bienvenido")
-      window.location.href="./../pages/carritoCompras.html"
-         // alert('El usuario ya existe')
+      window.location.href="./../index.html"
+        
          
            
      }
      else{
        console.log("invalido")
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Datos incorrectos!',
+        confirmButtonColor: "black",
+        width: '40%',
+        Height: '40%'
+      })
       
      }
  }; //function usuarioExistente
