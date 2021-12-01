@@ -137,11 +137,10 @@ function usuarioExistente(arregloUsuario, objUsuario) {
         console.log(objUsuario)
         //si son iguales retorna el objeto nuevo
         if (usuario.email == objUsuario.email || usuario.phone ==  objUsuario.phone){
-            return objUsuario
-            console.log('el usuario ya existe');
+            return objUsuario;
         }
     })
-console.log(newArreglo)
+    console.log(newArreglo)
 //si nuevo arreglo es diferente agregar el objUsuario
     if(!newArreglo ){
         arregloUsuario.push(objUsuario)
