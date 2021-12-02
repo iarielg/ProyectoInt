@@ -10,7 +10,7 @@ public class users {
         this.email = email;
         this.password = password;
     }//constructor
-
+    public users () {}
     public int getId() {
         return id;
     }

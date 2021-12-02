@@ -23,7 +23,6 @@ private String descripcion;
         this.descripcion = descripcion;
     }//constructor
     public products () {}
-
     public int getId() {
         return id;
     }
