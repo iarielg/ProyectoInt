@@ -1,74 +1,153 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const botonEntar = document.getElementById('entrar');
-const botonNuevo = document.getElementById('nuevo');
+const botonNuevo= document.getElementById('nuevo');
 let alert = document.getElementById('alert');
 let correct = document.getElementById('welcome');
 let nuevos = document.getElementById('nuevos');
 
 
 const expresiones = {
-  contraseña: /^[a-zA-Z0-9]{8,16}$/,
-  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-
+    contraseña: /^[a-zA-Z0-9]{8,16}$/,
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    
 }
 
 const campos = {
-  contraseña: false,
-  correo: false,
+    contraseña: false,
+    correo: false,
 }
 const validarFormulario = function (e) {
   switch (e.target.name) {
-    case "correo":
-      if (expresiones.correo.test(e.target.value)) {
+      case "correo":
+          if (expresiones.correo.test(e.target.value)) {
 
-        document.querySelector('.correo').classList.add('is-valid');
-        document.querySelector('.correo').classList.remove('is-invalid');
-        campos.correo = true;
-      } else {
+              document.querySelector('.correo').classList.add('is-valid');
+              document.querySelector('.correo').classList.remove('is-invalid');
+              campos.correo = true;
+          } else {
 
-        document.querySelector('.correo').classList.add('is-invalid');
-        document.querySelector('.correo').classList.remove('is-valid');
-        campos.correo = false;
-        console.log('el correo no es valido')
-      }
-      break;
-    case "contraseña":
-      if (expresiones.contraseña.test(e.target.value)) {
+              document.querySelector('.correo').classList.add('is-invalid');
+              document.querySelector('.correo').classList.remove('is-valid');
+              campos.correo = false;
+              console.log('el correo no es valido')
+              
+          }
+          break;
+      case "contraseña":
+          if (expresiones.contraseña.test(e.target.value)) {
 
-        document.querySelector('.contraseña').classList.add('is-valid');
-        document.querySelector('.contraseña').classList.remove('is-invalid');
-        campos.contraseña = true;
-      } else {
+              document.querySelector('.contraseña').classList.add('is-valid');
+              document.querySelector('.contraseña').classList.remove('is-invalid');
+              campos.contraseña = true;
+          } else {
 
-        document.querySelector('.contraseña').classList.add('is-invalid');
-        document.querySelector('.contraseña').classList.remove('is-valid');
-        campos.contraseña = false;
-      }
-      break;
+              document.querySelector('.contraseña').classList.add('is-invalid');
+              document.querySelector('.contraseña').classList.remove('is-valid');
+              campos.contraseña = false;
+              console.log('el password no es valido')
+          }
+          break;
+    }
   }
-}
 
-inputs.forEach(function (input) {
-  input.addEventListener('keyup', validarFormulario);
-  input.addEventListener('blur', validarFormulario);
+  function ValidacionCredenciales(arregloUsuario, objUsuario) {
+     //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
+     const usuarioEncontrado = arregloUsuario.find(usuario => { 
+         //si son iguales retorna el objeto nuevo
+         if (usuario.email == objUsuario.email){
+             return usuario;
+         }
+     })
+ //si nuevo arreglo es diferente agregar el objUsuario
+     if(!usuarioEncontrado ){
+        console.log("invalido")
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Datos incorrectos!',
+        confirmButtonColor: "black",
+        width: '40%',
+        Height: '40%'
+      })
+        
+    
+     }else if(objUsuario.pass0==usuarioEncontrado.pass0)
+     {
+      window.location.href="./../index.html"
+        
+         
+           
+     }
+     else{
+       console.log("invalido")
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Datos incorrectos!',
+        confirmButtonColor: "black",
+        width: '40%',
+        Height: '40%'
+      })
+      
+     }
+ }; //function usuarioExistente
+
+
+
+
+  inputs.forEach(function (input) {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
 
 })
 
-formulario.addEventListener('submit', function (e) {
+formulario.addEventListener('click', function (e) {
 
   e.preventDefault();
   validarFormulario(e);
 
+  console.log(e.target.name);
+  console.log(e.target.type);
 
-  if (e.target.name == 'boton_entrar' && campos.correo && campos.contraseña) {
 
-    formulario.reset(); window.location.href = "./../index.html"
-    alert.innerHTML = ""
 
-  } else if (e.target.name == 'boton_entrar') {
-    correct.innerHTML = ""
+  ///traerse los usuarios creados
 
+  let usuarios = window.localStorage.getItem('usuarios');
+  // if (storeList == null) {
+  let storeList;
+    storeList = JSON.parse(usuarios);
+    console.log(storeList);
+    
+  
+
+  /////usuarioExistente(storeList, newUser)
+
+
+  ///traerse los usuarios
+
+  if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
+
+    
+    let correo = document.getElementById('email').value;
+    let contraseña = document.getElementById('validation02').value;
+
+    let newUser = {
+      email:`${correo}`,
+      pass0: `${contraseña}`
+      
+  };
+
+    ValidacionCredenciales(storeList, newUser)
+
+  } 
+
+
+  /////otros botones
+  else if(e.target.name=='boton_entrar'){
+  correct.innerHTML =""
+   
     alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -87,94 +166,27 @@ formulario.addEventListener('submit', function (e) {
         Debes llenar todos los campos correctamente.
     </div>
   </div>`
+}
+
+else if(e.target.name=='boton_nuevo'){
+  window.location.href="./../pages/crearCuenta.html"
+}
+else {
+  switch(e.target.name){
+    case "uso":
+      window.location.href="./../pages/mujeres.html"
+    break;
+    case "aviso":
+      window.location.href="./../pages/mujeres.html"
+    break;
+    case "ayuda":
+      window.location.href="./../pages/mujeres.html"
+    break;
   }
-
-  else if (e.target.name == 'boton_nuevo') {
-    window.location.href = "./../pages/crearCuenta.html"
-  }
-  else {
-    switch (e.target.name) {
-      case "uso":
-        window.location.href = "./../pages/mujeres.html"
-        break;
-      case "aviso":
-        window.location.href = "./../pages/mujeres.html"
-        break;
-      case "ayuda":
-        window.location.href = "./../pages/mujeres.html"
-        break;
-    }
-
-    
-    //a la funcion usuarioExistente se le asigan los parametros de storelist y newUser(objetoAdmin, objetoNuevo)
-    
-  }
-
-  /* CamibiosYaki */
-let correo = document.getElementById('email').value;
-let contraseña = document.getElementById('validation02').value;
-
-let newUser = {
-correo:`${correo}`,
-password: `${contraseña}`
-};
-
-  let usuarios = window.localStorage.getItem('usuarios');
-  // if (storeList == null) {
-  let storeList;
-  //si usuarios esta vacío crear el objeto del administrador
-  if (!usuarios) {
-    storeList = 
-     [];
-    //transformar a string el objeto del admin
-    localStorage.setItem('usuarios', JSON.stringify(storeList))
-  } else {
-    //si existen objetos usuario convertirlos a JSON
-    storeList = JSON.parse(usuarios);
-    console.log(storeList);
-  }
-  usuarioExistente(storeList, newUser)
+}
 
 
-/* Termina cambios Yaki */
-
-
-})
-
-/* Cambios YAKI */
-
-function usuarioExistente(arregloUsuario, objUsuario) {
-  // console.log(arregloUsuario)
-  //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
-  const newArreglo = arregloUsuario.find(usuario => {
-    console.log(usuario)//localstorage
-    console.log(objUsuario)//input
-    //si son iguales retorna el objeto nuevo
-    if (usuario.email == objUsuario.correo && usuario.pass0 == objUsuario.password) {
-      console.log(objUsuario)//input
-      return objUsuario
-      // window.location.href="./../pages/login.html"
-    }
-    
   })
-  console.log(newArreglo)//localstorage
-  //si nuevo arreglo es diferente agregar el objUsuario
-  if (!newArreglo) {
-    // arregloUsuario.push(objUsuario)
-    // console.log(arregloUsuario)
-   console.log('ya hay cuentas')
-
-    // convierte arreglousuario  a string
-    localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-
-  } else {
-    window.location.href="./../pages/mujeres.html"
-    
-  }
-
-};
-
-/* TERMINAN CAMBIOS YAKI */
 
   // let usuario = []
 
@@ -183,5 +195,3 @@ function usuarioExistente(arregloUsuario, objUsuario) {
 
   // usuario.push(example_JSON)
   // console.log(usuario)
-  // let usuarios = window.localStorage.getItem('usuarios');
-  // console.log(usuarios)

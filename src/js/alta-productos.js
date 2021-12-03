@@ -1,3 +1,4 @@
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
@@ -80,6 +81,19 @@ const validarFormulario = function (e) {
                 document.querySelector('.talla').classList.add('is-invalid');
                 document.querySelector('.talla').classList.remove('is-valid');
                 campos.talla = false;
+            }
+            break;
+        case "cantidad":
+            if (expresiones.nombre.test(e.target.value)) {
+    
+                document.querySelector('.cantidad').classList.add('is-valid');
+                document.querySelector('.cantidad').classList.remove('is-invalid');
+                campos.nombre = true;
+            } else {
+    
+                document.querySelector('.cantidad').classList.add('is-invalid');
+                document.querySelector('.cantidad').classList.remove('is-valid');
+                campos.id = false;
             }
             break;
         case "genero":
@@ -196,6 +210,8 @@ formulario.addEventListener('submit', function (e) {
     //const noms = 'listener';
     //localStorage.setItem('nombresusuas',noms);
     if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
+        
+    
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
         let tipo = document.getElementById('validationCustom02').value;
@@ -225,10 +241,27 @@ formulario.addEventListener('submit', function (e) {
                 imagen: `${imagen}`
                 //categ:document.getElementById('validationCustom08')
             }; // item #1
-    
-            const productoJSON = JSON.stringify(newProducto)
-           // const myJSON= JSON.parse(productoJSON)
+        //let productoJSON;
+        //let arregloProductos=[{}];
+        if (!(localStorage.getItem('product'))){
+            let primerArreglo=[newProducto];
+            let productoJSON = JSON.stringify(primerArreglo)// const myJSON= JSON.parse(productoJSON)
             localStorage.setItem('product',productoJSON);
+        }
+        else{
+            let arregloProductos= JSON.parse(localStorage.getItem('product'));
+
+            arregloProductos.push(newProducto)
+    
+        // convierte arreglousuario  a string
+            localStorage.setItem('product', JSON.stringify(arregloProductos))
+    
+
+        }
+            
+           
+           
+            
            // document.querySelector('.alert').innerHTML = productoJSON.tipo
             
            let product = localStorage.getItem('product');
@@ -236,9 +269,9 @@ formulario.addEventListener('submit', function (e) {
            //console.log("product");
            function addItem(product) {
             const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-                '<h5 class="card-title">' + product.color + '</h5>\n' +
+                '<h5 class="card-title">' + product.append(color) + '</h5>\n' +
                 //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-                '<p>' + 'Precio: $' + product.precio + '</p>' +
+                '<p>' + 'Precio: $' + product.append(precio) + '</p>' +
                 //'<p>' + 'Color: ' + item.color + '</p>' +
                 //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
                 '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +

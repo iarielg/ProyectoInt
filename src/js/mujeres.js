@@ -171,10 +171,10 @@ function addToCarritoItem(e) {
     const itemImage = item.querySelector('.card-img-top').src;
     
     const newItem = {
-        "title": `${itemTittle}`,
-        "precio": `${itemPrecio}`,
-        "image": `${itemImage}`,
-        "cantidad": `${1}`,    
+        'title': `${itemTittle}`,
+        'precio': `${itemPrecio}`,
+        'image': `${itemImage}`,
+        'cantidad': `${1}`,    
     }
 
     let productos = window.localStorage.getItem('productos');
@@ -213,6 +213,7 @@ console.log(arregloProducto)
        localStorage.setItem('productos',JSON.stringify(arregloProducto))
  
 }
+
 
 //VENTANA MODAL - AGREGAR AL CARRITO
 // let agregar_carrito = document.getElementById('agregar-carrito');

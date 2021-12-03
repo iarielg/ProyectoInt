@@ -2,7 +2,7 @@ function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
         '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.color + '</h5>\n' +
+        '<h5 class="card-title">' + item.name + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
         '<p>' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
@@ -14,13 +14,26 @@ function addItem(item) {
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
 } // Objeto para Item
+<<<<<<< HEAD
 
 let productoJSON= localStorage.getItem('productos');
 const myJSON= JSON.parse(productoJSON);
 
-//let myJSONString=JSON.stringify(productoJSON);
-addItem(myJSON);
+=======
 /*
+let productoJSON= localStorage.getItem('product');
+//let myJSON= [{}];
+let myJSON= JSON.parse(productoJSON);
+console.log(myJSON)
+for(i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    addItem(myJSON[i]);
+}
+>>>>>>> 95cc15ac8033d3ac91dd3dc2049dfb39849c9457
+//let myJSONString=JSON.stringify(productoJSON);
+
+*/
+
 addItem({
     'tipo': 'playera',
     'name': 'Estilo gris',
@@ -152,7 +165,7 @@ addItem({
     'precio': '380',
     'genero': 'M'
 }); // item #12
-
+/*
 addItem({
     'tipo': 'playera',
     'name': 'MODELO 12',
@@ -163,7 +176,7 @@ addItem({
     'precio': '350',
     'genero': 'M'
 }); // item #12
-
+*/
 addItem({
     'tipo': 'playera',
     'name': 'Inspiración',

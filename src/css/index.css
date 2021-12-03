@@ -21,12 +21,17 @@
 } */
 
 #down {
-  position: relative;
+  position: absolute;
   top: -90px;
   right: -50%;
   border-radius: 50%;
   border: solid #fff 3px;
   color: #000;
+}
+
+.sec-title {
+  color: #fff;
+  text-shadow: #000 0 0 10px, #000 0 0 10px;
 }
 
 /* CAROUSEL STYLES START HERE */
@@ -60,15 +65,17 @@
 }
 .home .carousel-item h2 {
   font-size: 80px;
-  color: #ffffff;
+  color: #fff;
   margin: 0 0 10px;
   opacity: 0;
+  text-shadow: #000 0 0 10px, #000 0 0 10px;
 }
 .home .carousel-item p {
   font-size: 30px;
   margin: 0;
-  color: #eeeeee;
+  color: #fff;
   opacity: 0;
+  text-shadow: #000 0 0 10px, #000 0 0 10px;
 }
 .home .carousel-item.active h2 {
   animation: fadeInLeft 0.5s ease forwards;
@@ -101,7 +108,7 @@
 .home .carousel-controls {
   position: absolute;
   left: 50%;
-  bottom: 40px;
+  bottom: 100px;
   z-index: 10;
   transform: translateX(-50%);
 }
