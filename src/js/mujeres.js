@@ -7,9 +7,11 @@ function addItem(item) {
         '<p class="card-precio">' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" id="clickButon" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
+        '<button type="button" class="content-fluid btn btn-dark" id="clickButon"*/><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
         '</div>\n' +
         '<br/>';
+
+        //  data-bs-toggle="modal" data-bs-target="#ventanaModal" modal
 
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
@@ -24,7 +26,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera100.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '360',
+    'precio': 360,
     'genero': 'M'
 }); // item #1
 
@@ -35,7 +37,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera109.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '340',
+    'precio': 340,
     'genero': 'M'
 }); // item #2
 
@@ -46,7 +48,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera102.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '320',
+    'precio': 320,
     'genero': 'M'
 }); // item #3
 
@@ -57,7 +59,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera103.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '320',
+    'precio': 320,
     'genero': 'M'
 }); // item #4
 
@@ -68,7 +70,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera104.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '420',
+    'precio': 420,
     'genero': 'M'
 }); // item #5
 
@@ -79,7 +81,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera105.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '290',
+    'precio': 290,
     'genero': 'M'
 }); // item #6
 
@@ -90,7 +92,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera106.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '480',
+    'precio': 480,
     'genero': 'M'
 }); // item #7
 
@@ -101,7 +103,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera107.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '360',
+    'precio': 360,
     'genero': 'M'
 }); // item #8
 
@@ -112,7 +114,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera108.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '370',
+    'precio': 370,
     'genero': 'M'
 }); // item #9
 
@@ -123,7 +125,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera112.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '360',
+    'precio': 360,
     'genero': 'M'
 }); // item #10
 
@@ -134,7 +136,7 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera110.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '320',
+    'precio': 320,
     'genero': 'M'
 }); // item #11
 
@@ -145,88 +147,86 @@ addItem({
     'img': './../src/img/Mujeres/MPlayera111.jpg',
     //'color': 'Negro',
     'talla': 'M',
-    'precio': '360',
+    'precio': 360,
     'genero': 'M'
 }); // item #12
 
 const clickButton = document.querySelectorAll('#clickButon');
-let tbody = document.querySelector('.carrito');
-
-let carrito = [];
+// let tbody = document.querySelector('.carrito');
 
 clickButton.forEach(btn => {
-    btn.addEventListener('click', addToCarritoItem)
+    btn.addEventListener('click',addToCarritoItem)
 })
 
 function addToCarritoItem(e) {
+
+    // let agregar_carrito = document.getElementById('agregar-carrito');
+    // agregar_carrito.addEventListener('click', addCarrito)
+
+
     const button = e.target;
     const item = button.closest('.card')
     const itemTittle = item.querySelector('.card-title').textContent;
     const itemPrecio = item.querySelector('.card-precio').textContent;
     const itemImage = item.querySelector('.card-img-top').src;
-
+    
     const newItem = {
-        title: itemTittle,
-        precio: itemPrecio,
-        image: itemImage,
-        cantidad: 1
+        "title": `${itemTittle}`,
+        "precio": `${itemPrecio}`,
+        "image": `${itemImage}`,
+        "cantidad": `${1}`,    
     }
 
-    addItemCarrito(newItem);
+    let productos = window.localStorage.getItem('productos');
+    let carrito;
+    if(!productos){
+        carrito = [
+            // {"nombre":"tu carrito esta vacio"}
+        ];
+        localStorage.setItem('productos',JSON.stringify(carrito))
+    }else{
+        carrito = JSON.parse(productos);
+        console.log(carrito)
+    }
+    
+    console.log(carrito)
+
+    addItemCarrito(carrito,newItem);
 }
 
-function addItemCarrito(newItem) {
+function addItemCarrito(arregloProducto, objproducto) {
 
-    console.log(newItem)
-    carrito.push(newItem);
-    renderCarrito()
+    const alert = document.querySelector('.alert')
+
+    setTimeout( function(){
+      alert.classList.add('hide')
+    }, 2000)
+      alert.classList.remove('hide')
+
+console.log(arregloProducto)
+        if(objproducto.title && objproducto.precio && objproducto.image && objproducto.cantida){
+            return objproducto
+        }
+
+       arregloProducto.push(objproducto)
+       console.log(arregloProducto)
+       localStorage.setItem('productos',JSON.stringify(arregloProducto))
+ 
 }
 
-function renderCarrito() {
-    console.log(carrito);
-   tbody.innerHTML = "hola"
-    //     carrito.map(item =>{
-    //         const tr = document.createElement('tr');
-    //         tr.classList.add('itemCarrito')
-
-    //         const Content = ` <th scope="col"><img src=${item.image} alt=""></th>
-    //         <td class=" fw-bold pt-5">${item.title}</td>
-    //         <td>
-    //             <div class="cantidad-producto ">
-    //                 <p class="cantidad fw-bold">${item.cantidad}</p>
-    //                 <p class="incremento fw-bold">+</p>
-    //             </div>
-    //         </td>
-    //         <td><i class="fas fa-trash-alt icon"></i></td>
-    //     </tr>
-    //     <tr>
-    //         <td></td>
-    //         <td></td>
-    //         <td colspan="2">Total ${item.precio}</td>
-    //     </tr>
-    //     <tr>
-    //         <td></td>
-    //         <td></td>
-    //         <td colspan="1"><button class="btn btn-dark">Pagar</button></td>`
-    //         tr.innerHTML = Content
-    //         tbody.appendChild(tr)
-    //     })
-
-}
-
+//VENTANA MODAL - AGREGAR AL CARRITO
 // let agregar_carrito = document.getElementById('agregar-carrito');
+// agregar_carrito.addEventListener('click', addCarrito)
 
-// agregar_carrito.addEventListener('click', function(e){
-//     e.preventDefault();
-
-
+// function addCarrito(){
+//     const alert = document.querySelector('.alert')
 //     if( select.options[select.selectedIndex].text == 'Selecciona el color'){
-//         document.querySelector('.alert').textContent = 'Ingrese el color deseado'
+//         alert.textContent = 'Ingrese el color deseado'
 //     }else{
-//     let select = document.getElementById('select')
-//     let selected = select.options[select.selectedIndex].text;
+//     // let select = document.getElementById('select')
+//     // let selected = select.options[select.selectedIndex].text;
 //     console.log(selected);
-//     document.querySelector('.alert').remove('.alert');
+//     alert.remove('.remove');
 
 //     let tallaCh = document.getElementById('inlineRadio1');
 //     let tallaM = document.getElementById('inlineRadio2');
@@ -245,9 +245,9 @@ function renderCarrito() {
 //     }else{
 //         console.log(talla = tallaEg.value);
 //     }}
+// }
 
-
-// });
+ 
 
 // function addCarrito(e){
 //     let button = e.target

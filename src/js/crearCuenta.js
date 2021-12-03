@@ -2,7 +2,8 @@
 //funcion validar formulario
 function validacionDeFormulario(e) {
     e.preventDefault();
-    console.log("val")
+
+   
 
     const nameLength = 25;
     const emailLength = 16;
@@ -15,7 +16,7 @@ function validacionDeFormulario(e) {
     let passCont = 0;
     let addUserCont = 0;
     //console.log(e.target.value);
-    //window.location.href="./../pages/login.html"
+    //"
     //hay que prevenir el evento por default 
     //if(e.target.name=='nuevac'){
     let fieldName = document.getElementById("name").value;
@@ -114,11 +115,11 @@ function validacionDeFormulario(e) {
         //se trae de localStorage el objeto creado
         let usuarios = window.localStorage.getItem('usuarios');
         // if (storeList == null) {
-            let storeList;
-            //si usuarios esta vacío crear el objeto del administrador
-            if (!usuarios ) {
+        let storeList;
+        //si usuarios esta vacío crear el objeto del administrador
+        if (!usuarios) {
             storeList = [
-                {"nombre":"yaki", "email":"zeltzin@gmail.com", "pass0":"yakiromerotrejo"}
+                { "nombre": "yaki", "email": "zeltzin@gmail.com", "pass0": "yakiromerotrejo" }
             ];
             //transformar a string el objeto del admin
             localStorage.setItem('usuarios', JSON.stringify(storeList))
@@ -129,41 +130,39 @@ function validacionDeFormulario(e) {
         }
         //a la funcion usuarioExistente se le asigan los parametros de storelist y newUser(objetoAdmin, objetoNuevo)
         usuarioExistente(storeList, newUser)
-        
+
     }
 }
 //se crea la funcion que valida si el usuario ya existe o no 
 function usuarioExistente(arregloUsuario, objUsuario) {
-   console.log(arregloUsuario) 
+    // console.log(arregloUsuario)
     //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
-    const newArreglo = arregloUsuario.find(usuario => { 
+    const newArreglo = arregloUsuario.find(usuario => {
         console.log(usuario)
         console.log(objUsuario)
         //si son iguales retorna el objeto nuevo
-        if (usuario.email == objUsuario.email && usuario.pass0 ==  objUsuario.pass0){
+        if (usuario.email == objUsuario.email && usuario.pass0 == objUsuario.pass0) {
             return objUsuario
-            // console.log('el usuario ya existe');
+            // window.location.href="./../pages/login.html"
         }
     })
-console.log(newArreglo)
-//si nuevo arreglo es diferente agregar el objUsuario
-    if(!newArreglo ){
+    console.log(newArreglo)
+    //si nuevo arreglo es diferente agregar el objUsuario
+    if (!newArreglo) {
         arregloUsuario.push(objUsuario)
-    
+        console.log(arregloUsuario)
+
         // convierte arreglousuario  a string
         localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-    
-    }else{
+
+    } else {
         
-        alert('usuario ya existe')
-
-      
-
+        console.log('la cuenta ya existe')
     }
-    
+
 };
-    const form1 = document.getElementById('form_nc');
-    form1.addEventListener('submit', validacionDeFormulario);
+const form1 = document.getElementById('form_nc');
+form1.addEventListener('submit', validacionDeFormulario);
 
 
 

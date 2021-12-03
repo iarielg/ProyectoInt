@@ -5,7 +5,7 @@
 }
 
 
-.container{
+.carrito1{
     /* margin: 10px 10px 100px;
     padding: 10px 7px 15px; */
     border: 1px solid rgb(121, 119, 119);
@@ -70,6 +70,14 @@
 
 .table input{
     width: 30px;
+}
+
+.remove{
+    display: none;
+}
+
+.alert{
+    z-index: 100;
 }
 
   /* @media screen and (min-width: 607px) and (max-width: 760px) {
