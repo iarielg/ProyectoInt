@@ -55,7 +55,8 @@ export function nav(div) {
             
             </ul>
             <form class="d-flex">
-            <a class="nav-link" href="./../pages/login.html";">INICIAR SESIÓN</a>
+            <a class="nav-link signin-link" href="./../pages/login.html";">INICIAR SESIÓN</a>
+            <a class="nav-link signout-link is-hidden" href="./../pages/login.html";">CERRAR SESIÓN</a>
             </form>
         </div>
     </div>
