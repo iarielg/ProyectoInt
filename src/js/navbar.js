@@ -56,10 +56,24 @@ export function nav(div) {
             </ul>
             <form class="d-flex">
             <a class="nav-link signin-link" href="./../pages/login.html";">INICIAR SESIÓN</a>
-            <a class="nav-link signout-link is-hidden" href="./../pages/login.html";">CERRAR SESIÓN</a>
+            <a class="nav-link signout-link is-hidden" id="logout-link" href="./../index.html";">CERRAR SESIÓN</a>
             </form>
         </div>
     </div>
 </nav>`
 }
 nav(navbar_root)
+
+
+function toggleLoginLogout () {
+    if(localStorage.getItem('usuarios') !== null){
+      document.getElementsByClassName("signin-link")[0].style.display = "none";
+      document.getElementsByClassName("signout-link")[0].style.display = "unset";
+      }
+    }
+    toggleLoginLogout()
+
+document.getElementById("logout-link").addEventListener("click", function() {
+    window.localStorage.clear()
+      });
+    
