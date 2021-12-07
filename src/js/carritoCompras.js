@@ -23,7 +23,7 @@ function renderCarrito(carrito) {
         const content = `<tr>
         <th scope="col"><img src="${pedido.image}"alt="${pedido.title}"></th>
          <td class=" fw-bold pt-5 title">${pedido.title}</td>
-         <td class=" fw-bold pt-5 title">${pedido.precio}</td>
+         <td class=" fw-bold pt-5 title">${pedido.precio} MXN</td>
          <td>
             <div class="cantidad-producto ">
             <input type="number" min="1" value=${pedido.cantidad} class="input_elemento">
@@ -53,7 +53,7 @@ function carritoTotal() {
         const precio = Number(item.precio.replace("Precio: $", ''))
         Total = Total + precio * item.cantidad
     })
-    itemCartTotal.innerHTML = `Total $${Total}`
+    itemCartTotal.innerHTML = `Total ${Total} MXN`
 
 }
 
@@ -97,7 +97,15 @@ function sumaCantidad(e) {
 let comprar = document.querySelector('.comprar')
 comprar.addEventListener('click', removeCarrio)
 
+
 function removeCarrio(e) {
+    Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: '¡Gracias por tu compra!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     localStorage.removeItem('productos');
 
     carrito.forEach(product=>{
@@ -109,6 +117,11 @@ function removeCarrio(e) {
     }
 }
 
+
+    let seguirComparndo = document.querySelector('.seguir-comprando')
+    seguirComparndo.addEventListener('click', function(){
+        window.location.href="./../index.html"
+    })
 
 
 
