@@ -173,8 +173,8 @@ else if(e.target.name=='boton_nuevo'){
 }
 else {
   switch(e.target.name){
-    case "uso":
-      window.location.href="./../pages/mujeres.html"
+    case "admin":
+      window.location.href="./../pages/alta-productos.html"
     break;
     case "aviso":
       window.location.href="./../pages/mujeres.html"
