@@ -8,7 +8,7 @@ let nuevos = document.getElementById('nuevos');
 
 
 const expresiones = {
-    contraseña: /^[a-zA-Z0-9]{10}$/,
+    contraseña: /^[a-zA-Z0-9]{8,16}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     
 }

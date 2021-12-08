@@ -2,7 +2,8 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
-
+let bannerImage = document.getElementById('validationCustom08');
+let img=document.getElementById('img0');
 
 
 const expresiones = {
@@ -10,6 +11,7 @@ const expresiones = {
     tipo: /^[a-zA-ZÀ-ÿ\s]{4,15}$/, // Letras y espacios, pueden llevar acentos.
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,30}$/, // Letras y espacios, pueden llevar acentos.
     precio: /^\d{2,14}$/,// 2 a 14 numeros.
+    cantidad: /^\d{1,14}$/,// 2 a 14 numeros.
     descripcion: /^[a-zA-ZÀ-ÿ\s0-9]{5,70}$/, // Letras y espacios, pueden llevar acentos.
 }
 
@@ -17,7 +19,7 @@ const campos = {
     id: false,
     tipo: false,
     talla: false,
-    genero: false,
+    cantidad: false,
     nombre: false,
     color: false,
     precio: false,
@@ -84,31 +86,19 @@ const validarFormulario = function (e) {
             }
             break;
         case "cantidad":
-            if (expresiones.nombre.test(e.target.value)) {
+            if (expresiones.cantidad.test(e.target.value)) {
     
                 document.querySelector('.cantidad').classList.add('is-valid');
                 document.querySelector('.cantidad').classList.remove('is-invalid');
-                campos.nombre = true;
+                campos.cantidad = true;
             } else {
     
                 document.querySelector('.cantidad').classList.add('is-invalid');
                 document.querySelector('.cantidad').classList.remove('is-valid');
-                campos.id = false;
+                campos.cantidad = false;
             }
             break;
-        case "genero":
-            if ((e.target.value != 0)) {
-
-                document.querySelector('.genero').classList.add('is-valid');
-                document.querySelector('.genero').classList.remove('is-invalid');
-                campos.genero = true;
-            } else {
-
-                document.querySelector('.genero').classList.add('is-invalid');
-                document.querySelector('.genero').classList.remove('is-valid');
-                campos.genero = false;
-            }
-            break;
+  
         case "categoria":
             if ((e.target.value != 0)) {
 
@@ -191,25 +181,48 @@ select.forEach(function(input){
 })
 
 
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+
+// Add a change listener to the file input to inspect the uploaded file.
+bannerImage.addEventListener('change', function(e) {
+    var file = bannerImage.files[0];///guarda el archivo de banner en la var file
+    console.log(file)
+    if (file.type.indexOf('image') < 0) {///si no es una imagen te saca del evento
+        return;
+    }
+    var fReader = new FileReader();///creo un objeto de tipo "lector de archivo"
+
+    fReader.onload = function() {
+        // Show the uploaded image to banner.
+        img.src = fReader.result;
+        // Save it when data complete.
+        // Use your function will ensure the format is png.
+        localStorage.setItem("imgData", getBase64Image(img));
+        // You can just use as its already a string.
+        // localStorage.setItem("imgData", fReader.result);
+    };
+
+    // Read the file to DataURL format.
+    fReader.readAsDataURL(file);
+});
+
+
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
-  /*
-        newproduct.innerHTML='<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
-        '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.name + '</h5>\n' +
-        //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-        '<p>' + 'Precio: $' + item.precio + '</p>' +
-        //'<p>' + 'Color: ' + item.color + '</p>' +
-        //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
-        '</div>\n' +
-        '<br/>';*/
-
-    //const noms = 'listener';
-    //localStorage.setItem('nombresusuas',noms);
-    if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
+    if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.precio  && campos.descripcion && campos.color && campos.imagen &&campos.cantidad) {
         
     
         let nombre = document.getElementById('validationCustom00').value;
@@ -217,8 +230,8 @@ formulario.addEventListener('submit', function (e) {
         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
-        let genero = document.getElementById('validationCustom04');
-        let genero1 = genero.options[genero.selectedIndex].text;
+        let cantidad = document.getElementById('validationCustom04');
+        
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
@@ -232,13 +245,13 @@ formulario.addEventListener('submit', function (e) {
                 id: `${id}`,
                 tipo: `${tipo}`,
                 talla: `${talla1}`,
-                genero: `${genero1}`,
+                cantidad: `${cantidad}`,
                 color: `${color1}`,
                 precio: `${precio}`,
                 categoria: `${categoria1}`,
                 
                 descripcion:`${descripcion}`,
-                imagen: `${imagen}`
+                imagen: getBase64Image(img)
                 //categ:document.getElementById('validationCustom08')
             }; // item #1
         //let productoJSON;
@@ -259,28 +272,9 @@ formulario.addEventListener('submit', function (e) {
 
         }
             
-           
-           
-            
-           // document.querySelector('.alert').innerHTML = productoJSON.tipo
-            
            let product = localStorage.getItem('product');
            console.log(product);
-           //console.log("product");
-           function addItem(product) {
-            const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-                '<h5 class="card-title">' + product.append(color) + '</h5>\n' +
-                //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-                '<p>' + 'Precio: $' + product.append(precio) + '</p>' +
-                //'<p>' + 'Color: ' + item.color + '</p>' +
-                //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-                '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
-                '</div>\n' +
-                '<br/>';
-        
-            const itemsContainer = document.querySelector('.crearcard');
-            itemsContainer.innerHTML += itemHTML;
-        } 
+           //console.log("product")
     
         formulario.reset();
         document.querySelector('.color').classList.remove('is-valid');
