@@ -17,21 +17,8 @@ function addItem(item) {
 
 
 let productoJSON= localStorage.getItem('product');
-//let myJSON= [{}];
+
 let myJSON= JSON.parse(productoJSON);
-//console.log(myJSON)
-//var dataImage = localStorage.getItem('imgData');///get imagen
-
-//myJSON.img.src="data:image/png;base64," + dataImage;
-//img.src = "data:image/png;base64," + dataImage;
-
-
-//let myJSONString=JSON.stringify(productoJSON);
-
-
-
-
-//let myJSONString=JSON.stringify(productoJSON);
 
 
 addItem({
@@ -78,7 +65,10 @@ addItem({
 
 for(i=0;i<myJSON.length;i++){
     console.log(myJSON[i])
-    addItem(myJSON[i]);
+
+    //let categoria= JSON.parse(localStorage.getItem('categoria'));
+    if(myJSON[i].categoria=="HOMBRE"){
+    addItem(myJSON[i]);}
 }
 /*
 addItem({

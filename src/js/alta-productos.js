@@ -167,43 +167,27 @@ select.forEach(function(input){
     input.addEventListener('blur', validarFormulario);
     
 })
-
-/*
-var mybuttonwidget= loudinary.openUploadWidget({
-    cloudName: "dehvodgm2", uploadPreset: "Areli123",
-    styles:{
-      palette: {
-        window: "#FFF",
-        windowBorder: "#90A0B3",
-        tabIcon: "#0E2F5A",
-        menuIcons: "#5A616A",
-        textDark: "#000000",
-        textLight: "#FFFFFF",
-        link:  "#0078FF",
-        action:  "#FF620C",
-        inactiveTabIcon: "#0E2F5A",
-        error: "#F44235",
-        inProgress: "#0078FF",
-        complete: "#20B832",
-        sourceBg: "#E4EBF1"
-      },
-    
-      frame: {
-        background: "#0E2F5B99"
-      },
-    },
- }, (error, result) => { });*/
-
+const validarImagen=function(img){
+if ((img.src)) {
+    document.querySelector('.imagen').classList.add('is-valid');
+    document.querySelector('.imagen').classList.remove('is-invalid');
+    campos.imagen = true;
+} else {
+    document.querySelector('.imagen').classList.add('is-invalid');
+    document.querySelector('.imagen').classList.remove('is-valid');
+    campos.imagen = false;
+}
+}
 var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dehvodgm2', 
     uploadPreset: 'Areli123',
-    button_class:'btn btn-dark'
 
     
 }, (error, result) => { 
       if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info); 
         img.src = result.info.secure_url;
+        validarImagen(img);
       }
     }
   )
@@ -215,16 +199,7 @@ var myWidget = cloudinary.createUploadWidget({
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
-        if ((img.src)) {
-            document.querySelector('.imagen').classList.add('is-valid');
-            document.querySelector('.imagen').classList.remove('is-invalid');
-            campos.imagen = true;
-        } else {
-            document.querySelector('.imagen').classList.add('is-invalid');
-            document.querySelector('.imagen').classList.remove('is-valid');
-            campos.imagen = false;
-        }
-
+   
     if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.precio  && campos.descripcion && campos.color && campos.imagen &&campos.cantidad) {
                
         let nombre = document.getElementById('validationCustom00').value;
@@ -232,7 +207,7 @@ formulario.addEventListener('submit', function (e) {
         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
-        let cantidad = document.getElementById('validationCustom04');
+        let cantidad = document.getElementById('validationCustom04').value;
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
@@ -252,6 +227,7 @@ formulario.addEventListener('submit', function (e) {
                 descripcion:`${descripcion}`,
                 imagen:img.src
             }; 
+
         if (!(localStorage.getItem('product'))){
             let primerArreglo=[newProducto];
             let productoJSON = JSON.stringify(primerArreglo)
