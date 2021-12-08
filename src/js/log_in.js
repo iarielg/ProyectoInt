@@ -171,18 +171,23 @@ formulario.addEventListener('click', function (e) {
 else if(e.target.name=='boton_nuevo'){
   window.location.href="./../pages/crearCuenta.html"
 }
+
+
+
 else {
   switch(e.target.name){
     case "admin":
       window.location.href="./../pages/alta-productos.html"
     break;
     case "aviso":
-      window.location.href="./../pages/mujeres.html"
+      window.location.href="./../pages/AvisoPrivacidad.html"
     break;
     case "ayuda":
-      window.location.href="./../pages/mujeres.html"
+      window.location.href="./../pages/contacto.html"
     break;
   }
+
+
 }
 
 
