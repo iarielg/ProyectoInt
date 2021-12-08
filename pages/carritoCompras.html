@@ -33,7 +33,7 @@
     <div class="nav_root" id="navbar_root">
         <!-- Menú de navegación -->
     </div>
-    <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
+    <div class="alert container position-sticky top-0 alert-dark remove" role="alert">
         El producto se eliminó
       </div>
 
@@ -45,51 +45,29 @@
 
             </thead>
             <tbody class="tbody" id="tbody">
-                 <!-- <tr>
-                   <th scope="col"><img src="../src/img/Hombres/Playera1.jpg" alt=""></th>
-                    <td class=" fw-bold pt-5">Playera - Maestro Roshi</td>
-                    <td>
-                        <div class="cantidad-producto ">
-                            <p class="cantidad fw-bold">1</p>
-                            <p class="incremento fw-bold">+</p>
-                        </div>
-                    </td>
-                    <td><i class="fas fa-trash-alt icon"></i></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td colspan="2">Total $750.00</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td colspan="1"><button class="btn btn-dark">Pagar</button></td> 
-                </tr>-->
+                
+              <!-- table -->
             </tbody>
         </table>
 
         <div class="row mx-4 btn-comprar">
         <div class="col">
-          <h3 class="itemCartTotal">Total: 0</h3>
+          <h3 class="itemCartTotal"></h3>
         </div>
         <div class="col d-flex justify-content-end">
-          <button class="btn btn-dark mb-2 comprar">COMPRAR</button>
+          <button class="btn btn-dark mb-2 comprar"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">COMPRAR</button>
         </div>
       </div>
     </div>
 
     <!-- Ventana Modal -->
-<!-- 
+
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header color-ligth">
-              <h5 class="modal-title" id="staticBackdropLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
-              <h5 class="text-center bi-bag-check">¡GRACIAS POR TU COMPRA!</h5>
+              <div class="icon-compras bi-bag-check"></div>
+              <h5 class="text-center">¡GRACIAS POR TU COMPRA!</h5>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -97,7 +75,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

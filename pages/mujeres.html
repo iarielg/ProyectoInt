@@ -19,6 +19,9 @@
                 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
                 crossorigin="anonymous" />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+        <script src="https://kit.fontawesome.com/0ee6596cea.js" crossorigin="anonymous"></script>
+
         <!-- Bootstrap ICONS-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" />
 
@@ -26,13 +29,34 @@
 </head>
 
 <body>
-        
+
         <div class="nav_root" id="navbar_root">
                 <!-- Menú de navegación -->
         </div>
-        <div class="alert container position-sticky top-0 alert-primary hide"  role="alert">
-                Se agrego al carrito
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="bag-check-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                </symbol>
+              </svg> -->
+
+        <div class="alert alert-dark position-sticky top-0 hide container" role="alert">
+                <div>
+                        Se agrego al carrito
+                </div>
         </div>
+
+
+
+        <!-- <div class="alert hide">
+              <div  class="alert alert-dark d-flex  position-sticky top-0 w-20" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#bag-check-fill"/></svg>
+                <div >
+                        Se agrego al carrito
+                </div>
+              </div> 
+        </div> -->
+
         <h1 class="text-center p-50">MUJER</h1>
 
         <!--cards-->
@@ -122,8 +146,8 @@
                                         </form>
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark"
-                                                data-bs-dismiss="modal" id="cancel">CANCELAR</button>
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"
+                                                id="cancel">CANCELAR</button>
                                         <button type="button" class="btn btn-dark" id="agregar-carrito">AGREGAR</button>
                                 </div>
                         </div>
