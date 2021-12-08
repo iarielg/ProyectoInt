@@ -165,6 +165,6 @@ function usuarioExistente(arregloUsuario, objUsuario) {
 
 const form1 = document.getElementById('form_nc');
 form1.addEventListener('submit', validacionDeFormulario);
-console.log(usuarios); 
-console.log(storeList);
+//console.log(usuarios); 
+//console.log(storeList);
 
