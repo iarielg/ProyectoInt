@@ -2,7 +2,7 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
-let bannerImage = document.getElementById('validationCustom08');
+//let bannerImage = document.getElementById('validationCustom08');
 let img=document.getElementById('img0');
 
 
@@ -138,19 +138,7 @@ const validarFormulario = function (e) {
                 campos.precio = false;
             }
             break;
-        case "imagen":
-            if ((e.target.value != 0)) {
-
-                document.querySelector('.imagen').classList.add('is-valid');
-                document.querySelector('.imagen').classList.remove('is-invalid');
-                campos.imagen = true;
-            } else {
-
-                document.querySelector('.imagen').classList.add('is-invalid');
-                document.querySelector('.imagen').classList.remove('is-valid');
-                campos.imagen = false;
-            }
-            break;
+   
         case "descripcion":
             if (expresiones.descripcion.test(e.target.value)) {
 
@@ -180,7 +168,25 @@ select.forEach(function(input){
     
 })
 
+//var cl = new cloudinary.Cloudinary({cloud_name: "dehvodgm2", secure: true});
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dehvodgm2', 
+    uploadPreset: 'Areli123'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        console.log('Done! Here is the image info: ', result.info); 
+        img.src = result.info.secure_url;
+      }
+    }
+  )
+  
+  document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+  
+   // https://res.cloudinary.com/dehvodgm2/image/upload/v1638978730/hombres/uf9lryfdljyatdier1h2.jpg
+    
 
+/*
 function getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -192,11 +198,11 @@ function getBase64Image(img) {
     var dataURL = canvas.toDataURL("image/png");
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
+}*/
 
 
 // Add a change listener to the file input to inspect the uploaded file.
-bannerImage.addEventListener('change', function(e) {
+/*bannerImage.addEventListener('change', function(e) {
     var file = bannerImage.files[0];///guarda el archivo de banner en la var file
     console.log(file)
     if (file.type.indexOf('image') < 0) {///si no es una imagen te saca del evento
@@ -217,14 +223,24 @@ bannerImage.addEventListener('change', function(e) {
     // Read the file to DataURL format.
     fReader.readAsDataURL(file);
 });
-
+*/
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
+        if ((img.src)) {
+            document.querySelector('.imagen').classList.add('is-valid');
+            document.querySelector('.imagen').classList.remove('is-invalid');
+            campos.imagen = true;
+        } else {
+
+            document.querySelector('.imagen').classList.add('is-invalid');
+            document.querySelector('.imagen').classList.remove('is-valid');
+            campos.imagen = false;
+        }
 
     if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.precio  && campos.descripcion && campos.color && campos.imagen &&campos.cantidad) {
         
-    
+        
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
         let tipo = document.getElementById('validationCustom02').value;
@@ -237,7 +253,7 @@ formulario.addEventListener('submit', function (e) {
         let precio = document.getElementById('validationCustom07').value;
         let categoria = document.getElementById('validationCustom05');
         let categoria1 = categoria.options[categoria.selectedIndex].text;
-        let imagen = document.getElementById('validationCustom08').value;
+        //let imagen = document.getElementById('validationCustom08').value;
         let descripcion = document.querySelector('.descripcion').value;
 
         let newProducto = {
@@ -251,7 +267,7 @@ formulario.addEventListener('submit', function (e) {
                 categoria: `${categoria1}`,
                 
                 descripcion:`${descripcion}`,
-                imagen: getBase64Image(img)
+                imagen:img.src
                 //categ:document.getElementById('validationCustom08')
             }; // item #1
         //let productoJSON;
@@ -279,12 +295,12 @@ formulario.addEventListener('submit', function (e) {
         formulario.reset();
         document.querySelector('.color').classList.remove('is-valid');
         document.querySelector('.categoria').classList.remove('is-valid');
-        document.querySelector('.genero').classList.remove('is-valid');
+        
         document.querySelector('.talla').classList.remove('is-valid');
         document.querySelector('.tipo').classList.remove('is-valid');
         document.querySelector('.id').classList.remove('is-valid');
         document.querySelector('.precio').classList.remove('is-valid');
-        document.querySelector('.imagen').classList.remove('is-valid');
+     //   document.querySelector('.imagen').classList.remove('is-valid');
         document.querySelector('.descripcion').classList.remove('is-valid');
         let correct = document.querySelector('.correct');
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -310,12 +326,12 @@ formulario.addEventListener('submit', function (e) {
     } else {
         document.querySelector('.color').classList.add('is-invalid');
         document.querySelector('.categoria').classList.add('is-invalid');
-        document.querySelector('.genero').classList.add('is-invalid');
+     
         document.querySelector('.talla').classList.add('is-invalid');
         document.querySelector('.tipo').classList.add('is-invalid');
         document.querySelector('.id').classList.add('is-invalid');
         document.querySelector('.precio').classList.add('is-invalid');
-        document.querySelector('.imagen').classList.add('is-invalid');
+      //  document.querySelector('.imagen').classList.add('is-invalid');
         document.querySelector('.descripcion').classList.add('is-invalid');
 
         let alert = document.querySelector('.alert')
@@ -341,6 +357,11 @@ formulario.addEventListener('submit', function (e) {
      
     }
 })//listennerFormulario
+
+
+
+
+
 
 
 

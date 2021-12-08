@@ -1,6 +1,6 @@
 function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' +"data:image/png;base64,"+ item.imagen + ' " class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.imagen + ' " class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
         '<h5 class="card-title">' + item.nombre + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
@@ -19,40 +19,34 @@ function addItem(item) {
 let productoJSON= localStorage.getItem('product');
 //let myJSON= [{}];
 let myJSON= JSON.parse(productoJSON);
-console.log(myJSON)
-var dataImage = localStorage.getItem('imgData');///get imagen
+//console.log(myJSON)
+//var dataImage = localStorage.getItem('imgData');///get imagen
 
 //myJSON.img.src="data:image/png;base64," + dataImage;
 //img.src = "data:image/png;base64," + dataImage;
 
-for(i=0;i<myJSON.length;i++){
-    console.log(myJSON[i])
-    addItem(myJSON[i]);
-}
+
 //let myJSONString=JSON.stringify(productoJSON);
 
 
 
 
 //let myJSONString=JSON.stringify(productoJSON);
-/*
+
 
 addItem({
-    'tipo': 'playera',
-    'name': 'Estilo gris',
-    //'description': 'Anfg',
-    'img': './../src/img/Hombres/Playera1.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '320',
-    'genero': 'M'
+    nombre:'Estilo gris',
+    tipo: 'playera',
+    talla: 'M',
+    precio:  '290',
+    imagen: 'https://res.cloudinary.com/dehvodgm2/image/upload/v1638975550/neverdiesco/hombres/Playera12_vw2hjm.jpg'
 }); // item #1
 
 addItem({
     'tipo': 'playera',
-    'name': 'Cráneo',
+    'nombre': 'Cráneo',
     //'description': 'Animación 2',
-    'img': './../src/img/Hombres/Playera2.jpg',
+    'imagen': 'https://res.cloudinary.com/dehvodgm2/image/upload/v1638975550/neverdiesco/hombres/Playera23_lefgrv.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '290',
@@ -61,9 +55,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Navidad',
+    'nombre': 'Navidad',
     //'description': 'Animación 3',
-    'img': './../src/img/Hombres/Playera3.jpg',
+    'imagen': 'https://res.cloudinary.com/dehvodgm2/image/upload/v1638975550/neverdiesco/hombres/Playera100_texmez.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '390',
@@ -72,26 +66,21 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Iluminación',
+    'nombre': 'Iluminación',
     //'description': 'Animación 4',
-    'img': './../src/img/Hombres/Playera4.jpg',
+    'imagen': 'https://res.cloudinary.com/dehvodgm2/image/upload/v1638975548/neverdiesco/hombres/Playera15_hylfok.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '410',
     'genero': 'M'
 }); // item #4
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Vista rosa',
-    //'description': 'Animación 5',
-    'img': './../src/img/Hombres/Playera5.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '250',
-    'genero': 'M'
-}); // item #5
 
+for(i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    addItem(myJSON[i]);
+}
+/*
 addItem({
     'tipo': 'playera',
     'name': 'Gran Elfo',
