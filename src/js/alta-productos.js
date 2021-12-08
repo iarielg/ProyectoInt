@@ -2,9 +2,9 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
-//let bannerImage = document.getElementById('validationCustom08');
 let img=document.getElementById('img0');
-
+let correct = document.querySelector('.correct');
+let alerta = document.querySelector('.alert');
 
 const expresiones = {
     id: /^\d{2,14}$/,// 7 a 14 numeros.
@@ -168,10 +168,39 @@ select.forEach(function(input){
     
 })
 
-//var cl = new cloudinary.Cloudinary({cloud_name: "dehvodgm2", secure: true});
+/*
+var mybuttonwidget= loudinary.openUploadWidget({
+    cloudName: "dehvodgm2", uploadPreset: "Areli123",
+    styles:{
+      palette: {
+        window: "#FFF",
+        windowBorder: "#90A0B3",
+        tabIcon: "#0E2F5A",
+        menuIcons: "#5A616A",
+        textDark: "#000000",
+        textLight: "#FFFFFF",
+        link:  "#0078FF",
+        action:  "#FF620C",
+        inactiveTabIcon: "#0E2F5A",
+        error: "#F44235",
+        inProgress: "#0078FF",
+        complete: "#20B832",
+        sourceBg: "#E4EBF1"
+      },
+    
+      frame: {
+        background: "#0E2F5B99"
+      },
+    },
+ }, (error, result) => { });*/
+
 var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dehvodgm2', 
-    uploadPreset: 'Areli123'}, (error, result) => { 
+    uploadPreset: 'Areli123',
+    button_class:'btn btn-dark'
+
+    
+}, (error, result) => { 
       if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info); 
         img.src = result.info.secure_url;
@@ -183,47 +212,6 @@ var myWidget = cloudinary.createUploadWidget({
       myWidget.open();
     }, false);
   
-   // https://res.cloudinary.com/dehvodgm2/image/upload/v1638978730/hombres/uf9lryfdljyatdier1h2.jpg
-    
-
-/*
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-
-    var dataURL = canvas.toDataURL("image/png");
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}*/
-
-
-// Add a change listener to the file input to inspect the uploaded file.
-/*bannerImage.addEventListener('change', function(e) {
-    var file = bannerImage.files[0];///guarda el archivo de banner en la var file
-    console.log(file)
-    if (file.type.indexOf('image') < 0) {///si no es una imagen te saca del evento
-        return;
-    }
-    var fReader = new FileReader();///creo un objeto de tipo "lector de archivo"
-
-    fReader.onload = function() {
-        // Show the uploaded image to banner.
-        img.src = fReader.result;
-        // Save it when data complete.
-        // Use your function will ensure the format is png.
-        localStorage.setItem("imgData", getBase64Image(img));
-        // You can just use as its already a string.
-        // localStorage.setItem("imgData", fReader.result);
-    };
-
-    // Read the file to DataURL format.
-    fReader.readAsDataURL(file);
-});
-*/
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -232,28 +220,24 @@ formulario.addEventListener('submit', function (e) {
             document.querySelector('.imagen').classList.remove('is-invalid');
             campos.imagen = true;
         } else {
-
             document.querySelector('.imagen').classList.add('is-invalid');
             document.querySelector('.imagen').classList.remove('is-valid');
             campos.imagen = false;
         }
 
     if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.precio  && campos.descripcion && campos.color && campos.imagen &&campos.cantidad) {
-        
-        
+               
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
         let cantidad = document.getElementById('validationCustom04');
-        
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
         let categoria = document.getElementById('validationCustom05');
         let categoria1 = categoria.options[categoria.selectedIndex].text;
-        //let imagen = document.getElementById('validationCustom08').value;
         let descripcion = document.querySelector('.descripcion').value;
 
         let newProducto = {
@@ -265,44 +249,24 @@ formulario.addEventListener('submit', function (e) {
                 color: `${color1}`,
                 precio: `${precio}`,
                 categoria: `${categoria1}`,
-                
                 descripcion:`${descripcion}`,
                 imagen:img.src
-                //categ:document.getElementById('validationCustom08')
-            }; // item #1
-        //let productoJSON;
-        //let arregloProductos=[{}];
+            }; 
         if (!(localStorage.getItem('product'))){
             let primerArreglo=[newProducto];
-            let productoJSON = JSON.stringify(primerArreglo)// const myJSON= JSON.parse(productoJSON)
+            let productoJSON = JSON.stringify(primerArreglo)
             localStorage.setItem('product',productoJSON);
         }
         else{
             let arregloProductos= JSON.parse(localStorage.getItem('product'));
-
             arregloProductos.push(newProducto)
-    
-        // convierte arreglousuario  a string
             localStorage.setItem('product', JSON.stringify(arregloProductos))
-    
-
         }
-            
-           let product = localStorage.getItem('product');
-           console.log(product);
-           //console.log("product")
+           let product ;
+           product= localStorage.getItem('product');///ver si es necesario
     
         formulario.reset();
-        document.querySelector('.color').classList.remove('is-valid');
-        document.querySelector('.categoria').classList.remove('is-valid');
-        
-        document.querySelector('.talla').classList.remove('is-valid');
-        document.querySelector('.tipo').classList.remove('is-valid');
-        document.querySelector('.id').classList.remove('is-valid');
-        document.querySelector('.precio').classList.remove('is-valid');
-     //   document.querySelector('.imagen').classList.remove('is-valid');
-        document.querySelector('.descripcion').classList.remove('is-valid');
-        let correct = document.querySelector('.correct');
+        alerta.innerHTML = ``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -322,18 +286,8 @@ formulario.addEventListener('submit', function (e) {
         </div>
       </div>`
 
-        console.log('tu formulario ha sido enviado');
     } else {
-        document.querySelector('.color').classList.add('is-invalid');
-        document.querySelector('.categoria').classList.add('is-invalid');
-     
-        document.querySelector('.talla').classList.add('is-invalid');
-        document.querySelector('.tipo').classList.add('is-invalid');
-        document.querySelector('.id').classList.add('is-invalid');
-        document.querySelector('.precio').classList.add('is-invalid');
-      //  document.querySelector('.imagen').classList.add('is-invalid');
-        document.querySelector('.descripcion').classList.add('is-invalid');
-
+        correct.innerHTML = ``
         let alert = document.querySelector('.alert')
         alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
