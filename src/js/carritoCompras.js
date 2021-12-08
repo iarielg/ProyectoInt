@@ -23,7 +23,7 @@ function renderCarrito(carrito) {
         const content = `<tr>
         <th scope="col"><img src="${pedido.image}"alt="${pedido.title}"></th>
          <td class=" fw-bold pt-5 title">${pedido.title}</td>
-         <td class=" fw-bold pt-5 title">${pedido.precio} MXN</td>
+         <td class=" fw-bold pt-5 title">${pedido.precio}</td>
          <td>
             <div class="cantidad-producto ">
             <input type="number" min="1" value=${pedido.cantidad} class="input_elemento">
@@ -51,9 +51,11 @@ function carritoTotal() {
         console.log(item.cantidad)
 
         const precio = Number(item.precio.replace("Precio: $", ''))
-        Total = Total + precio * item.cantidad
+       Total = Total + precio * item.cantidad
+        console.log(Total)
     })
-    itemCartTotal.innerHTML = `Total ${Total} MXN`
+    itemCartTotal.innerHTML = `Total ${Total}`
+    console.log(itemCartTotal)
 
 }
 
@@ -65,6 +67,7 @@ function removeItemCarrito(e) {
     for (let index = 0; index < carrito.length; index++) {
         if (carrito[index].title.trim() === title.trim()) {
             carrito.splice(index, 1)
+            localStorage.removeItem('productos' [index])
         }
 
     }
@@ -99,13 +102,14 @@ comprar.addEventListener('click', removeCarrio)
 
 
 function removeCarrio(e) {
-    Swal.fire({
-        position: 'top-center',
-        icon: 'success',
-        title: '¡Gracias por tu compra!',
-        showConfirmButton: false,
-        timer: 1500
-      })
+    // Swal.fire({
+    //     position: 'top-center',
+    //     icon: 'success',
+    //     title: '¡Gracias por tu compra!',
+    //     showConfirmButton: false,
+    //     timer: 2500
+    //   })
+      
     localStorage.removeItem('productos');
 
     carrito.forEach(product=>{
