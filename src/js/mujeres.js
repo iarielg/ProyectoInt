@@ -117,7 +117,7 @@ let productoJSON= localStorage.getItem('product');
 let myJSON= JSON.parse(productoJSON);
 
 for(let i=0;i<myJSON.length;i++){
-    console.log(myJSON[i])
+  
     if(myJSON[i].categoria=="MUJER"){
      addItem(myJSON[i]);}
 }

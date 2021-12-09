@@ -109,7 +109,7 @@ let myJSON= JSON.parse(productoJSON);
 
 
 for(i=0;i<myJSON.length;i++){
-    console.log(myJSON[i])
+    
     if(myJSON[i].categoria=="ACCESORIOS"){
      addItem(myJSON[i]);}
 }

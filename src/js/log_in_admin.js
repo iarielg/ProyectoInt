@@ -1,4 +1,3 @@
-//LOG IN admin JS
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const botonEntar = document.getElementById('entrar');
@@ -31,7 +30,7 @@ const validarFormulario = function (e) {
               document.querySelector('.correo').classList.add('is-invalid');
               document.querySelector('.correo').classList.remove('is-valid');
               campos.correo = false;
-              console.log('el correo no es valido')
+         
               
           }
           break;
@@ -46,7 +45,7 @@ const validarFormulario = function (e) {
               document.querySelector('.contraseña').classList.add('is-invalid');
               document.querySelector('.contraseña').classList.remove('is-valid');
               campos.contraseña = false;
-              console.log('el password no es valido')
+            
           }
           break;
     }
@@ -56,7 +55,7 @@ const validarFormulario = function (e) {
  
    
      if((usuarioAdmin.email !== objUsuario.email) || (objUsuario.pass0!==usuarioAdmin.pass0)){
-        console.log("invalido")
+     
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -92,10 +91,6 @@ formulario.addEventListener('click', function (e) {
   e.preventDefault();
   validarFormulario(e);
 
-  console.log(e.target.name);
-  console.log(e.target.type);
-
-
 
   ///traerse los usuarios creados
 
@@ -103,11 +98,6 @@ formulario.addEventListener('click', function (e) {
   // if (storeList == null) {
   let storeList;
     storeList = JSON.parse(usuarios);
-    console.log(storeList);
-    
-  
-
-  /////usuarioExistente(storeList, newUser)
 
 
   ///traerse los usuarios
@@ -158,7 +148,6 @@ else if(e.target.name=='boton_nuevo'){
 }
 
 
-
 else {
   switch(e.target.name){
     case "aviso":
@@ -169,16 +158,5 @@ else {
     break;
   }
 
-
 }
-
-
   })
-
-  // let usuario = []
-
-  // let example_JSON = localStorage.getItem('user0');
-  // example_JSON = JSON.parse(example_JSON);
-
-  // usuario.push(example_JSON)
-  // console.log(usuario)

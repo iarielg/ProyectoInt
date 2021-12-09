@@ -6,6 +6,7 @@ let img=document.getElementById('img0');
 let correct = document.querySelector('.correct');
 let alerta = document.querySelector('.alert');
 
+
 const expresiones = {
     id: /^\d{2,14}$/,// 7 a 14 numeros.
     tipo: /^[a-zA-ZÀ-ÿ\s]{4,15}$/, // Letras y espacios, pueden llevar acentos.
@@ -74,12 +75,12 @@ const validarFormulario = function (e) {
             break;
         case "talla":
             if ((e.target.value != 0)) {
-                console.log('bien')
+       
                 document.querySelector('.talla').classList.add('is-valid');
                 document.querySelector('.talla').classList.remove('is-invalid');
                 campos.talla = true;
             } else {
-                console.log('mal')
+         
                 document.querySelector('.talla').classList.add('is-invalid');
                 document.querySelector('.talla').classList.remove('is-valid');
                 campos.talla = false;
@@ -185,7 +186,6 @@ var myWidget = cloudinary.createUploadWidget({
     
 }, (error, result) => { 
       if (!error && result && result.event === "success") { 
-        console.log('Done! Here is the image info: ', result.info); 
         img.src = result.info.secure_url;
         validarImagen(img);
       }
@@ -264,8 +264,7 @@ formulario.addEventListener('submit', function (e) {
 
     } else {
         correct.innerHTML = ``
-        let alert = document.querySelector('.alert')
-        alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        alerta.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
         </symbol>

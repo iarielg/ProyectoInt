@@ -1,4 +1,3 @@
-//log in
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const botonEntar = document.getElementById('entrar');
@@ -22,22 +21,17 @@ const validarFormulario = function (e) {
   switch (e.target.name) {
       case "correo":
           if (expresiones.correo.test(e.target.value)) {
-
               document.querySelector('.correo').classList.add('is-valid');
               document.querySelector('.correo').classList.remove('is-invalid');
               campos.correo = true;
           } else {
-
               document.querySelector('.correo').classList.add('is-invalid');
               document.querySelector('.correo').classList.remove('is-valid');
               campos.correo = false;
-              console.log('el correo no es valido')
-              
           }
           break;
       case "contraseña":
           if (expresiones.contraseña.test(e.target.value)) {
-
               document.querySelector('.contraseña').classList.add('is-valid');
               document.querySelector('.contraseña').classList.remove('is-invalid');
               campos.contraseña = true;
@@ -46,7 +40,6 @@ const validarFormulario = function (e) {
               document.querySelector('.contraseña').classList.add('is-invalid');
               document.querySelector('.contraseña').classList.remove('is-valid');
               campos.contraseña = false;
-              console.log('el password no es valido')
           }
           break;
     }
@@ -65,7 +58,6 @@ const validarFormulario = function (e) {
  //si nuevo arreglo es diferente agregar el objUsuario
      if(!usuarioEncontrado ){
 
-        console.log("invalido")
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -88,7 +80,6 @@ const validarFormulario = function (e) {
       window.location.href="./../index.html"  }  
      }
      else{
-       console.log("invalido")
        Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -115,9 +106,6 @@ formulario.addEventListener('click', function (e) {
   e.preventDefault();
   validarFormulario(e);
 
-  console.log(e.target.name);
-  console.log(e.target.type);
-
 
 
   ///traerse los usuarios creados
@@ -126,8 +114,6 @@ formulario.addEventListener('click', function (e) {
 
   let storeList;
     storeList = JSON.parse(usuarios);
-    console.log(storeList);
-    
 
   if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
 
