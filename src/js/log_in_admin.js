@@ -1,4 +1,4 @@
-//log in
+//LOG IN admin JS
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const botonEntar = document.getElementById('entrar');
@@ -51,20 +51,11 @@ const validarFormulario = function (e) {
           break;
     }
   }
-
-  function ValidacionCredenciales(arregloUsuario, objUsuario) {
-     //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
-     const usuarioEncontrado = arregloUsuario.find(usuario => { 
-         //si son iguales retorna el objeto nuevo
-         if (usuario.email == objUsuario.email){
-           const usuarioLogeado=usuario;
-           localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-             return usuarioLogeado;
-         }
-     })
- //si nuevo arreglo es diferente agregar el objUsuario
-     if(!usuarioEncontrado ){
-
+  usuarioAdmin={"nombre":"yaki", "email":"zeltzin@gmail.com", "pass0":"yakiromerotrejo"} //Default
+  function ValidacionCredenciales(usuarioAdmin, objUsuario) {
+ 
+   
+     if((!usuarioAdmin.email == objUsuario.email) || (!objUsuario.pass0==usuarioAdmin.pass0)){
         console.log("invalido")
         Swal.fire({
         icon: 'error',
@@ -74,24 +65,17 @@ const validarFormulario = function (e) {
         width: '40%',
         Height: '40%'
       })
-        
     
-     }else if(objUsuario.pass0==usuarioEncontrado.pass0)
+     }else (objUsuario.pass0==usuarioAdmin.pass0)
      {
-      window.location.href="./../index.html"    
+      const usuarioLogeado=objUsuario;
+      localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+      window.location.href="./../pages/alta-productos.html"
+        
+         
+           
      }
-     else{
-       console.log("invalido")
-       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: '¡Datos incorrectos!',
-        confirmButtonColor: "black",
-        width: '40%',
-        Height: '40%'
-      })
-      
-     }
+     
  }; //function usuarioExistente
 
 
@@ -116,11 +100,17 @@ formulario.addEventListener('click', function (e) {
   ///traerse los usuarios creados
 
   let usuarios = window.localStorage.getItem('usuarios');
-
+  // if (storeList == null) {
   let storeList;
     storeList = JSON.parse(usuarios);
     console.log(storeList);
     
+  
+
+  /////usuarioExistente(storeList, newUser)
+
+
+  ///traerse los usuarios
 
   if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
 
@@ -134,7 +124,7 @@ formulario.addEventListener('click', function (e) {
       
   };
 
-    ValidacionCredenciales(storeList, newUser)
+    ValidacionCredenciales(usuarioAdmin, newUser)
 
   } 
 
@@ -171,9 +161,6 @@ else if(e.target.name=='boton_nuevo'){
 
 else {
   switch(e.target.name){
-    case "admin":
-      window.location.href="./../pages/log_in_admin.html"
-    break;
     case "aviso":
       window.location.href="./../pages/AvisoPrivacidad.html"
     break;
@@ -188,4 +175,10 @@ else {
 
   })
 
- 
+  // let usuario = []
+
+  // let example_JSON = localStorage.getItem('user0');
+  // example_JSON = JSON.parse(example_JSON);
+
+  // usuario.push(example_JSON)
+  // console.log(usuario)

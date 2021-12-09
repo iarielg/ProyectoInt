@@ -1,3 +1,4 @@
+///CREARCUENTA JS
 //funcion validar formulario
 function validacionDeFormulario(e) {
     e.preventDefault();
@@ -147,7 +148,7 @@ function usuarioExistente(arregloUsuario, objUsuario) {
 
         // convierte arreglousuario  a string
         localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-        window.location.href="./../index.html" //Me reedirecciona a HOME
+        window.location.href="./../pages/login.html" //Me reedirecciona a HOME
         // window.location.href="./../pages/login.html" //Me reedirecciona a HOME
     }else{
         // alert('El usuario ya existe')
