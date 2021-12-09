@@ -4,7 +4,7 @@ function addItem(item) {
         '<div class="card-body";>\n' +
         '<h5 class="card-title" id="title-card">' + item.name + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-        '<p class="card-precio">' + 'Precio: $' + item.precio +  '</p>' +
+        '<p class="card-precio">' + 'Precio: $' + item.precio  + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
         '<button type="button" class="content-fluid btn btn-dark" id="clickButon"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
@@ -213,47 +213,5 @@ console.log(arregloProducto)
        localStorage.setItem('productos',JSON.stringify(arregloProducto))
  
 }
-
-
-//VENTANA MODAL - AGREGAR AL CARRITO
-// let agregar_carrito = document.getElementById('agregar-carrito');
-// agregar_carrito.addEventListener('click', addCarrito)
-
-// function addCarrito(){
-//     const alert = document.querySelector('.alert')
-//     if( select.options[select.selectedIndex].text == 'Selecciona el color'){
-//         alert.textContent = 'Ingrese el color deseado'
-//     }else{
-//     // let select = document.getElementById('select')
-//     // let selected = select.options[select.selectedIndex].text;
-//     console.log(selected);
-//     alert.remove('.remove');
-
-//     let tallaCh = document.getElementById('inlineRadio1');
-//     let tallaM = document.getElementById('inlineRadio2');
-//     let tallaGd = document.getElementById('inlineRadio3');
-//     let tallaEg = document.getElementById('inlineRadio4');
-
-//     let talla = '';
-//     if(tallaCh.checked){
-//         console.log(talla = tallaCh.value);
-//     }else if(tallaM.checked){
-//         console.log(talla = tallaM.value);
-
-//     }else if(tallaGd.checked){
-//         console.log(talla = tallaGd.value);
-
-//     }else{
-//         console.log(talla = tallaEg.value);
-//     }}
-// }
-
- 
-
-// function addCarrito(e){
-//     let button = e.target
-//     const item = button.closest('.card')
-//     console.log(item);
-// }
 
 
