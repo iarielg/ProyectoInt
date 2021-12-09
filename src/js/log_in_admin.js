@@ -55,7 +55,7 @@ const validarFormulario = function (e) {
   function ValidacionCredenciales(usuarioAdmin, objUsuario) {
  
    
-     if((!usuarioAdmin.email == objUsuario.email) || (!objUsuario.pass0==usuarioAdmin.pass0)){
+     if((usuarioAdmin.email !== objUsuario.email) || (objUsuario.pass0!==usuarioAdmin.pass0)){
         console.log("invalido")
         Swal.fire({
         icon: 'error',
@@ -66,7 +66,7 @@ const validarFormulario = function (e) {
         Height: '40%'
       })
     
-     }else (objUsuario.pass0==usuarioAdmin.pass0)
+     }else
      {
       const usuarioLogeado=objUsuario;
       localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));

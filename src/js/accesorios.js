@@ -1,8 +1,8 @@
 function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.name + '</h5>\n' +
+        '<h5 class="card-title">' + item.nombre + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
         '<p class="card-precio">' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
@@ -17,9 +17,9 @@ function addItem(item) {
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Gorro Jabalí',
+    'nombre': 'Gorro Jabalí',
     //'description': 'Anfg',
-    'img': './../src/img/Accesorios/Accesorios1.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios1.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '120',
@@ -28,9 +28,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Stickers Never Dies',
+    'nombre': 'Stickers Never Dies',
     //'description': 'Animación 7',
-    'img': './../src/img/Accesorios/Accesorios7.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios7.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '20',
@@ -39,9 +39,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Mochila Dark',
+    'nombre': 'Mochila Dark',
     //'description': 'Animación 8',
-    'img': './../src/img/Accesorios/Accesorios8.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios8.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '280',
@@ -50,9 +50,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Lentes Neves Dies',
+    'nombre': 'Lentes Neves Dies',
     //'description': 'Animación 2',
-    'img': './../src/img/Accesorios/Accesorios.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '320',
@@ -61,9 +61,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Gorra Azul NDS',
+    'nombre': 'Gorra Azul NDS',
     //'description': 'Animación 3',
-    'img': './../src/img/Accesorios/Accesorios3.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios3.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '320',
@@ -72,9 +72,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Bebé Never Dies',
+    'nombre': 'Bebé Never Dies',
     //'description': 'Animación 4',
-    'img': './../src/img/Accesorios/Accesorios4.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios4.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '160',
@@ -83,9 +83,9 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Gorra Negra NDS',
+    'nombre': 'Gorra Negra NDS',
     //'description': 'Animación 5',
-    'img': './../src/img/Accesorios/Accesorios5.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios5.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '180',
@@ -94,59 +94,25 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
-    'name': 'Gorra Beso Azul',
+    'nombre': 'Gorra Beso Azul',
     //'description': 'Animación 6',
-    'img': './../src/img/Accesorios/Accesorios6.jpg',
+    'imagen': './../src/img/Accesorios/Accesorios6.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': '140',
     'genero': 'M'
 }); // item #6
 
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Anillo Diablo',
-    //'description': 'Animación 9',
-    'img': './../src/img/Accesorios/Accesorios9.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '120',
-    'genero': 'M'
-}); // item #9
+let productoJSON= localStorage.getItem('product');
 
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Gorros Rojo y Negro Jabalí',
-    //'description': 'Animación 10',
-    'img': './../src/img/Accesorios/Accesorios10.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '200',
-    'genero': 'M'
-}); // item #10
+let myJSON= JSON.parse(productoJSON);
 
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Botónes Never Dies',
-    //'description': 'Animación 11',
-    'img': './../src/img/Accesorios/Accesorios11.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '10',
-    'genero': 'M'
-}); // item #11
 
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Almohada',
-    //'description': 'Animación 12',
-    'img': './../src/img/Accesorios/Accesorios12.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '280',
-    'genero': 'M'
-}); // item #12
-
+for(i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    if(myJSON[i].categoria=="ACCESORIOS"){
+     addItem(myJSON[i]);}
+}
 
 const clickButton = document.querySelectorAll('#clickButon');
 // let tbody = document.querySelector('.carrito');

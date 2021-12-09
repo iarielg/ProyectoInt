@@ -62,15 +62,6 @@ addItem({
     'genero': 'M'
 }); // item #4
 
-
-// for(i=0;i<myJSON.length;i++){
-//     console.log(myJSON[i])
-
-//     //let categoria= JSON.parse(localStorage.getItem('categoria'));
-//     if(myJSON[i].categoria=="HOMBRE"){
-//     addItem(myJSON[i]);}
-// }
-/*
 addItem({
     'tipo': 'playera',
     'name': 'Gran Elfo',
@@ -158,28 +149,12 @@ addItem({
     'precio': '350',
     'genero': 'M'
 }); // item #12
-//*
-addItem({
-    'tipo': 'playera',
-    'name': 'Inspiración',
-    //'description': 'Animación 12',
-    'imagen': './../src/img/Hombres/Playera14.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '220',
-    'genero': 'M'
-}); // item #12
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Doble Serpiente',
-    //'description': 'Animación 12',
-    'imagen': './../src/img/Hombres/Playera15.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '320',
-    'genero': 'M'
-}); // item #12*/
+for(i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    if(myJSON[i].categoria=="HOMBRE"){
+     addItem(myJSON[i]);}
+}
 
 
 const clickButton = document.querySelectorAll('#clickButon');

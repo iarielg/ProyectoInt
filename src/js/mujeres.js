@@ -1,8 +1,8 @@
 function addItem(item) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title" id="title-card">' + item.name + '</h5>\n' +
+        '<h5 class="card-title" id="title-card">' + item.nombre + '</h5>\n' +
         //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
         '<p class="card-precio">' + 'Precio: $' + item.precio + '</p>' +
         //'<p>' + 'Color: ' + item.color + '</p>' +
@@ -19,11 +19,16 @@ function addItem(item) {
 
 } // Objeto para Item
 
+
+
+
+
+
 addItem({
     'tipo': 'playera',
-    'name': 'Gran Navidad',
+    'nombre': 'Gran Navidad',
     //'description': 'Anfg',
-    'img': './../src/img/Mujeres/MPlayera100.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera100.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 360,
@@ -32,9 +37,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Estilo Never',
+    'nombre': 'Estilo Never',
     //'description': 'Animación 2',
-    'img': './../src/img/Mujeres/MPlayera109.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera109.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 340,
@@ -43,9 +48,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Lobo',
+    'nombre': 'Lobo',
     //'description': 'Animación 3',
-    'img': './../src/img/Mujeres/MPlayera102.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera102.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 320,
@@ -54,9 +59,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Lobo Anillado',
+    'nombre': 'Lobo Anillado',
     //'description': 'Animación 4',
-    'img': './../src/img/Mujeres/MPlayera103.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera103.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 320,
@@ -65,9 +70,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Mishi Negro',
+    'nombre': 'Mishi Negro',
     //'description': 'Animación 5',
-    'img': './../src/img/Mujeres/MPlayera104.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera104.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 420,
@@ -76,9 +81,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Cráneos Blancos',
+    'nombre': 'Cráneos Blancos',
     //'description': 'Animación 6',
-    'img': './../src/img/Mujeres/MPlayera105.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera105.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 290,
@@ -87,9 +92,9 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Vestido Inverso',
+    'nombre': 'Vestido Inverso',
     //'description': 'Animación 7',
-    'img': './../src/img/Mujeres/MPlayera106.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera106.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 480,
@@ -98,58 +103,25 @@ addItem({
 
 addItem({
     'tipo': 'playera',
-    'name': 'Bastardo Rosa',
+    'nombre': 'Bastardo Rosa',
     //'description': 'Animación 8',
-    'img': './../src/img/Mujeres/MPlayera107.jpg',
+    'imagen': './../src/img/Mujeres/MPlayera107.jpg',
     //'color': 'Negro',
     'talla': 'M',
     'precio': 360,
     'genero': 'M'
 }); // item #8
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Defensor',
-    //'description': 'Animación 9',
-    'img': './../src/img/Mujeres/MPlayera108.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': 370,
-    'genero': 'M'
-}); // item #9
+let productoJSON= localStorage.getItem('product');
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Navidad Roja',
-    //'description': 'Animación 10',
-    'img': './../src/img/Mujeres/MPlayera112.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': 360,
-    'genero': 'M'
-}); // item #10
+let myJSON= JSON.parse(productoJSON);
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Bosque negro',
-    //'description': 'Animación 11',
-    'img': './../src/img/Mujeres/MPlayera110.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': 320,
-    'genero': 'M'
-}); // item #11
+for(let i=0;i<myJSON.length;i++){
+    console.log(myJSON[i])
+    if(myJSON[i].categoria=="MUJER"){
+     addItem(myJSON[i]);}
+}
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Bastardo Rosa/Manga corta',
-    //'description': 'Animación 12',
-    'img': './../src/img/Mujeres/MPlayera111.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': 360,
-    'genero': 'M'
-}); // item #12
 
 const clickButton = document.querySelectorAll('#clickButon');
 // let tbody = document.querySelector('.carrito');

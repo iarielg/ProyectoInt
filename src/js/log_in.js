@@ -78,7 +78,14 @@ const validarFormulario = function (e) {
     
      }else if(objUsuario.pass0==usuarioEncontrado.pass0)
      {
-      window.location.href="./../index.html"    
+
+  usuarioAdmin={"nombre":"yaki", "email":"zeltzin@gmail.com", "pass0":"yakiromerotrejo"} 
+  //Default
+  if(objUsuario.email==usuarioAdmin.email){
+    window.location.href="./../pages/alta-productos.html"
+  }
+  else{
+      window.location.href="./../index.html"  }  
      }
      else{
        console.log("invalido")
