@@ -126,7 +126,7 @@ function validacionDeFormulario(e) {
     }
 }//function validacionDeFormulario
 //se crea la funcion que valida si el usuario ya existe o no 
-function usuarioExistente(arregloUsuario, objUsuario) {
+function usuarioExistente(arregloUsuario, objUsuario) {///
   
     //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
     const newArreglo = arregloUsuario.find(usuario => { 
