@@ -54,7 +54,7 @@ function carritoTotal() {
        Total = Total + precio * item.cantidad
         console.log(Total)
     })
-    itemCartTotal.innerHTML = `Total ${Total}`
+    itemCartTotal.innerHTML = `Total ${Total} MXN`
     console.log(itemCartTotal)
 
 }
