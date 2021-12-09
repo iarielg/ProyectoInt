@@ -1,6 +1,6 @@
 
-let productos = window.localStorage.getItem('productos');
-
+let productos = window.localStorage.getItem('carrito');
+console.log(productos)
 let carrito;
 if (!productos) {
     carrito = [];
@@ -19,11 +19,12 @@ function renderCarrito(carrito) {
     carrito.map(pedido => {
         const tr = document.createElement('tr');
         tr.classList.add('itemCarrito');
-
+        let sumaPrecio =(Number(item.precio.replace("Precio: $", '')))*cantidad;
+        console.log(sumaPrecio)
         const content = `<tr>
         <th scope="col"><img src="${pedido.image}"alt="${pedido.title}"></th>
          <td class=" fw-bold pt-5 title">${pedido.title}</td>
-         <td class=" fw-bold pt-5 title">${pedido.precio}</td>
+         <td class=" fw-bold pt-5 title">${sumaPrecio}</td>
          <td>
             <div class="cantidad-producto ">
             <input type="number" min="1" value=${pedido.cantidad} class="input_elemento">
@@ -50,7 +51,7 @@ function carritoTotal() {
         console.log(item.precio)
         console.log(item.cantidad)
 
-        const precio = Number(item.precio.replace("Precio: $", ''))
+        const precio = sumaPrecio
        Total = Total + precio * item.cantidad
         console.log(Total)
     })

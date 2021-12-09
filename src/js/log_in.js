@@ -50,9 +50,8 @@ const validarFormulario = function (e) {
      const usuarioEncontrado = arregloUsuario.find(usuario => { 
          //si son iguales retorna el objeto nuevo
          if (usuario.email == objUsuario.email){
-           const usuarioLogeado=usuario;
-           localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-             return usuarioLogeado;
+           
+             return usuario;
          }
      })
  //si nuevo arreglo es diferente agregar el objUsuario
@@ -70,6 +69,8 @@ const validarFormulario = function (e) {
     
      }else if(objUsuario.pass0==usuarioEncontrado.pass0)
      {
+      const usuarioLogeado=usuarioEncontrado;
+      localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
 
   usuarioAdmin={"nombre":"yaki", "email":"zeltzin@gmail.com", "pass0":"yakiromerotrejo"} 
   //Default

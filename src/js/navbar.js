@@ -75,4 +75,5 @@ function toggleLoginLogout () {
 
 document.getElementById("logout-link").addEventListener("click", function() {
     localStorage.removeItem('usuarioLogeado')
+    localStorage.removeItem('carrito')
       });
