@@ -28,6 +28,28 @@ addItem({
 
 addItem({
     'tipo': 'accesorio',
+    'name': 'Stickers Never Dies',
+    //'description': 'Animación 7',
+    'img': './../src/img/Accesorios/Accesorios7.jpg',
+    //'color': 'Negro',
+    'talla': 'M',
+    'precio': '20',
+    'genero': 'M'
+}); // item #7
+
+addItem({
+    'tipo': 'accesorio',
+    'name': 'Mochila Dark',
+    //'description': 'Animación 8',
+    'img': './../src/img/Accesorios/Accesorios8.jpg',
+    //'color': 'Negro',
+    'talla': 'M',
+    'precio': '280',
+    'genero': 'M'
+}); // item #8
+
+addItem({
+    'tipo': 'accesorio',
     'name': 'Lentes Neves Dies',
     //'description': 'Animación 2',
     'img': './../src/img/Accesorios/Accesorios.jpg',
@@ -80,28 +102,6 @@ addItem({
     'precio': '140',
     'genero': 'M'
 }); // item #6
-
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Stickers Never Dies',
-    //'description': 'Animación 7',
-    'img': './../src/img/Accesorios/Accesorios7.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '20',
-    'genero': 'M'
-}); // item #7
-
-addItem({
-    'tipo': 'accesorio',
-    'name': 'Mochila Negra',
-    //'description': 'Animación 8',
-    'img': './../src/img/Accesorios/Accesorios8.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '280',
-    'genero': 'M'
-}); // item #8
 
 addItem({
     'tipo': 'accesorio',
