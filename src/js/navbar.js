@@ -66,7 +66,7 @@ nav(navbar_root)
 
 
 function toggleLoginLogout () {
-    if(localStorage.getItem('usuarios') !== null){
+    if(localStorage.getItem('usuarioLogeado') !== null){
       document.getElementsByClassName("signin-link")[0].style.display = "none"; //iniciar sesion
       document.getElementsByClassName("signout-link")[0].style.display = "unset"; //cerrar sesion
       }
@@ -74,6 +74,5 @@ function toggleLoginLogout () {
     toggleLoginLogout()
 
 document.getElementById("logout-link").addEventListener("click", function() {
-    window.localStorage.clear()
+    localStorage.removeItem('usuarioLogeado')
       });
-    
