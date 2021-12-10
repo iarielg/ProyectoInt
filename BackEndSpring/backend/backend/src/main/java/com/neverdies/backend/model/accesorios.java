@@ -15,9 +15,9 @@ public class accesorios {//POJO´s
     private double precio;
     private String color;
     private String talla;
-    private String genero;
+    private String tipo;
 
-    public accesorios(Long id, String nombre, String descripcion, String imagen, double precio, String color, String talla, String genero) {
+    public accesorios(Long id, String nombre, String descripcion, String imagen, double precio, String color, String talla, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -25,7 +25,8 @@ public class accesorios {//POJO´s
         this.precio = precio;
         this.color = color;
         this.talla = talla;
-        this.genero = genero;
+        this.tipo = tipo;
+
     }//constructor
     public accesorios(){}//constructor vacio
 
@@ -85,11 +86,11 @@ public class accesorios {//POJO´s
         this.talla = talla;
     }
 
-    public String getGenero() {
-        return genero;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }//classProductos

@@ -41,17 +41,17 @@ public class MujeresService {
     }// ad product
 
     @Transactional
-    public void  updateProductos (Long id, String descripcion, String imagenURL, double precio, String color,
-                                  String talla, String genero){
+    public void  updateProductos (Long id, String descripcion, String imagen, double precio, String color,
+                                  String talla, String tipo){
         mujeres mujeres= mujeresRepository.findById(id).orElseThrow(()-> new IllegalStateException("El producto con el id" +id+ "no existe"));
         if(descripcion != null)
             if((!descripcion.isEmpty()) && (!descripcion.equals(mujeres.getDescripcion())) ){
                 mujeres.setDescripcion(descripcion);
             }// if descripcion
 
-        if((imagenURL !=null))
-            if((!imagenURL.isEmpty()) && (!imagenURL.equals(mujeres.getImagenURL())) ){
-                mujeres.setDescripcion(imagenURL);
+        if((imagen !=null))
+            if((!imagen.isEmpty()) && (!imagen.equals(mujeres.getImagen())) ){
+                mujeres.setDescripcion(imagen);
             }// if imagenURL
 
         if ((precio>0) && (precio!=mujeres.getPrecio())){
@@ -67,10 +67,9 @@ public class MujeresService {
             if((!talla.isEmpty()) && (!talla.equals(mujeres.getTalla())) ){
                 mujeres.setDescripcion(talla);
             }// if talla
-
-        if((genero !=null))
-            if((!genero.isEmpty()) && (!genero.equals(mujeres.getGenero())) ){
-                mujeres.setDescripcion(genero);
-            }// if imagenURL
+        if ((tipo !=null))
+            if ((!tipo.isEmpty()) && (!tipo.equals(mujeres.getTipo())) ) {
+            mujeres.setDescripcion(tipo);
+        }//if tipo
     }//update products
 }//class ProductosService

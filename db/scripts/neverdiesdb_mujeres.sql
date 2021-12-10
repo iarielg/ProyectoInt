@@ -30,7 +30,7 @@ CREATE TABLE `mujeres` (
   `precio` decimal(5,0) DEFAULT NULL,
   `color` varchar(20) DEFAULT NULL,
   `talla` varchar(45) DEFAULT NULL,
-  `genero` varchar(45) DEFAULT NULL,
+  `tipo` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
@@ -42,7 +42,7 @@ CREATE TABLE `mujeres` (
 
 LOCK TABLES `mujeres` WRITE;
 /*!40000 ALTER TABLE `mujeres` DISABLE KEYS */;
-INSERT INTO `mujeres` VALUES (1,'Gran Navidad','Sueter con reno alas verdes','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975624/neverdiesco/mujeres/MPlayera100_hxzsyw.jpg',360,'Negro','M','M'),(2,'Estilo Never','Nuevo modelo cuello redondo manga larga','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera109_h72ve4.jpg',340,'Negro','M','M'),(3,'Lobo Anillado','Blusa negra sin mangas con escote','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975625/neverdiesco/mujeres/MPlayera103_xwt6qm.jpg',320,'Negro','M','M'),(4,'Mishi Negro','Chaleco mezclilla con estampado en espalda de gato negro','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera104_stbjuq.jpg',420,'Negro','M','M'),(5,'Defensor','Esqueleto con Espada mangas verdes','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975630/neverdiesco/mujeres/MPlayera108_vjcey7.jpg',370,'Negro','M','M'),(6,'Vestido Inverso','Vestido Negro manga corta ','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera106_p0jsjq.jpg',480,'Negro','M','M'),(7,'Navidad Roja','Sueter rojo estilo navidad never','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975626/neverdiesco/mujeres/MPlayera112_sqdvzf.jpg',360,'Rojo','M','M'),(8,'Cráneos Blancos','Blusa larga sin mangas con escote','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975629/neverdiesco/mujeres/MPlayera105_ejjlum.jpg',290,'Negro','M','M');
+INSERT INTO `mujeres` VALUES (1,'Gran Navidad','Sueter con reno alas verdes','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975624/neverdiesco/mujeres/MPlayera100_hxzsyw.jpg',360,'Negro','M','Sueter'),(2,'Estilo Never','Nuevo modelo cuello redondo manga larga','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera109_h72ve4.jpg',340,'Negro','M','Blusa'),(3,'Lobo Anillado','Blusa negra sin mangas con escote','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975625/neverdiesco/mujeres/MPlayera103_xwt6qm.jpg',320,'Negro','M','Playera'),(4,'Mishi Negro','Chaleco mezclilla con estampado en espalda de gato negro','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera104_stbjuq.jpg',420,'Negro','M','Chaleco'),(5,'Defensor','Esqueleto con Espada mangas verdes','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975630/neverdiesco/mujeres/MPlayera108_vjcey7.jpg',370,'Negro','M','Playera'),(6,'Vestido Inverso','Vestido Negro manga corta ','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975627/neverdiesco/mujeres/MPlayera106_p0jsjq.jpg',480,'Negro','M','Vestido'),(7,'Navidad Roja','Sueter rojo estilo navidad never','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975626/neverdiesco/mujeres/MPlayera112_sqdvzf.jpg',360,'Rojo','M','Sueter'),(8,'Cráneos Blancos','Blusa larga sin mangas con escote','https://res.cloudinary.com/dehvodgm2/image/upload/v1638975629/neverdiesco/mujeres/MPlayera105_ejjlum.jpg',290,'Negro','M','Playera');
 /*!40000 ALTER TABLE `mujeres` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-09 22:06:36
+-- Dump completed on 2021-12-09 23:47:44

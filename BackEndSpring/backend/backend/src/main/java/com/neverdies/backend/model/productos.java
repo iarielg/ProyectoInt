@@ -11,21 +11,21 @@ public class productos {//POJO´s
     private Long id;
     private String nombre;
     private String descripcion;
-    private String imagenURL;
+    private String imagen;
     private double precio;
     private String color;
     private String talla;
-    private String genero;
+    private String tipo;
 
-    public productos(Long id, String nombre, String descripcion, String imagenURL, double precio, String color, String talla, String genero) {
+    public productos(Long id, String nombre, String descripcion, String imagen, double precio, String color, String talla, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagenURL = imagenURL;
+        this.imagen = imagen;
         this.precio = precio;
         this.color = color;
         this.talla = talla;
-        this.genero = genero;
+        this.tipo = tipo;
     }//constructor
     public productos(){}//constructor vacio
 
@@ -53,12 +53,12 @@ public class productos {//POJO´s
         this.descripcion = descripcion;
     }
 
-    public String getImagenURL() {
-        return imagenURL;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImagenURL(String imagenURL) {
-        this.imagenURL = imagenURL;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public double getPrecio() {
@@ -85,11 +85,11 @@ public class productos {//POJO´s
         this.talla = talla;
     }
 
-    public String getGenero() {
-        return genero;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }//classProductos
