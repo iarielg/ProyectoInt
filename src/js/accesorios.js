@@ -8,7 +8,7 @@ fetch('http://127.0.0.1:8080/api/accesorios/')
 
 function addItem(item,id) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.imagenURL + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
         '<h5 class="card-title" id="title-card">' + item.nombre + '</h5>\n' +
         // '<h6 class="card-title">' + 'Descripción: ' + item.descripcion + '</h6>\n' +
