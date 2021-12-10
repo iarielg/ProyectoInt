@@ -203,21 +203,21 @@ formulario.addEventListener('submit', function (e) {
                
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
-        // let tipo = document.getElementById('validationCustom02').value;
+         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
-        // let cantidad = document.getElementById('validationCustom04').value;
+         let cantidad = document.getElementById('validationCustom04').value;
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
-        // let categoria = document.getElementById('validationCustom05');
-        // let categoria1 = categoria.options[categoria.selectedIndex].text;
+        let categoria = document.getElementById('validationCustom05');
+        let categoria1 = categoria.options[categoria.selectedIndex].text;
         let descripcion = document.querySelector('.descripcion').value;
 
         let newProducto = {
                 nombre:`${nombre}`,
                 id: `${id}`,
-                // tipo: `${tipo}`,
+                tipo: `${tipo}`,
                 talla: `${talla1}`,
                 // cantidad: `${cantidad}`,
                 color: `${color1}`,
@@ -241,14 +241,14 @@ formulario.addEventListener('submit', function (e) {
            product= localStorage.getItem('product');///ver si es necesario
         fetch('http://127.0.0.1:8080/api/accesorios/',{
             method: 'POST',
-            body: newProducto,
+            body: JSON.stringify(newProducto),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }) .then(Response => Response.json())
-        .then(data => {
-            console.log(data);
-        });
+        }) .then((res) => res.json())
+        .catch((error) => console.error('Error:', error))
+        .then((response) => console.log('Success:', response));
+        
         formulario.reset();
         alerta.innerHTML = ``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

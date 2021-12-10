@@ -40,12 +40,13 @@ public class AccesoriosController {
 
     @PutMapping(path = "{id}")
     public void updateProducts(@PathVariable("id") Long id,
+                               @RequestParam(required = false)String nombre,
                                @RequestParam(required = false)String descripcion,
                                @RequestParam(required = false)String imagen,
                                @RequestParam(required = false) double precio,
                                @RequestParam(required = false)String color,
                                @RequestParam(required = false)String talla,
                                @RequestParam(required = false)String tipo){
-        accesoriosService.updateProductos(id, descripcion, imagen, precio, color, talla, tipo);
+        accesoriosService.updateProductos(id, nombre, descripcion, imagen, precio, color, talla, tipo);
     }// update products
 }//classProductosController

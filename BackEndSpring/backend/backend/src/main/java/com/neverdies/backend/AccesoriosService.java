@@ -41,13 +41,17 @@ public class AccesoriosService {
     }// ad product
 
     @Transactional
-    public void  updateProductos (Long id, String descripcion, String imagen, double precio, String color,
+    public void  updateProductos (Long id, String nombre, String descripcion, String imagen, double precio, String color,
                                   String talla, String tipo){
         accesorios accesorios= accesoriosRepository.findById(id).orElseThrow(()-> new IllegalStateException("El producto con el id" +id+ "no existe"));
         if(descripcion != null)
             if((!descripcion.isEmpty()) && (!descripcion.equals(accesorios.getDescripcion())) ){
                 accesorios.setDescripcion(descripcion);
             }// if descripcion
+        if((nombre !=null))
+            if((!nombre.isEmpty()) && (!nombre.equals(accesorios.getNombre())) ){
+                accesorios.setDescripcion(nombre);
+            }// if color
 
         if((imagen !=null))
             if((!imagen.isEmpty()) && (!imagen.equals(accesorios.getImagen())) ){
