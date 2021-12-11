@@ -1,4 +1,4 @@
-function addItem(item,id) {
+function addItem(item,id) {///accesorios
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
         '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
