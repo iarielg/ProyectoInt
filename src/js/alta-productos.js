@@ -232,16 +232,21 @@ formulario.addEventListener('submit', function (e) {
             let primerArreglo=[newProducto];
             let productoJSON = JSON.stringify(primerArreglo)
             localStorage.setItem('product',productoJSON);
+          
+            document.location.reload();
         }
         else{
             let arregloProductos= JSON.parse(localStorage.getItem('product'));
             arregloProductos.push(newProducto)
             localStorage.setItem('product', JSON.stringify(arregloProductos))
+        
+            document.location.reload();
         }
            let product ;
            product= localStorage.getItem('product');///ver si es necesario
-    
-        formulario.reset();
+          
+       
+    //    formulario.reset();
         alerta.innerHTML = ``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
