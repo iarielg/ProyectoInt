@@ -46,7 +46,8 @@ public class AccesoriosController {
                                @RequestParam(required = false) double precio,
                                @RequestParam(required = false)String color,
                                @RequestParam(required = false)String talla,
-                               @RequestParam(required = false)String tipo){
-        accesoriosService.updateProductos(id, nombre, descripcion, imagen, precio, color, talla, tipo);
+                               @RequestParam(required = false)String tipo,
+                               @RequestParam(required = false)String cantidad){
+        accesoriosService.updateProductos(id, nombre, descripcion, imagen, precio, color, talla, tipo, cantidad);
     }// update products
 }//classProductosController

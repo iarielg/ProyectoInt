@@ -13,7 +13,7 @@ function addItem(item,id) {
         '<h5 class="card-title" id="title-card">' + item.nombre + '</h5>\n' +
         // '<h6 class="card-title">' + 'Descripción: ' + item.descripcion + '</h6>\n' +
         '<p class="card-precio">' + 'Precio: $' + item.precio + '</p>' + 
-        // +'<p>' + 'id: ' +'<label class="card-i">'+ id +'</label>' + '</p>' +
+        '<p>' + 'id: ' +'<label class="card-i">'+ id +'</label>' + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
         '<button type="button" class="content-fluid btn btn-dark" id="clickButon"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
         '</div>\n' +
@@ -42,7 +42,7 @@ for(let i=0;i<myJSON.length;i++){
 
 
 const clickButton = document.querySelectorAll('#clickButon');
-// let tbody = document.querySelector('.carrito');
+ let tbody = document.querySelector('.carrito');
 
 clickButton.forEach(btn => {
     btn.addEventListener('click',addIdProducto)
@@ -78,8 +78,8 @@ for(let i=0;i<carrito.length;i++)///si el producto ya existe en el carrito
     if (id==carrito[i].id){
         valor=carrito[i].cantidad+1
         carrito.splice(i,1)
-        //producto.cantidad=valor+1;
-        //carrito.push(producto)
+        producto.cantidad=valor+1;
+        carrito.push(producto)
         break;
     }
 }

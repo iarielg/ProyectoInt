@@ -42,7 +42,7 @@ public class AccesoriosService {
 
     @Transactional
     public void  updateProductos (Long id, String nombre, String descripcion, String imagen, double precio, String color,
-                                  String talla, String tipo){
+                                  String talla, String tipo, String cantidad){
         accesorios accesorios= accesoriosRepository.findById(id).orElseThrow(()-> new IllegalStateException("El producto con el id" +id+ "no existe"));
         if(descripcion != null)
             if((!descripcion.isEmpty()) && (!descripcion.equals(accesorios.getDescripcion())) ){
@@ -75,5 +75,9 @@ public class AccesoriosService {
             if ((!tipo.isEmpty()) && (!tipo.equals(accesorios.getTipo())) ){
                 accesorios.setDescripcion(tipo);
         }//if tipo
+        if ((cantidad !=null))
+            if ((!cantidad.isEmpty()) && (!cantidad.equals(accesorios.getCantidad())) ){
+                accesorios.setDescripcion(cantidad);
+            }//if cantidad
     }//update products
 }//class ProductosService

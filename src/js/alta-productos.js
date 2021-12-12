@@ -219,7 +219,7 @@ formulario.addEventListener('submit', function (e) {
                 id: `${id}`,
                 tipo: `${tipo}`,
                 talla: `${talla1}`,
-                // cantidad: `${cantidad}`,
+                cantidad: `${cantidad}`,
                 color: `${color1}`,
                 precio: `${precio}`,
                 // categoria: `${categoria1}`,
