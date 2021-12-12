@@ -1,4 +1,3 @@
-
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
@@ -204,10 +203,10 @@ formulario.addEventListener('submit', function (e) {
                
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
-        let tipo = document.getElementById('validationCustom02').value;
+         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
-        let cantidad = document.getElementById('validationCustom04').value;
+         let cantidad = document.getElementById('validationCustom04').value;
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
@@ -223,7 +222,7 @@ formulario.addEventListener('submit', function (e) {
                 cantidad: `${cantidad}`,
                 color: `${color1}`,
                 precio: `${precio}`,
-                categoria: `${categoria1}`,
+                // categoria: `${categoria1}`,
                 descripcion:`${descripcion}`,
                 imagen:img.src
             }; 
@@ -240,7 +239,16 @@ formulario.addEventListener('submit', function (e) {
         }
            let product ;
            product= localStorage.getItem('product');///ver si es necesario
-    
+        fetch('http://127.0.0.1:8080/api/accesorios/',{
+            method: 'POST',
+            body: JSON.stringify(newProducto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }) .then((res) => res.json())
+        .catch((error) => console.error('Error:', error))
+        .then((response) => console.log('Success:', response));
+        
         formulario.reset();
         alerta.innerHTML = ``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
