@@ -46,7 +46,7 @@ public class ProductosController {
                                @RequestParam(required = false)String color,
                                @RequestParam(required = false)String talla,
                                @RequestParam(required = false)String tipo,
-                               @RequestParam(required = false)String cantidad){
+                               @RequestParam(required = false)double cantidad){
         productosService.updateProductos(id, descripcion, imagen, precio, color, talla, tipo, cantidad);
     }// update products
 }//classProductosController

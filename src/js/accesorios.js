@@ -1,10 +1,10 @@
-// fetch('http://127.0.0.1:8080/api/accesorios/')
-//     .then(Response => Response.json())
-//     .then(data => {
-//         console.log(data);
-//         data.forEach(item => addItem(item,item.id));
-//         console.log(data[1].imagen.src);
-//     })
+ fetch('http://127.0.0.1:8080/api/accesorios/')
+     .then(Response => Response.json())
+        .then(data => {
+        console.log(data);
+        data.forEach(item => addItem(item,item.id));
+        console.log(data[1].imagen.src);
+     })
 
 function addItem(item,id) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +

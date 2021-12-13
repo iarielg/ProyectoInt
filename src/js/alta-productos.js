@@ -222,7 +222,7 @@ formulario.addEventListener('submit', function (e) {
                 cantidad: `${cantidad}`,
                 color: `${color1}`,
                 precio: `${precio}`,
-                // categoria: `${categoria1}`,
+                categoria: `${categoria1}`,
                 descripcion:`${descripcion}`,
                 imagen:img.src
             }; 
