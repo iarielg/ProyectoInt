@@ -41,8 +41,9 @@ public class UsersController {
     public void updateUsers(@PathVariable("id") Long id,
                             @RequestParam(required = true)String CurrentPassword,
                             @RequestParam (required = true) String password,
-                            @RequestParam (required = false)String name)
+                            @RequestParam (required = false)String name,
+                            @RequestParam(required = false)String phone)
     {
-        usersService.updateUsers(id,CurrentPassword, password, name);
+        usersService.updateUsers(id,CurrentPassword, password, name, phone);
     }// update user
 }//class UserController

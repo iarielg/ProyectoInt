@@ -16,14 +16,14 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
     private String name;
-    private String lastname;
+    private String phone;
 
-    public User(Long id, String email, String password, String name, String lastname) {
+    public User(Long id, String email, String password, String name, String phone) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
-        this.lastname = lastname;
+        this.phone = phone;
     }//constructor
 
     public User(){}//constructor vacio
@@ -63,11 +63,11 @@ public class User {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }//classUser

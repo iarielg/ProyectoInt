@@ -44,7 +44,7 @@ public class UsersService {
     }// add users
 
     @Transactional
-    public void  updateUsers (Long id, String CurrentPassword, String newPassword, String name){
+    public void  updateUsers(Long id, String currentPassword, String CurrentPassword, String newPassword, String name){
         User user= usersRepository.findById(id).orElseThrow(()-> new IllegalStateException("El usuario con el id" +id+ "no existe"));
         if ((CurrentPassword==null) || (newPassword==null)){
             throw new IllegalStateException("El ususario con el id" +id +"no existe");
