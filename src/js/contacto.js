@@ -1,6 +1,6 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-
+const select1=document.getElementById('validationCustom05');
 let correct = document.getElementById('correct');
 let alert = document.getElementById('alert')
 
@@ -81,19 +81,7 @@ const validarFormulario = function (e) {
                 campos.motivo = false;
             }
             break;
-        case "republica":
-            if (e.target.value) {
-
-                document.querySelector('.motivo').classList.add('is-valid');
-                document.querySelector('.motivo').classList.remove('is-invalid');
-                campos.republica = true;
-            } else {
-
-                document.querySelector('.motivo').classList.add('is-invalid');
-                document.querySelector('.motivo').classList.remove('is-valid');
-                campos.republica = false;
-            }
-            break;
+     
         case "mensaje":
             if (expresiones.mensaje.test(e.target.value)) {
 
@@ -116,15 +104,31 @@ inputs.forEach(function (input) {
     input.addEventListener('blur', validarFormulario);
 
 })//inputs
+select1.addEventListener('click', function validarFormulario1(e){
+        if ((select1.options[select1.selectedIndex].text!=="ESTADO DE LA REPÚBLICA")){
+            document.querySelector('.republica').classList.add('is-valid');
+            document.querySelector('.republica').classList.remove('is-invalid');
+            campos.republica = true;
+        } else {
+            document.querySelector('.republica').classList.add('is-invalid');
+            document.querySelector('.republica').classList.remove('is-valid');
+            campos.republica = false;
+        }
+    });
+   
 
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
-    alert.innerHTML =""
+
+    if ((select1.options[select1.selectedIndex].text=="ESTADO DE LA REPÚBLICA")){
+        campos.republica = false;
+    }
+    
     const terminos = document.querySelector('.terminos');
-    if (campos.nombre && campos.correo && campos.telefono && campos.motivo && campos.mensaje && terminos.checked) {
+    if (campos.nombre && campos.correo && campos.telefono && campos.motivo && campos.mensaje && terminos.checked && (campos.republica==true)) {
         formulario.reset();
-        
+        alert.innerHTML =``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -145,6 +149,7 @@ formulario.addEventListener('submit', function (e) {
       </div>`
       document.querySelector('.alert').remove('.alert')
 
+      document.querySelector('.republica').classList.remove('is-valid');
       document.querySelector('.nombre').classList.remove('is-valid');
       document.querySelector('.correo').classList.remove('is-valid');
       document.querySelector('.telefono').classList.remove('is-valid');
@@ -152,7 +157,7 @@ formulario.addEventListener('submit', function (e) {
       document.querySelector('.mensaje').classList.remove('is-valid');
 
     } else {
-        correct.innerHTML = ""
+        correct.innerHTML = ``
         alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -171,7 +176,14 @@ formulario.addEventListener('submit', function (e) {
             Debes llenar todos los campos.
         </div>
       </div>`
-        console.log('llena estos cambios')
+
+
+      document.querySelector('.republica').classList.remove('is-invalid');
+      document.querySelector('.nombre').classList.remove('is-invalid');
+      document.querySelector('.correo').classList.remove('is-invalid');
+      document.querySelector('.telefono').classList.remove('is-invalid');
+      document.querySelector('.motivo').classList.remove('is-invalid');
+      document.querySelector('.mensaje').classList.remove('is-invalid');
     }
 })//listennerFormulario
 

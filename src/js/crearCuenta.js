@@ -1,7 +1,8 @@
+inputs=document.querySelectorAll('#form_nc input')
 //funcion validar formulario
 function validacionDeFormulario(e) {
     e.preventDefault();
-    console.log("val")
+   
 
     const nameLength = 25;
     const emailLength = 16;
@@ -13,10 +14,7 @@ function validacionDeFormulario(e) {
     let nameCont = 0;
     let passCont = 0;
     let addUserCont = 0;
-    //console.log(e.target.value);
-    //window.location.href="./../pages/login.html"
-    //hay que prevenir el evento por default 
-    //if(e.target.name=='nuevac'){
+
     let fieldName = document.getElementById("name").value;
     let fieldEmail = document.getElementById("email").value;
     let fieldPhone = document.getElementById("phone").value;
@@ -45,68 +43,88 @@ function validacionDeFormulario(e) {
 
     if ((fieldName.length >= 2) && (fieldName.length === nameCont)) {
         addUserCont += 1;
-        //console.log(`Nombre válido: ${fieldName}`);
+
         document.querySelector('.name').classList.remove('is-invalid');
         document.querySelector('.name').classList.add('is-valid');
         } else {
-            //console.log(`Nombre invalido: ${fieldName}`);
+
             document.querySelector('.name').classList.remove('is-valid');
             document.querySelector('.name').classList.add('is-invalid');
     } // === validación nombre
 
     if ((fieldEmail.length > 8) && (fieldEmail.indexOf('@') >= 0) && ((fieldEmail.indexOf(".com") >= 0) || (fieldEmail.indexOf(".edu") >= 0))) {
         addUserCont += 1;
-        //console.log(`Correo válido: ${fieldEmail}`);
+
         document.querySelector('.email').classList.remove('is-invalid');
         document.querySelector('.email').classList.add('is-valid');
         } else {
-        //console.log(`Correo invalido: ${fieldEmail}`); 
+   
         document.querySelector('.email').classList.remove('is-valid');
         document.querySelector('.email').classList.add('is-invalid');
     } // === validación email
 
     if ((fieldPhone.length == 10) && (fieldPhone.length === phoneCont)) {
         addUserCont += 1;
-        //console.log(`Teléfono válido: ${fieldPhone}`);
+        
         document.querySelector('.phone').classList.remove('is-invalid');
         document.querySelector('.phone').classList.add('is-valid');
         } else {
-        //console.log(`Teléfono invalido: ${fieldPhone}`);
+        
         document.querySelector('.phone').classList.remove('is-valid');
         document.querySelector('.phone').classList.add('is-invalid');
     } // === validación teéfono
 
     if ((fieldPass0.length >= 10) && (fieldPass0.length === passCont)) {
         addUserCont += 1;
-        //console.log(`Contraseña válida: ${fieldPass0}`);
+        
         document.querySelector('.pass0').classList.remove('is-invalid');
         document.querySelector('.pass0').classList.add('is-valid');
     } else {
-        //console.log(`Contraseña invalida: ${fieldPass0}`);
+        
         document.querySelector('.pass0').classList.remove('is-valid');
         document.querySelector('.pass0').classList.add('is-invalid');
     } // === validación contraseña
 
     if (fieldPass0 === fieldPass1) {
         addUserCont += 1;
-        //console.log(`Contraseña válida: ${fieldPass1}`);
+        
         document.querySelector('.pass1').classList.remove('is-invalid');
         document.querySelector('.pass1').classList.add('is-valid');
         } else {
-        //console.log(`Contraseña invalida: ${fieldPass1}`);
+        
         document.querySelector('.pass1').classList.remove('is-valid');
         document.querySelector('.pass1').classList.add('is-invalid');
     } // === validación contraseña
 
-    // let usuario = [];
-
-    if (addUserCont == 5) { //se crea objeto usuario
+ 
+    if ((addUserCont == 5)){ //se crea objeto usuario
         let newUser = {
             "name": `${fieldName}`,
             "email": `${fieldEmail}`,
             "phone": `${fieldPhone}`,
-            "pass0": `${fieldPass0}`,
+            "pass0": `${fieldPass0}`,   
         }
+        fetch('http://127.0.0.1:8080/api/users/', {
+            method: 'POST',
+            body: JSON.stringify(newUser),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })// fetch Post
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'ok') {
+                alert('Usuario creado correctamente');
+                window.location.href = 'login.html';
+            } else {
+                alert('Error al crear usuario');
+            }
+        })//then data
+        .catch(err => console.log(err));
+        
+
+
         //se trae de localStorage el objeto creado
         let usuarios = window.localStorage.getItem('usuarios'); //se traé todo lo del localStorage
             let storeList;
@@ -121,7 +139,7 @@ function validacionDeFormulario(e) {
         } else {
             //si existen objetos usuario convertirlos a JSON
             storeList = JSON.parse(usuarios);
-            console.log(storeList);
+           
         }
         //a la funcion usuarioExistente se le asigan los parametros de storelist y newUser(objetoAdmin, objetoNuevo)
         usuarioExistente(storeList, newUser)
@@ -129,32 +147,30 @@ function validacionDeFormulario(e) {
     }
 }//function validacionDeFormulario
 //se crea la funcion que valida si el usuario ya existe o no 
-function usuarioExistente(arregloUsuario, objUsuario) {
-   console.log(arregloUsuario) 
+function usuarioExistente(arregloUsuario, objUsuario) {///
+  
     //al arreglo de objetos existentes en localstorage se busca si el email y contraseña son iguales al objeto que se esta creando
     const newArreglo = arregloUsuario.find(usuario => { 
-        console.log(usuario)
-        console.log(objUsuario)
+   
         //si son iguales retorna el objeto nuevo
         if (usuario.email == objUsuario.email || usuario.phone ==  objUsuario.phone){
             return objUsuario;
         }
     })
-    console.log(newArreglo)
+  
 //si nuevo arreglo es diferente agregar el objUsuario
     if(!newArreglo ){
         arregloUsuario.push(objUsuario)
 
         // convierte arreglousuario  a string
-        localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-        window.location.href="./../pages/login.html"
+        // localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
+        // window.location.href="./../pages/login.html" //Me reedirecciona a HOME
     }else{
         // alert('El usuario ya existe')
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: '¡Esta cuenta ya existe!',
-            // footer: '<a href="./../pages/login.html">¿Intenta iniciar sesión?</a>'
             confirmButtonColor: "black",
             width: '40%',
             Height: '40%'
@@ -165,6 +181,9 @@ function usuarioExistente(arregloUsuario, objUsuario) {
 
 const form1 = document.getElementById('form_nc');
 form1.addEventListener('submit', validacionDeFormulario);
-console.log(usuarios); 
-console.log(storeList);
+/*inputs.forEach(function (input) {
+    input.addEventListener('keyup', validacionDeFormulario);
+    input.addEventListener('blur', validacionDeFormulario);
+
+})//inputs*/
 

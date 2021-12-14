@@ -1,8 +1,9 @@
-
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const select = document.querySelectorAll('.form-select');
-
+let img=document.getElementById('img0');
+let correct = document.querySelector('.correct');
+let alerta = document.querySelector('.alert');
 
 
 const expresiones = {
@@ -10,6 +11,7 @@ const expresiones = {
     tipo: /^[a-zA-ZÀ-ÿ\s]{4,15}$/, // Letras y espacios, pueden llevar acentos.
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,30}$/, // Letras y espacios, pueden llevar acentos.
     precio: /^\d{2,14}$/,// 2 a 14 numeros.
+    cantidad: /^\d{1,14}$/,// 2 a 14 numeros.
     descripcion: /^[a-zA-ZÀ-ÿ\s0-9]{5,70}$/, // Letras y espacios, pueden llevar acentos.
 }
 
@@ -17,7 +19,7 @@ const campos = {
     id: false,
     tipo: false,
     talla: false,
-    genero: false,
+    cantidad: false,
     nombre: false,
     color: false,
     precio: false,
@@ -72,43 +74,31 @@ const validarFormulario = function (e) {
             break;
         case "talla":
             if ((e.target.value != 0)) {
-                console.log('bien')
+       
                 document.querySelector('.talla').classList.add('is-valid');
                 document.querySelector('.talla').classList.remove('is-invalid');
                 campos.talla = true;
             } else {
-                console.log('mal')
+         
                 document.querySelector('.talla').classList.add('is-invalid');
                 document.querySelector('.talla').classList.remove('is-valid');
                 campos.talla = false;
             }
             break;
         case "cantidad":
-            if (expresiones.nombre.test(e.target.value)) {
+            if (expresiones.cantidad.test(e.target.value)) {
     
                 document.querySelector('.cantidad').classList.add('is-valid');
                 document.querySelector('.cantidad').classList.remove('is-invalid');
-                campos.nombre = true;
+                campos.cantidad = true;
             } else {
     
                 document.querySelector('.cantidad').classList.add('is-invalid');
                 document.querySelector('.cantidad').classList.remove('is-valid');
-                campos.id = false;
+                campos.cantidad = false;
             }
             break;
-        case "genero":
-            if ((e.target.value != 0)) {
-
-                document.querySelector('.genero').classList.add('is-valid');
-                document.querySelector('.genero').classList.remove('is-invalid');
-                campos.genero = true;
-            } else {
-
-                document.querySelector('.genero').classList.add('is-invalid');
-                document.querySelector('.genero').classList.remove('is-valid');
-                campos.genero = false;
-            }
-            break;
+  
         case "categoria":
             if ((e.target.value != 0)) {
 
@@ -148,19 +138,7 @@ const validarFormulario = function (e) {
                 campos.precio = false;
             }
             break;
-        case "imagen":
-            if ((e.target.value != 0)) {
-
-                document.querySelector('.imagen').classList.add('is-valid');
-                document.querySelector('.imagen').classList.remove('is-invalid');
-                campos.imagen = true;
-            } else {
-
-                document.querySelector('.imagen').classList.add('is-invalid');
-                document.querySelector('.imagen').classList.remove('is-valid');
-                campos.imagen = false;
-            }
-            break;
+   
         case "descripcion":
             if (expresiones.descripcion.test(e.target.value)) {
 
@@ -189,42 +167,51 @@ select.forEach(function(input){
     input.addEventListener('blur', validarFormulario);
     
 })
+const validarImagen=function(img){
+if ((img.src)) {
+    document.querySelector('.imagen').classList.add('is-valid');
+    document.querySelector('.imagen').classList.remove('is-invalid');
+    campos.imagen = true;
+} else {
+    document.querySelector('.imagen').classList.add('is-invalid');
+    document.querySelector('.imagen').classList.remove('is-valid');
+    campos.imagen = false;
+}
+}
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dehvodgm2', 
+    uploadPreset: 'Areli123',
 
+    
+}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        img.src = result.info.secure_url;
+        validarImagen(img);
+      }
+    }
+  )
+  
+  document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+  
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
-
-  /*
-        newproduct.innerHTML='<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
-        '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.name + '</h5>\n' +
-        //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-        '<p>' + 'Precio: $' + item.precio + '</p>' +
-        //'<p>' + 'Color: ' + item.color + '</p>' +
-        //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
-        '</div>\n' +
-        '<br/>';*/
-
-    //const noms = 'listener';
-    //localStorage.setItem('nombresusuas',noms);
-    if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.genero && campos.precio  && campos.descripcion && campos.color && campos.imagen) {
-        
-    
+   
+    if (campos.id && campos.tipo && campos.nombre && campos.categoria && campos.talla && campos.precio  && campos.descripcion && campos.color && campos.imagen &&campos.cantidad) {
+               
         let nombre = document.getElementById('validationCustom00').value;
         let id = document.getElementById('validationCustom01').value;
-        let tipo = document.getElementById('validationCustom02').value;
+         let tipo = document.getElementById('validationCustom02').value;
         let talla = document.getElementById('validationCustom03');
         let talla1 = talla.options[talla.selectedIndex].text;
-        let genero = document.getElementById('validationCustom04');
-        let genero1 = genero.options[genero.selectedIndex].text;
+         let cantidad = document.getElementById('validationCustom04').value;
         let color = document.getElementById('validationCustom06');
         let color1= color.options[color.selectedIndex].text;//
         let precio = document.getElementById('validationCustom07').value;
         let categoria = document.getElementById('validationCustom05');
         let categoria1 = categoria.options[categoria.selectedIndex].text;
-        let imagen = document.getElementById('validationCustom08').value;
         let descripcion = document.querySelector('.descripcion').value;
 
         let newProducto = {
@@ -232,67 +219,38 @@ formulario.addEventListener('submit', function (e) {
                 id: `${id}`,
                 tipo: `${tipo}`,
                 talla: `${talla1}`,
-                genero: `${genero1}`,
+                cantidad: `${cantidad}`,
                 color: `${color1}`,
                 precio: `${precio}`,
                 categoria: `${categoria1}`,
-                
                 descripcion:`${descripcion}`,
-                imagen: `${imagen}`
-                //categ:document.getElementById('validationCustom08')
-            }; // item #1
-        //let productoJSON;
-        //let arregloProductos=[{}];
+                imagen:img.src
+            }; 
+
         if (!(localStorage.getItem('product'))){
             let primerArreglo=[newProducto];
-            let productoJSON = JSON.stringify(primerArreglo)// const myJSON= JSON.parse(productoJSON)
+            let productoJSON = JSON.stringify(primerArreglo)
             localStorage.setItem('product',productoJSON);
         }
         else{
             let arregloProductos= JSON.parse(localStorage.getItem('product'));
-
             arregloProductos.push(newProducto)
-    
-        // convierte arreglousuario  a string
             localStorage.setItem('product', JSON.stringify(arregloProductos))
-    
-
         }
-            
-           
-           
-            
-           // document.querySelector('.alert').innerHTML = productoJSON.tipo
-            
-           let product = localStorage.getItem('product');
-           console.log(product);
-           //console.log("product");
-           function addItem(product) {
-            const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-                '<h5 class="card-title">' + product.append(color) + '</h5>\n' +
-                //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-                '<p>' + 'Precio: $' + product.append(precio) + '</p>' +
-                //'<p>' + 'Color: ' + item.color + '</p>' +
-                //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-                '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
-                '</div>\n' +
-                '<br/>';
+           let product ;
+           product= localStorage.getItem('product');///ver si es necesario
+        fetch('http://127.0.0.1:8080/api/accesorios/',{
+            method: 'POST',
+            body: JSON.stringify(newProducto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }) .then((res) => res.json())
+        .catch((error) => console.error('Error:', error))
+        .then((response) => console.log('Success:', response));
         
-            const itemsContainer = document.querySelector('.crearcard');
-            itemsContainer.innerHTML += itemHTML;
-        } 
-    
         formulario.reset();
-        document.querySelector('.color').classList.remove('is-valid');
-        document.querySelector('.categoria').classList.remove('is-valid');
-        document.querySelector('.genero').classList.remove('is-valid');
-        document.querySelector('.talla').classList.remove('is-valid');
-        document.querySelector('.tipo').classList.remove('is-valid');
-        document.querySelector('.id').classList.remove('is-valid');
-        document.querySelector('.precio').classList.remove('is-valid');
-        document.querySelector('.imagen').classList.remove('is-valid');
-        document.querySelector('.descripcion').classList.remove('is-valid');
-        let correct = document.querySelector('.correct');
+        alerta.innerHTML = ``
         correct.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -305,27 +263,16 @@ formulario.addEventListener('submit', function (e) {
         </symbol>
       </svg>
         
-        <div class="alert alert-success d-flex align-items-center" role="alert">
+        <div class="alert alert-dark d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
           Guardado.
         </div>
       </div>`
 
-        console.log('tu formulario ha sido enviado');
     } else {
-        document.querySelector('.color').classList.add('is-invalid');
-        document.querySelector('.categoria').classList.add('is-invalid');
-        document.querySelector('.genero').classList.add('is-invalid');
-        document.querySelector('.talla').classList.add('is-invalid');
-        document.querySelector('.tipo').classList.add('is-invalid');
-        document.querySelector('.id').classList.add('is-invalid');
-        document.querySelector('.precio').classList.add('is-invalid');
-        document.querySelector('.imagen').classList.add('is-invalid');
-        document.querySelector('.descripcion').classList.add('is-invalid');
-
-        let alert = document.querySelector('.alert')
-        alert.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        correct.innerHTML = ``
+        alerta.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
         </symbol>
@@ -347,6 +294,11 @@ formulario.addEventListener('submit', function (e) {
      
     }
 })//listennerFormulario
+
+
+
+
+
 
 
 

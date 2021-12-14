@@ -5,7 +5,7 @@
 }
 
 
-.container{
+.carrito1{
     /* margin: 10px 10px 100px;
     padding: 10px 7px 15px; */
     border: 1px solid rgb(121, 119, 119);
@@ -72,51 +72,27 @@
     width: 30px;
 }
 
-  /* @media screen and (min-width: 607px) and (max-width: 760px) {
-    .container{
-        margin-left: 60px;
-    } 
-  }
+.remove{
+    display: none;
+}
 
-@media screen and (min-width: 780px) and (max-width: 1400px) {
-    .container{
-        width: 800px;
-        margin-left: auto;
-        padding: 20px 30px 15px;
-    }
+.icon-compras{
+   font-size: 90px;
+   text-align: center;
+   margin-top: 0;
+   padding-top: 0;
+}
 
-    .pago{
-        padding-left: 88%;
-        padding-top: 20px;
-        padding-bottom: auto;
-    }
-    
-    .card-text{
-        padding-right: 10px;
-    
-    }
-    .cantidad-producto{
-        margin-right: 30px;
-    }
-    
-    .cantidad{
-        padding: 0 10px 0 35px;
-    }
-    
-    .incremento{
-        padding: 0 10px 0 10px;
-        font-weight: 800;
-    }
-    
-    .icon{
-        padding-left: 15px;
-    }
-    .card-title{
-        font-size: 20px;
-        padding-right:40px;
-        padding-left: 0px;
-    }
-    img{
-        margin:0;
-    }
-} */
+.icon-borrar{
+    font-size: 20px;
+}
+
+.alert{
+    z-index: 100;
+}
+
+.hide{
+    margin: 0;
+    padding: 0;
+}
+

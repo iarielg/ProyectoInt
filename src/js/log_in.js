@@ -8,7 +8,7 @@ let nuevos = document.getElementById('nuevos');
 
 
 const expresiones = {
-    contraseña: /^[a-zA-Z0-9]{10}$/,
+    contraseña: /^[a-zA-Z0-9]{8,16}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     
 }
@@ -21,22 +21,17 @@ const validarFormulario = function (e) {
   switch (e.target.name) {
       case "correo":
           if (expresiones.correo.test(e.target.value)) {
-
               document.querySelector('.correo').classList.add('is-valid');
               document.querySelector('.correo').classList.remove('is-invalid');
               campos.correo = true;
           } else {
-
               document.querySelector('.correo').classList.add('is-invalid');
               document.querySelector('.correo').classList.remove('is-valid');
               campos.correo = false;
-              console.log('el correo no es valido')
-              
           }
           break;
       case "contraseña":
           if (expresiones.contraseña.test(e.target.value)) {
-
               document.querySelector('.contraseña').classList.add('is-valid');
               document.querySelector('.contraseña').classList.remove('is-invalid');
               campos.contraseña = true;
@@ -45,7 +40,6 @@ const validarFormulario = function (e) {
               document.querySelector('.contraseña').classList.add('is-invalid');
               document.querySelector('.contraseña').classList.remove('is-valid');
               campos.contraseña = false;
-              console.log('el password no es valido')
           }
           break;
     }
@@ -56,12 +50,13 @@ const validarFormulario = function (e) {
      const usuarioEncontrado = arregloUsuario.find(usuario => { 
          //si son iguales retorna el objeto nuevo
          if (usuario.email == objUsuario.email){
+           
              return usuario;
          }
      })
  //si nuevo arreglo es diferente agregar el objUsuario
      if(!usuarioEncontrado ){
-        console.log("invalido")
+
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -74,13 +69,18 @@ const validarFormulario = function (e) {
     
      }else if(objUsuario.pass0==usuarioEncontrado.pass0)
      {
-      window.location.href="./../index.html"
-        
-         
-           
+      const usuarioLogeado=usuarioEncontrado;
+      localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+  usuarioAdmin={"nombre":"yaki", "email":"zeltzin@gmail.com", "pass0":"yakiromerotrejo"} 
+  //Default
+  if(objUsuario.email==usuarioAdmin.email){
+    window.location.href="./../pages/alta-productos.html"
+  }
+  else{
+      window.location.href="./../index.html"  }  
      }
      else{
-       console.log("invalido")
        Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -107,25 +107,14 @@ formulario.addEventListener('click', function (e) {
   e.preventDefault();
   validarFormulario(e);
 
-  console.log(e.target.name);
-  console.log(e.target.type);
-
 
 
   ///traerse los usuarios creados
 
   let usuarios = window.localStorage.getItem('usuarios');
-  // if (storeList == null) {
+
   let storeList;
     storeList = JSON.parse(usuarios);
-    console.log(storeList);
-    
-  
-
-  /////usuarioExistente(storeList, newUser)
-
-
-  ///traerse los usuarios
 
   if(e.target.name=='boton_entrar' && campos.correo && campos.contraseña){
 
@@ -171,27 +160,26 @@ formulario.addEventListener('click', function (e) {
 else if(e.target.name=='boton_nuevo'){
   window.location.href="./../pages/crearCuenta.html"
 }
+
+
+
 else {
   switch(e.target.name){
-    case "uso":
-      window.location.href="./../pages/mujeres.html"
+    case "admin":
+      window.location.href="./../pages/log_in_admin.html"
     break;
     case "aviso":
-      window.location.href="./../pages/mujeres.html"
+      window.location.href="./../pages/AvisoPrivacidad.html"
     break;
     case "ayuda":
-      window.location.href="./../pages/mujeres.html"
+      window.location.href="./../pages/contacto.html"
     break;
   }
+
+
 }
 
 
   })
 
-  // let usuario = []
-
-  // let example_JSON = localStorage.getItem('user0');
-  // example_JSON = JSON.parse(example_JSON);
-
-  // usuario.push(example_JSON)
-  // console.log(usuario)
+ 

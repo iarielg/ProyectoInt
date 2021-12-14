@@ -1,193 +1,115 @@
-function addItem(item) {
+fetch('http://127.0.0.1:8080/api/productos/')
+    .then(Response => Response.json())
+    .then(data => {
+        console.log(data);
+        data.forEach(item => addItem(item,item.id));
+        console.log(data[1].imagen.src);
+    })
+
+function addItem(item,id) {
     const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
-        '<img src="' + item.img + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
+        '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
-        '<h5 class="card-title">' + item.name + '</h5>\n' +
-        //'<h6 class="card-title">' + 'Descripción: ' + item.description + '</h6>\n' +
-        '<p>' + 'Precio: $' + item.precio + '</p>' +
-        //'<p>' + 'Color: ' + item.color + '</p>' +
+        '<h5 class="card-title" id="title-card">' + item.nombre + '</h5>\n' +
+        // '<h6 class="card-title">' + 'Descripción: ' + item.descripcion + '</h6>\n' +
+        '<p class="card-precio" name="'+ id +'">' + 'Precio: $' + item.precio + '</p>'+ 
+        // +'<p>' + 'id: ' +'<label class="card-i">'+ id +'</label>' + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" data-bs-toggle="modal" data-bs-target="#ventanaModal"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
+        '<button type="button" class="content-fluid btn btn-dark" id="Carrito"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
         '</div>\n' +
         '<br/>';
 
+        //  data-bs-toggle="modal" data-bs-target="#ventanaModal" modal
+
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
+
+
 } // Objeto para Item
+
 /*
 let productoJSON= localStorage.getItem('product');
-//let myJSON= [{}];
-let myJSON= JSON.parse(productoJSON);
-console.log(myJSON)
-for(i=0;i<myJSON.length;i++){
-    console.log(myJSON[i])
-    addItem(myJSON[i]);
-}
-//let myJSONString=JSON.stringify(productoJSON);
 
-*/
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Estilo gris',
-    //'description': 'Anfg',
-    'img': './../src/img/Hombres/Playera1.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '320',
-    'genero': 'M'
-}); // item #1
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Cráneo',
-    //'description': 'Animación 2',
-    'img': './../src/img/Hombres/Playera2.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '290',
-    'genero': 'M'
-}); // item #2
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Navidad',
-    //'description': 'Animación 3',
-    'img': './../src/img/Hombres/Playera3.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '390',
-    'genero': 'M'
-}); // item #3
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Iluminación',
-    //'description': 'Animación 4',
-    'img': './../src/img/Hombres/Playera4.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '410',
-    'genero': 'M'
-}); // item #4
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Vista rosa',
-    //'description': 'Animación 5',
-    'img': './../src/img/Hombres/Playera5.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '250',
-    'genero': 'M'
-}); // item #5
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Gran Elfo',
-    //'description': 'Animación 6',
-    'img': './../src/img/Hombres/Playera6.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '380',
-    'genero': 'M'
-}); // item #6
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Clásico Never Dies',
-    //'description': 'Animación 7',
-    'img': './../src/img/Hombres/Playera7.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '230',
-    'genero': 'M'
-}); // item #7
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Rosas Dark',
-    //'description': 'Animación 8',
-    'img': './../src/img/Hombres/Playera8.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '250',
-    'genero': 'M'
-}); // item #8
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Día de Muertos',
-    //'description': 'Animación 9',
-    'img': './../src/img/Hombres/Playera9.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '360',
-    'genero': 'M'
-}); // item #9
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Alien',
-    //'description': 'Animación 10',
-    'img': './../src/img/Hombres/Playera10.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '370',
-    'genero': 'M'
-}); // item #10
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Buda',
-    //'description': 'Animación 11',
-    'img': './../src/img/Hombres/Playera11.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '320',
-    'genero': 'M'
-}); // item #11
-
-addItem({
-    'tipo': 'playera',
-    'name': 'Tentáculos',
-    //'description': 'Animación 12',
-    'img': './../src/img/Hombres/Playera12.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '380',
-    'genero': 'M'
-}); // item #12
+let myJSON= JSON.parse(productoJSON);*/
 /*
-addItem({
-    'tipo': 'playera',
-    'name': 'MODELO 12',
-    //'description': 'Animación 12',
-    'img': './../src/img/Hombres/Playera13.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '350',
-    'genero': 'M'
-}); // item #12
+for(let i=0;i<myJSON.length;i++){
+  
+    if(myJSON[i].categoria=="HOMBRE"){
+     addItem(myJSON[i],myJSON[i].id);
+    
+    }
+}
 */
-addItem({
-    'tipo': 'playera',
-    'name': 'Inspiración',
-    //'description': 'Animación 12',
-    'img': './../src/img/Hombres/Playera14.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '220',
-    'genero': 'M'
-}); // item #12
 
-addItem({
-    'tipo': 'playera',
-    'name': 'Doble Serpiente',
-    //'description': 'Animación 12',
-    'img': './../src/img/Hombres/Playera15.jpg',
-    //'color': 'Negro',
-    'talla': 'M',
-    'precio': '320',
-    'genero': 'M'
-}); // item #12*/
+const clickButton = document.getElementById('Carrito');
+// let tbody = document.querySelector('.carrito');
+
+clickButton.forEach(btn => {
+    btn.addEventListener('click',addIdProducto)
+})
+
+function addIdProducto(e) {
+    console.log(e.target)
+    if(!localStorage.getItem('usuarioLogeado')){//validacion de estar logeado
+        console.log("logeate");
+        const alert = document.getElementById('alert')
+
+        setTimeout( function(){
+          alert.classList.add('hide')
+        }, 2000)
+          alert.classList.remove('hide')
+    }
+    else{///agregar informacion del evento y objeto
+    const button = e.target;
+    const item = button.closest('.card')
+    const id1 = item.querySelector('.card-precio').name
+    const id= id1.textContent
+    console.log("id1:"+id1)
+    console.log("id:"+id)
+    const memoria=data// copio el arreglo de mis productos
+    const nuevoProducto = memoria.find(producto=> { 
+        //si son iguales retorna el objeto nuevo
+        if (producto.id == id ){
+            return producto;
+        }
+    });
+    addToCarrito(nuevoProducto,id);}
+}
+function usuarioExistente(producto,carrito,id) {
+ let valor=1;
+for(let i=0;i<carrito.length;i++)///si el producto ya existe en el carrito
+{
+    if (id==carrito[i].id){
+        valor=carrito[i].cantidad+1
+        carrito.splice(i,1)
+        //producto.cantidad=valor+1;
+        //carrito.push(producto)
+        break;
+    }
+}
+producto.cantidad=valor;
+carrito.push(producto)
+
+localStorage.setItem('carrito',JSON.stringify(carrito))
+}
+function addToCarrito(nuevoProducto,id) {
+    const alert = document.getElementById('correct')
+
+    setTimeout( function(){
+      alert.classList.add('hide')
+    }, 2000)
+      alert.classList.remove('hide')
+    
+  if (!(localStorage.getItem('carrito'))){
+        nuevoProducto.cantidad=Number(1);
+        let carrito=[];
+       carrito=[nuevoProducto];
+        localStorage.setItem('carrito',JSON.stringify(carrito))
+    }
+    else{
+        let carrito= JSON.parse(localStorage.getItem('carrito'));
+        usuarioExistente(nuevoProducto,carrito,id)
+        
+    }
+ 
+}
