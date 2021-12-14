@@ -1,6 +1,4 @@
 
-    let productos = window.localStorage.getItem('carrito');
-console.log(productos)
 let carrito;
 if (!productos) {
     carrito = [];
@@ -40,8 +38,6 @@ function renderCarrito(carrito,carritoCompleto) {
         tr.innerHTML = content;
         tbody.appendChild(tr);
 
-        tr.querySelector('.delete').addEventListener('click', removeItemCarrito);
-        tr.querySelector('.input_elemento').addEventListener('change', sumaCantidad);
         // tr.querySelector('.incremento').addEventListener('click', sumaCantidad);
 
     
@@ -86,7 +82,6 @@ function sumaCantidad(e) {
 
     const sumaInput = e.target
     const nombre = sumaInput.id
-    let memoria=JSON.parse(localStorage.getItem('carrito'));
     const productoActualizado = memoria.find(producto=> { 
         //si son iguales retorna el objeto nuevo
         if (producto.nombre == nombre ){
@@ -112,8 +107,6 @@ function usuarioExistente(producto,carrito,nombre) {
        }
    }
    carrito.push(producto)
-   
-   localStorage.setItem('carrito',JSON.stringify(carrito))
    }
 
 
@@ -143,7 +136,5 @@ function removeCarrio(e) {
 }
 
 
-    let seguirComparndo = document.querySelector('.seguir-comprando')
-    seguirComparndo.addEventListener('click', function(){
-        window.location.href="./../index.html"
+
     })

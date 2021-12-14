@@ -25,28 +25,26 @@ public class ProductosController {
 
     @GetMapping(path = "{id}")
     public productos getProducts(@PathVariable("id") Long id){
-        return productosService.getProductos(id);
+        return productos.getProductos(id);
     }// get producto
 
     @DeleteMapping(path = "{id}")
     public void deleteProducts(@PathVariable("id") Long id){
-        productosService.deleteProductos(id);
+        productos.deleteProductos(id);
     }// delete products
 
     @PostMapping
     public void addProducts(@RequestBody productos producto){
-        productosService.addProductos(producto);
+        productos.addProductos(producto);
     }// add products
 
     @PutMapping(path = "{id}")
     public void updateProducts(@PathVariable("id") Long id,
-                               @RequestParam(required = false)String descripcion,
                                @RequestParam(required = false)String imagen,
                                @RequestParam(required = false) double precio,
                                @RequestParam(required = false)String color,
                                @RequestParam(required = false)String talla,
-                               @RequestParam(required = false)String tipo,
-                               @RequestParam(required = false)double cantidad){
+                               @RequestParam(required = false)String tipo{
         productosService.updateProductos(id, descripcion, imagen, precio, color, talla, tipo, cantidad);
     }// update products
 }//classProductosController

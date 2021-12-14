@@ -13,19 +13,14 @@ public class mujeres {//POJO´s
     private String descripcion;
     private String imagen;
     private double precio;
-    private String color;
-    private String talla;
     private String tipo;
     private double cantidad;
 
-    public mujeres(Long id, String nombre, String descripcion, String imagen, double precio, String color, String talla, String tipo, double cantidad) {
+    public mujeres(Long id, String nombre, String descripcion, String imagen, String talla, String tipo, double cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
-        this.precio = precio;
-        this.color = color;
-        this.talla = talla;
         this.tipo = tipo;
         this.cantidad = cantidad;
     }//constructor
@@ -53,22 +48,6 @@ public class mujeres {//POJO´s
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public String getColor() {

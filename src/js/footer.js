@@ -53,7 +53,7 @@ class theFooter extends HTMLElement {
                             </div>
                             <div class="text-center">
                                 <a href=".././pages/nosotros.html" class="">
-                                    <img src="../src/img/logoInCodeWeb.png" class="" alt="In Code logo" width="65%">
+                                    <img src="../src/img/logoInCodeWeb.png" class="" alt="In Code logo">
                                 </a>
                             </div>
                         </div>

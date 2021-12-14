@@ -39,40 +39,4 @@ public class ProductosService {
         }//is present
         productosRepository.save(producto);
     }// ad product
-
-    @Transactional
-    public void  updateProductos (Long id, String descripcion, String imagen, double precio, String color,
-            String talla,String tipo, double cantidad){
-        productos producto= productosRepository.findById(id).orElseThrow(()-> new IllegalStateException("El producto con el id" +id+ "no existe"));
-        if(descripcion != null)
-            if((!descripcion.isEmpty()) && (!descripcion.equals(producto.getDescripcion())) ){
-                producto.setDescripcion(descripcion);
-            }// if descripcion
-
-        if((imagen !=null))
-            if((!imagen.isEmpty()) && (!imagen.equals(producto.getImagen())) ){
-                producto.setDescripcion(imagen);
-            }// if imagen
-
-        if ((precio>0) && (precio!=producto.getPrecio())){
-            producto.setPrecio(precio);
-        }// precio >0
-
-        if((color !=null))
-            if((!color.isEmpty()) && (!color.equals(producto.getColor())) ){
-                producto.setDescripcion(color);
-            }// if color
-
-        if((talla !=null))
-            if((!talla.isEmpty()) && (!talla.equals(producto.getTalla())) ){
-                producto.setDescripcion(talla);
-            }// if talla
-        if ((tipo !=null))
-            if ((!tipo.isEmpty()) && (!tipo.equals(producto.getTipo())) ) {
-            producto.setDescripcion(tipo);
-        }//if tipo
-        if ((cantidad>0) && (cantidad!=producto.getCantidad())){
-            producto.setCantidad(cantidad);
-        }// cantidad >0
-    }//update products
 }//class ProductosService

@@ -1,20 +1,5 @@
-let i=0;
-var boton=[];
 var dato1;
-async function promesaFetch(){
-    await fetch('http://127.0.0.1:8080/api/mujeres/')
-    .then(Response => Response.json())
-       .then(data => { 
-        datos(data)
-         dato1 = data;
-       // console.log("holo10")
-        console.log(boton)
-       }).catch(console.log("error"))
-       console.log("1")
-    return
-}
 
-window.addEventListener("load",promesaFetch);
 
 window.addEventListener("click",addIdProducto);
 
@@ -93,9 +78,6 @@ function productoExistente(producto,carrito,nombre) {
 for(let i=0;i<carrito.length;i++)///si el producto ya existe en el carrito
 {
     if (nombre==carrito[i].nombre){
-        valor=carrito[i].cantidad+1
-        carrito.splice(i,1)
-        console.log(carrito)
        // producto.cantidad=valor+1;
        // carrito.push(producto)
 

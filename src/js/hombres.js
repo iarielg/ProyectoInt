@@ -1,22 +1,8 @@
 let i=0;
 var boton=[];
 var dato1;
-async function promesaFetch(){
-    await fetch('http://127.0.0.1:8080/api/productos/')
-    .then(Response => Response.json())
-       .then(data => { 
-        datos(data)
-         dato1 = data;
-       // console.log("holo10")
-        console.log(boton)
-       }).catch(console.log("error"))
-       console.log("1")
-    return
-}
 
-window.addEventListener("load",promesaFetch);
 
-window.addEventListener("click",addIdProducto);
 
 
 function addItem(item) {

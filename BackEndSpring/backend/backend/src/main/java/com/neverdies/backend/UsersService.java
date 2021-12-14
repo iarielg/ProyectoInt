@@ -43,25 +43,4 @@ public class UsersService {
         usersRepository.save(users);
     }// add users
 
-    @Transactional
-    public void  updateUsers(Long id, String currentPassword, String CurrentPassword, String newPassword, String name){
-        User user= usersRepository.findById(id).orElseThrow(()-> new IllegalStateException("El usuario con el id" +id+ "no existe"));
-        if ((CurrentPassword==null) || (newPassword==null)){
-            throw new IllegalStateException("El ususario con el id" +id +"no existe");
-        }// if null password
-        // if para validar la contraseña en el nuevo
-
-        if (!SHAUtil.verifyHash(CurrentPassword, user.getPassword())){
-            throw new IllegalStateException("La contraseña del usuario con el " +id +" no coincide");
-        }// verify password
-
-        if(name != null)
-            if((!name.isEmpty()) && (!name.equals(user.getName())) ){
-                user.setName(name);
-            }// if descripcion
-
-        user.setPassword(newPassword);
-
-    }//update users
-
 }//class UsersService
