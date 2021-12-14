@@ -1,21 +1,34 @@
-fetch('http://127.0.0.1:8080/api/productos/')
+let i=0;
+var boton=[];
+var dato1;
+async function promesaFetch(){
+    await fetch('http://127.0.0.1:8080/api/productos/')
     .then(Response => Response.json())
-    .then(data => {
-        console.log(data);
-        data.forEach(item => addItem(item,item.id));
-        console.log(data[1].imagen.src);
-    })
+       .then(data => { 
+        datos(data)
+         dato1 = data;
+       // console.log("holo10")
+        console.log(boton)
+       }).catch(console.log("error"))
+       console.log("1")
+    return
+}
 
-function addItem(item,id) {
-    const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
+window.addEventListener("load",promesaFetch);
+
+window.addEventListener("click",addIdProducto);
+
+
+function addItem(item) {
+        const itemHTML = '<div class="card" style="width: 18rem;  border: none;">\n' +
         '<img src="' + item.imagen + ' "class="card-img-top" alt="image" style= "height: 300px; width: 250px;" >\n' +
         '<div class="card-body";>\n' +
         '<h5 class="card-title" id="title-card">' + item.nombre + '</h5>\n' +
         // '<h6 class="card-title">' + 'Descripción: ' + item.descripcion + '</h6>\n' +
-        '<p class="card-precio" name="'+ id +'">' + 'Precio: $' + item.precio + '</p>'+ 
-        // +'<p>' + 'id: ' +'<label class="card-i">'+ id +'</label>' + '</p>' +
+        '<p class="card-precio">' + 'Precio: $' + item.precio + '</p>' + 
+        //'<p>' + 'id: ' +'<label class="card-i">'+ id +'</label>' + '</p>' +
         //'<a href="#" class="btn btn-dark data-bs-toggle="modal" data-bs-target="#winModal"" ><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</a>\n' +
-        '<button type="button" class="content-fluid btn btn-dark" id="Carrito"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
+        '<button type="button" class="content-fluid btn btn-dark boton1" id="'+item.nombre +'" name="boton"><i class="bi bi-cart2"></i> AGREGAR AL CARRITO</button>' +
         '</div>\n' +
         '<br/>';
 
@@ -23,67 +36,69 @@ function addItem(item,id) {
 
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.innerHTML += itemHTML;
+ 
 
 
 } // Objeto para Item
 
-/*
-let productoJSON= localStorage.getItem('product');
+function datos(myJSON){
 
-let myJSON= JSON.parse(productoJSON);*/
-/*
-for(let i=0;i<myJSON.length;i++){
-  
-    if(myJSON[i].categoria=="HOMBRE"){
-     addItem(myJSON[i],myJSON[i].id);
-    
-    }
-}
-*/
+//let myJSON= JSON.parse(datos);
 
-const clickButton = document.getElementById('Carrito');
-// let tbody = document.querySelector('.carrito');
-
-clickButton.forEach(btn => {
-    btn.addEventListener('click',addIdProducto)
-})
-
-function addIdProducto(e) {
-    console.log(e.target)
-    if(!localStorage.getItem('usuarioLogeado')){//validacion de estar logeado
-        console.log("logeate");
-        const alert = document.getElementById('alert')
-
-        setTimeout( function(){
-          alert.classList.add('hide')
-        }, 2000)
-          alert.classList.remove('hide')
-    }
-    else{///agregar informacion del evento y objeto
-    const button = e.target;
-    const item = button.closest('.card')
-    const id1 = item.querySelector('.card-precio').name
-    const id= id1.textContent
-    console.log("id1:"+id1)
-    console.log("id:"+id)
-    const memoria=data// copio el arreglo de mis productos
-    const nuevoProducto = memoria.find(producto=> { 
-        //si son iguales retorna el objeto nuevo
-        if (producto.id == id ){
-            return producto;
-        }
+    myJSON.forEach(item => {
+        addItem(item);
+        var buton1=document.getElementById(item.nombre)
+        
+         if(boton.length>0){
+         boton.push(buton1)}
+          else{
+        boton= [buton1]
+    }  
+   // console.log(buton1)
     });
-    addToCarrito(nuevoProducto,id);}
+  //  console.log(boton)
+//return boton;
 }
-function usuarioExistente(producto,carrito,id) {
+///////////AGREGAR A CARRITO
+function addIdProducto(e) {
+    if(e.target.type=="button"){
+        if(!localStorage.getItem('usuarioLogeado')){
+            console.log("logeate");
+            const alert = document.getElementById('alert')
+
+            setTimeout( function(){
+            alert.classList.add('hide')
+            }, 2000)
+            alert.classList.remove('hide')
+        }
+        else{
+        const button = e.target;
+        console.log(e.target)
+       // const item = button.closest('.card')
+        //const id= item.querySelector('.card-i').textContent
+        const nombre= button.id
+        console.log(nombre)
+        const memoria=dato1
+        const nuevoProducto = memoria.find(producto=> { 
+            //si son iguales retorna el objeto nuevo
+            if (producto.nombre == nombre ){
+                console.log(producto)
+                return producto;
+            }
+        });
+        addToCarrito(nuevoProducto,nombre);}
+}}
+function productoExistente(producto,carrito,nombre) {
  let valor=1;
 for(let i=0;i<carrito.length;i++)///si el producto ya existe en el carrito
 {
-    if (id==carrito[i].id){
+    if (nombre==carrito[i].nombre){
         valor=carrito[i].cantidad+1
         carrito.splice(i,1)
-        //producto.cantidad=valor+1;
-        //carrito.push(producto)
+        console.log(carrito)
+       // producto.cantidad=valor+1;
+       // carrito.push(producto)
+
         break;
     }
 }
@@ -92,7 +107,7 @@ carrito.push(producto)
 
 localStorage.setItem('carrito',JSON.stringify(carrito))
 }
-function addToCarrito(nuevoProducto,id) {
+function addToCarrito(nuevoProducto,nombre) {
     const alert = document.getElementById('correct')
 
     setTimeout( function(){
@@ -108,7 +123,7 @@ function addToCarrito(nuevoProducto,id) {
     }
     else{
         let carrito= JSON.parse(localStorage.getItem('carrito'));
-        usuarioExistente(nuevoProducto,carrito,id)
+        productoExistente(nuevoProducto,carrito,nombre)
         
     }
  
