@@ -26,22 +26,6 @@ public class JwtFilter extends GenericFilterBean {
 
         String authHeader =httpServletRequest.getHeader("authorization");
 
-        if ((httpServletRequest.getMethod().equals("POST"))||
-        (httpServletRequest.getMethod().equals("PUT"))||
-                (httpServletRequest.getMethod().equals("DELETE"))||
-                (httpServletRequest.getMethod().equals("GET"))){
-            if ( (authHeader== null) || (! authHeader.startsWith("Bearer ")) ){
-                throw new ServletException("1. Invalid Token !");
-            }// ==null ! Bearer
-            String token = authHeader.substring(7);
-            try {
-                Claims claims = Jwts.parser().setSigningKey("this-secret-is-not-very-secret-99")
-                        .parseClaimsJws(token).getBody();
-                request.setAttribute( "claims", claims );
-            }  catch ( SignatureException | MalformedJwtException e ) {
-                throw new ServletException( "2. Invalid Token!" );
-            }//catch
-
         }//POST - PUT - DELETE - GET
         chain.doFilter(httpServletRequest, httpServletResponse);
     }//doFilter

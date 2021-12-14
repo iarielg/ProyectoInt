@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/accesorios/")
+@RequestMapping("/api/acesorios/")
 @CrossOrigin("*")
-public class AccesoriosController {
-    private final AccesoriosService accesoriosService;
+public class AccesorioController {
+    private final AcesoriosService accesorioService;
     @Autowired
     public AccesoriosController(AccesoriosService accesoriosService){
-        this.accesoriosService=accesoriosService;
+        this.accesoriosService=accesService;
     }//constructor
 
     @GetMapping
@@ -24,12 +24,12 @@ public class AccesoriosController {
     }// get all products
 
     @GetMapping(path = "{id}")
-    public accesorios getProducts(@PathVariable("id") Long id){
+    public accesorios getProduct(@PathVariable("id") Int id){
         return accesoriosService.getProductos(id);
     }// get producto
 
     @DeleteMapping(path = "{id}")
-    public void deleteProducts(@PathVariable("id") Long id){
+    public void deleteProducts(@PathVariable("id") Int id){
         accesoriosService.deleteProductos(id);
     }// delete products
 
@@ -39,7 +39,7 @@ public class AccesoriosController {
     }// add products
 
     @PutMapping(path = "{id}")
-    public void updateProducts(@PathVariable("id") Long id,
+    public void updateProducts(@PathVariable("id")String id,
                                @RequestParam(required = false)String nombre,
                                @RequestParam(required = false)String descripcion,
                                @RequestParam(required = false)String imagen,
@@ -47,7 +47,7 @@ public class AccesoriosController {
                                @RequestParam(required = false)String color,
                                @RequestParam(required = false)String talla,
                                @RequestParam(required = false)String tipo,
-                               @RequestParam(required = false)Long cantidad){
-        accesoriosService.updateProductos(id, nombre, descripcion, imagen, precio, color, talla, tipo, cantidad);
+                               @RequestParam(required = false)String cantidad){
+        accesoriosService.updateProductos(id, nombre, descripcion, imagen, precio, color, talla, categoria, cantidad);
     }// update products
 }//classProductosController

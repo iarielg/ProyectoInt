@@ -104,24 +104,7 @@ function validacionDeFormulario(e) {
             "phone": `${fieldPhone}`,
             "pass0": `${fieldPass0}`,   
         }
-        fetch('http://127.0.0.1:8080/api/users/', {
-            method: 'POST',
-            body: JSON.stringify(newUser),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })// fetch Post
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.status === 'ok') {
-                alert('Usuario creado correctamente');
-                window.location.href = 'login.html';
-            } else {
-                alert('Error al crear usuario');
-            }
-        })//then data
-        .catch(err => console.log(err));
+
         
 
 
@@ -158,26 +141,7 @@ function usuarioExistente(arregloUsuario, objUsuario) {///
         }
     })
   
-//si nuevo arreglo es diferente agregar el objUsuario
-    if(!newArreglo ){
-        arregloUsuario.push(objUsuario)
-
-        // convierte arreglousuario  a string
-        // localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
-        // window.location.href="./../pages/login.html" //Me reedirecciona a HOME
-    }else{
-        // alert('El usuario ya existe')
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: '¡Esta cuenta ya existe!',
-            confirmButtonColor: "black",
-            width: '40%',
-            Height: '40%'
-          })
-          
-    }
-}; //function usuarioExistente
+//si nuevo arreglo es diferente agregar el objUsuario//function usuarioExistente
 
 const form1 = document.getElementById('form_nc');
 form1.addEventListener('submit', validacionDeFormulario);

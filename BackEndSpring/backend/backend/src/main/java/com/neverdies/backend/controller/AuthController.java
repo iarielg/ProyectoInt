@@ -26,7 +26,7 @@ public class AuthController {
     }// constructor
 
     @PostMapping
-    public Token login(@RequestBody LoginData data) throws ServletException {
+    public Token login(@RequestBody UsersController data) throws ServletException {
         Optional<User> userByEmail= usersRepository.findByEmail(data.getEmail());
         if (userByEmail.isPresent()) {
             if (SHAUtil.verifyHash(data.getPassword(), userByEmail.get().getPassword())){ // get va por el objeto almacenado y lo trae
@@ -37,12 +37,12 @@ public class AuthController {
 
     }// login
 
-    private String generateToken( String email )  {
+    private String generateToken( String producto )  {
         Calendar calendar = Calendar.getInstance();
         calendar.add( Calendar.HOUR,  10);
         String secret = "this-secret-is-not-very-secret-99";
 
-        return Jwts.builder().setSubject( email ).claim( "role", "user" )
+        return Jwts.builder().setSubject( producto ).claim( "role", "producto" )
                 .setIssuedAt( new Date() ).setExpiration(calendar.getTime() )
                 .signWith( SignatureAlgorithm.HS256, secret ).compact();
     }//generateToken

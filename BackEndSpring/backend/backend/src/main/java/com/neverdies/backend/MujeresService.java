@@ -40,39 +40,4 @@ public class MujeresService {
         mujeresRepository.save(mujeres);
     }// ad product
 
-    @Transactional
-    public void  updateProductos (Long id, String descripcion, String imagen, double precio, String color,
-                                  String talla, String tipo, double cantidad){
-        mujeres mujeres= mujeresRepository.findById(id).orElseThrow(()-> new IllegalStateException("El producto con el id" +id+ "no existe"));
-        if(descripcion != null)
-            if((!descripcion.isEmpty()) && (!descripcion.equals(mujeres.getDescripcion())) ){
-                mujeres.setDescripcion(descripcion);
-            }// if descripcion
-
-        if((imagen !=null))
-            if((!imagen.isEmpty()) && (!imagen.equals(mujeres.getImagen())) ){
-                mujeres.setDescripcion(imagen);
-            }// if imagenURL
-
-        if ((precio>0) && (precio!=mujeres.getPrecio())){
-            mujeres.setPrecio(precio);
-        }// precio >0
-
-        if((color !=null))
-            if((!color.isEmpty()) && (!color.equals(mujeres.getColor())) ){
-                mujeres.setDescripcion(color);
-            }// if color
-
-        if((talla !=null))
-            if((!talla.isEmpty()) && (!talla.equals(mujeres.getTalla())) ){
-                mujeres.setDescripcion(talla);
-            }// if talla
-        if ((tipo !=null))
-            if ((!tipo.isEmpty()) && (!tipo.equals(mujeres.getTipo())) ) {
-            mujeres.setDescripcion(tipo);
-        }//if tipo
-        if ((cantidad>0) && (cantidad!=mujeres.getCantidad())){
-            mujeres.setCantidad(cantidad);
-        }// precio >0
-    }//update products
 }//class ProductosService

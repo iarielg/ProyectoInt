@@ -22,16 +22,6 @@ public class UsersController {
         return usersService.getAllUsers();
     }// get all user
 
-    @GetMapping(path = "{id}")
-    public User getUser(@PathVariable("id") Long id){
-        return usersService.getUser(id);
-    }// get user
-
-    @DeleteMapping(path = "{id}")
-    public void deleteUser(@PathVariable("id") Long id){
-        usersService.deletUser(id);
-    }// delete user
-
     @PostMapping
     public void addUsers(@RequestBody User users){
         usersService.addUsers(users);

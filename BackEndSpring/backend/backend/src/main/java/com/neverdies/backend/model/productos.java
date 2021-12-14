@@ -10,9 +10,6 @@ public class productos {//POJO´s
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
     private String nombre;
-    private String descripcion;
-    private String imagen;
-    private double precio;
     private String color;
     private String talla;
     private String tipo;
@@ -22,9 +19,6 @@ public class productos {//POJO´s
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.precio = precio;
-        this.color = color;
         this.talla = talla;
         this.tipo = tipo;
         this.cantidad = cantidad;
@@ -45,26 +39,6 @@ public class productos {//POJO´s
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public double getPrecio() {
-        return precio;
     }
 
     public void setPrecio(double precio) {
